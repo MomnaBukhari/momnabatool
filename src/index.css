@@ -4,6 +4,7 @@
 
 * {
   font-family: "Times New Roman", Times, serif;
+  /* font-family: Arial, sans-serif; */
   box-sizing: border-box;
   /* Include padding and border in element's total width and height */
   margin: 0%;
@@ -17,11 +18,11 @@ body {
   width: 100%;
   overflow-x: hidden;
   /* cursor: url("../public/images/cursor.png"), auto; */
-  background-color: #f3f1f1;
+  background-color: #ffffff;
 }
 
 ::selection {
-  background: #ffe7f6;
+  background: #e1ecec;
   /* Custom background color for selected text */
   color: #000000;
   /* Custom text color for selected text */
@@ -38,14 +39,14 @@ body {
 
 ::-webkit-scrollbar-thumb {
   width: 1em;
-  background-color: #e8e0e5;
+  background-color: #c7d4d4;
   outline: 1px solid rgb(0, 0, 0);
 }
 
 #cursor {
   height: 40px;
   width: 40px;
-  background-color: #fdeeee;
+  background-color: #b3c2c2;
   border-radius: 50%;
   position: fixed;
   pointer-events: none;

@@ -1,16 +1,12 @@
-.navbar{
-  background-color: transparent;
-}
-.top-navbar {
-  width: 100%;
-  color: #000000;
+.navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;
   z-index: 10;
-  position: fixed;
-  padding: 2%;
+  padding: 1% 2% 1% 2%;
+  background-color: #e1f1f1;
 }
 .left-navbar {
+  background-color: rgb(165, 165, 184);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -19,10 +15,15 @@
   position: fixed;
   padding: 2%;
 }
-.top-navbar-right{
+.navbar-center {
   display: flex;
-  gap:20px;
+  gap: 20px;
+}
+.navbar-right {
+  display: flex;
+  gap: 20px;
 }
 a {
-  color: #000000;
+  text-decoration: none;
+  color: #000;
 }

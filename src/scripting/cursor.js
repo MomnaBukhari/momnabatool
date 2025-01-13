@@ -3,7 +3,6 @@ import gsap from "gsap";
 const initializeCursor = () => {
   /* Variables Defining*/
 
-  /*Handeling NOTFOUND condition*/
   if (!cursor) return;
 
   let mouseX = 0,
