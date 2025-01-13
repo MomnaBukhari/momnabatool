@@ -1,0 +1,60 @@
+/* This file is for Common Page Layout Styling */
+
+/************************************Main Body Styling************************************/
+
+* {
+  font-family: "Times New Roman", Times, serif;
+  box-sizing: border-box;
+  /* Include padding and border in element's total width and height */
+  margin: 0%;
+  padding: 0;
+  line-height: 1.5;
+  /* to set the line gap overall*/
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  /* cursor: url("../public/images/cursor.png"), auto; */
+  background-color: #f3f1f1;
+}
+
+::selection {
+  background: #ffe7f6;
+  /* Custom background color for selected text */
+  color: #000000;
+  /* Custom text color for selected text */
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  width: 5px;
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 1em;
+  background-color: #e8e0e5;
+  outline: 1px solid rgb(0, 0, 0);
+}
+
+#cursor {
+  height: 40px;
+  width: 40px;
+  background-color: #fdeeee;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.main-section {
+  padding: 5% 15% 7% 15%;
+  text-align: justify;
+}

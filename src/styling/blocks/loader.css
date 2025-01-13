@@ -1,0 +1,43 @@
+/* src/styling/block/Loader.css */
+.loader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  font-size: 2rem;
+}
+
+.text {
+  text-align: center;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0);
+}
+
+.greeting {
+  font-size: 2.5rem;
+  margin: 0;
+  animation: fade 0.5s ease-in-out;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0);
+}
+
+.static-text {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

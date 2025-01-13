@@ -1,0 +1,52 @@
+.experience-page {
+  padding: 10% 20% 0% 20%;
+  background-color: transparent;
+  width: auto;
+  text-align: justify;
+}
+
+.timeline {
+  position: relative;
+  width: 2px;
+  background-color: #000;
+  height: 100%;
+  margin-left: 0;
+}
+
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ff0088;
+  border: 2px solid #fff;
+}
+
+.timeline-content {
+  display: flex;
+  width: 80vw;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 40px;
+  margin-right: 40px;
+  text-align: left;
+}
+.timeline-content h3 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.timeline {
+  height: 100%;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 10px;
+}
