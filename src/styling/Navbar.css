@@ -3,7 +3,14 @@
   justify-content:space-between;
   z-index: 10;
   padding: 1% 2% 1% 2%;
-  background-color: #e1f1f1;
+  background-color: #f6e6e6;
+  border-radius: 5px;
+  margin: 2% 2% 1% 3%;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: 1px solid black;
 }
 .left-navbar {
   background-color: rgb(165, 165, 184);

@@ -8,7 +8,7 @@ function Navbar() {
     <>
       <div className="navbar">
         <div className="navbar-left logo">
-          <Link to="/">Code by Momna</Link>
+          <a href="/">Code by Momna</a>
         </div>
         <div className="navbar-center">
           <Link to="/about">About</Link>

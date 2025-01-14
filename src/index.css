@@ -22,7 +22,7 @@ body {
 }
 
 ::selection {
-  background: #e1ecec;
+  background: #ece1e2;
   /* Custom background color for selected text */
   color: #000000;
   /* Custom text color for selected text */
@@ -39,22 +39,27 @@ body {
 
 ::-webkit-scrollbar-thumb {
   width: 1em;
-  background-color: #c7d4d4;
+  background-color: #d4c7ca;
   outline: 1px solid rgb(0, 0, 0);
 }
 
 #cursor {
-  height: 40px;
-  width: 40px;
-  background-color: #b3c2c2;
+  z-index: 1;
+  height: 50px;
+  width: 50px;
+  background-color: #f6e6e671;
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
+  border: 1px solid rgb(0, 0, 0);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 1%;
 }
-
 .main-section {
   padding: 5% 15% 7% 15%;
   text-align: justify;
