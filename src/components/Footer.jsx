@@ -75,7 +75,7 @@ const Footer = () => {
 
       <div className="footer-center">Made with 💗 by Momna</div>
       <div className="footer-right" onClick={scrollToTop}>
-        <img src="/icons/gototop.png" alt="Go to Top" />
+        <img src="https://img.icons8.com/?size=100&id=26192&format=png&color=000000" alt="Go to Top" />
         <span className="icon-text">Let's go to Top!</span>
       </div>
     </div>
