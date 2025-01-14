@@ -51,7 +51,7 @@ function Home() {
                 className="preview-cv-button"
               >
                 Preview CV
-                <img src="./public/icons/preview0.png"></img>
+                <img src="https://img.icons8.com/?size=100&id=5252&format=png&color=000000"></img>
               </a>
               <a
                 href="/documents/syedamomnabatool.pdf"
@@ -59,7 +59,7 @@ function Home() {
                 className="download-cv-button"
               >
                 Download CV
-                <img src="./public/icons/download0.png"></img>
+                <img src="https://img.icons8.com/?size=100&id=56389&format=png&color=000000"></img>
               </a>
             </div>
             <div className="project-display-section">
