@@ -68,6 +68,8 @@ function Home() {
                 <Projects limit={4} />
               </div>
             </div>
+            <div className="Recommendations">
+            </div>
           </div>
         </>
       )}

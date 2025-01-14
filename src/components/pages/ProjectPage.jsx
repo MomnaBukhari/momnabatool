@@ -5,44 +5,28 @@ import { Helmet } from "react-helmet";
 function ProjectPage({ limit }) {
   const projects = [
     {
-      title: "E-commerce Website",
+      title: "Parfumèlle - Perfume Store",
       image: "/images/defaultprojectimage.png",
-      technologies: "React, Node.js, MongoDB",
-      date: "January 2023",
-      websiteUrl: "https://example.com",
-      githubUrl: "https://github.com/username/ecommerce",
+      technologies: "React, GSAP",
+      date: "January 2025",
+      websiteUrl: "https://perfumelle.netlify.app/",
+      githubUrl: " https://github.com/MomnaBukhari/Perfume-Shop/",
     },
     {
-      title: "Portfolio Website",
+      title: "Study Sphere - Educational System",
       image: "/images/defaultprojectimage.png",
-      technologies: "HTML, CSS, JavaScript",
-      date: "February 2023",
-      websiteUrl: "https://example.com",
-      githubUrl: "https://github.com/username/portfolio",
+      technologies: "Laravel, pHp",
+      date: "2023 - 2024",
+      websiteUrl:"",
+      githubUrl: "https://github.com/MomnaBukhari/StudySphere---All-In-One-Educational-System",
     },
     {
-      title: "Blog Platform",
-      image: "/images/defaultprojectimage.png",
-      technologies: "Next.js, Tailwind CSS",
-      date: "March 2023",
-      websiteUrl: "https://example.com",
-      githubUrl: "https://github.com/username/blog",
-    },
-    {
-      title: "Weather App",
-      image: "/images/defaultprojectimage.png",
-      technologies: "JavaScript, API Integration",
-      date: "April 2023",
-      websiteUrl: "https://example.com",
-      githubUrl: "https://github.com/username/weather-app",
-    },
-    {
-      title: "Weather App",
-      image: "/images/defaultprojectimage.png",
-      technologies: "JavaScript, API Integration",
-      date: "April 2023",
-      websiteUrl: "https://example.com",
-      githubUrl: "https://github.com/username/weather-app",
+      title: "Muslim Match Making System",
+      image: "/images/Project3.png",
+      technologies: "Contributed as Backend Developer",
+      date: "2023 - 2024",
+      websiteUrl:"https://muslim-matchmakers.com/",
+      githubUrl: "",
     },
   ];
   const projectsToDisplay = limit ? projects.slice(0, limit) : projects;
@@ -68,18 +52,32 @@ function ProjectPage({ limit }) {
                 </div>
                 <div className="project-meta">
                   <div className="links">
-                    <a href={project.websiteUrl} target="_blank" rel="noopener noreferrer">
-                      Website
-                    </a>
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      GitHub
-                    </a>
+                    {project.websiteUrl && (
+                      <a
+                        href={project.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Preview
+                      </a>
+                    )}
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        GitHub
+                      </a>
+                    )}
                   </div>
-                  <div className="date">
-                    <p>
-                      <strong>Date:</strong> {project.date}
-                    </p>
-                  </div>
+                  {project.date && (
+                    <div className="date">
+                      <p>
+                        <strong>Date:</strong> {project.date}
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
