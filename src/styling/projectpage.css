@@ -63,17 +63,16 @@
   color: #555;
 }
 
-.see-more {
+.see-more a{
   display: inline-block;
   margin-top: 20px;
   padding: 10px 20px;
   background-color: #ffffff;
-  color: #fff;
+  color: #000000;
   text-decoration: none;
   transition: all 0.5s ease-in-out;
   border: 1px solid black;
 }
-
-.see-more:hover {
+.see-more a:hover {
   background-color: #f6ebed;
 }

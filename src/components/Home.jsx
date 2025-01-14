@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import gsap from "gsap";
 import Loader from "./blocks/Loader.jsx";
 import Projects from "./pages/ProjectPage.jsx";
+import RecommendationsPage from "./Recommendation";
 import "./../styling/Home.css";
 import { Helmet } from "react-helmet";
 
@@ -69,6 +70,9 @@ function Home() {
               </div>
             </div>
             <div className="Recommendations">
+              <section className="home-recommendations">
+                <RecommendationsPage limit={2} />
+              </section>
             </div>
           </div>
         </>

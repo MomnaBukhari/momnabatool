@@ -5,6 +5,7 @@ import About from "./About";
 import ProjectPage from './pages/ProjectPage';
 import Contact from './Contact';
 import Experience from './Experience';
+import RecommendationsPage from "./Recommendation";
 
 function RoutesComponent() {
   return (
@@ -14,6 +15,7 @@ function RoutesComponent() {
       <Route path="/experience" element={<Experience />} />
       <Route path="/projects" element={<ProjectPage />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/recommendations" element={<RecommendationsPage />} />
     </Routes>
   );
 }
