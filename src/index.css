@@ -2,47 +2,52 @@
 
 /************************************Main Body Styling************************************/
 
+/* Universal reset for better mobile support */
 * {
   font-family: "Times New Roman", Times, serif;
-  /* font-family: Arial, sans-serif; */
-  box-sizing: border-box;
-  /* Include padding and border in element's total width and height */
-  margin: 0%;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  margin: 0;
   padding: 0;
-  line-height: 1.5;
-  /* to set the line gap overall*/
+  line-height: 1.5; /* To set the line gap overall */
+  max-width: 100%; /* Prevent elements from exceeding the viewport width */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-body {
+html, body {
   height: 100%;
   width: 100%;
-  overflow-x: hidden;
-  /* cursor: url("../public/images/cursor.png"), auto; */
+  overflow-x: hidden; /* Prevent horizontal scrolling at the root level */
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth; /* Ensure smooth scrolling behavior */
   background-color: #ffffff;
 }
 
-::selection {
-  background: #ece1e2;
-  /* Custom background color for selected text */
-  color: #000000;
-  /* Custom text color for selected text */
+body {
+  font-size: 16px; /* Base font size for better scaling */
 }
 
+/* Custom styling for selected text */
+::selection {
+  background: #ece1e2; /* Custom background color for selected text */
+  color: #000000; /* Custom text color for selected text */
+}
+
+/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  width: 5px;
   background: #ffffff;
 }
 
 ::-webkit-scrollbar-thumb {
-  width: 1em;
   background-color: #d4c7ca;
   outline: 1px solid rgb(0, 0, 0);
 }
 
+/* Custom cursor styling */
 #cursor {
   z-index: 1;
   height: 50px;
@@ -60,7 +65,18 @@ body {
   justify-content: center;
   padding: 1%;
 }
+
+/* Ensure content fits well in all screen sizes */
 .main-section {
   padding: 5% 15% 7% 15%;
   text-align: justify;
+  margin: auto;
+  max-width: 100%;
+  box-sizing: border-box; /* Ensure padding does not affect layout */
+}
+
+/* Utility classes for fixing any overflowing content */
+img, video, iframe, canvas {
+  max-width: 100%; /* Ensure media elements scale properly */
+  height: auto; /* Maintain aspect ratio */
 }
