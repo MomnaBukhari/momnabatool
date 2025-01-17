@@ -1,14 +1,21 @@
+/* Imports */
 import React, { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import "../../styling/blocks/loader.css";
 
+
+/* Variable Declaration */
 const greetings = [
   "Hello", "Hallo", "السلام علیکم", "مرحبا", "Merhaba", "Bonjour", "Hola", "Ciao",
   "Olá", "नमस्ते", "你好", "こんにちは", "Xin chào", "안녕하세요", "Здравствуйте",
   "Γειά σου", "Hej", "สวัสดี", "שלום", "Habari"
 ];
 
+
 const Loader = ({ onComplete }) => {
+
+
+  /* State managment */
   const [currentGreeting, setCurrentGreeting] = useState(greetings[0]);
   const [loading, setLoading] = useState(true);
 

@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <div id="cursor">M</div>
+        <div id="cursor"></div>
         <Navbar />
         <RoutesComponent />
         <Footer/>

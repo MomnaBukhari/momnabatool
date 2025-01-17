@@ -3,53 +3,37 @@ import { Helmet } from "react-helmet";
 import "../styling/Experience.css";
 
 const Experience = () => {
-  const experiences = [
-    {
-      title: "Backend Developer",
-      company: "Rev9 Solutions",
-      url: "https://www.rev9solutions.com", // Add URL for the company
-      date: "August 2024 - Present",
-      description:
-        "Worked on developing scalable web applications using React and Node.js.",
-    },
-    {
-      title: "Internship | Backend Developer",
-      company: "Rev9 Solutions",
-      url: "https://www.rev9solutions.com", // Add URL for the company
-      date: "March 2024 - July 2024",
-      description:
-        "Worked on developing scalable web applications using React and Node.js.",
-    },
-  ];
 
   return (
     <>
       <Helmet>
-        <title>Experience</title>
+        <title>Momna's Experience</title>
       </Helmet>
       <div className="experience-page">
-        <h1>Experience</h1>
-        <div className="timeline">
-          {experiences.map((exp, index) => (
-            <div key={index} className="timeline-item">
-              <div className="dot"></div>
-              <div className="timeline-content">
-                <h3>{exp.title}</h3>
-                {exp.url ? (
-                  <h4>
-                    <a href={exp.url} target="_blank" rel="noopener noreferrer">
-                      {exp.company}
-                    </a>
-                  </h4>
-                ) : (
-                  <h4>{exp.company}</h4>
-                )}
-                <p>{exp.date}</p>
-                <p>{exp.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <h1>Experience Page</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, temporibus nemo! Molestiae accusamus officiis consequuntur tempora modi doloremque voluptatem, accusantium incidunt quos harum minus suscipit nostrum vitae et animi laborum. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas corrupti ratione corporis laboriosam dicta error temporibus, laborum impedit nostrum alias excepturi esse sequi culpa molestias voluptatibus praesentium, voluptates aliquid sed?
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum quae, modi dolor, animi, eos iusto fuga praesentium delectus reiciendis atque sunt natus autem dolore quos tenetur vero suscipit nostrum numquam. 
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis ea odio porro! Quia, officiis velit eligendi iusto tempore optio dolores animi fuga voluptatibus quae necessitatibus consequatur dolorem assumenda quam quod?
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, obcaecati asperiores. Maxime numquam voluptatibus possimus sed, sit nesciunt id tempora dicta, assumenda adipisci, optio doloribus suscipit quod. Perferendis, laborum provident.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, temporibus nemo! Molestiae accusamus officiis consequuntur tempora modi doloremque voluptatem, accusantium incidunt quos harum minus suscipit nostrum vitae et animi laborum. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas corrupti ratione corporis laboriosam dicta error temporibus, laborum impedit nostrum alias excepturi esse sequi culpa molestias voluptatibus praesentium, voluptates aliquid sed?
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum quae, modi dolor, animi, eos iusto fuga praesentium delectus reiciendis atque sunt natus autem dolore quos tenetur vero suscipit nostrum numquam. 
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis ea odio porro! Quia, officiis velit eligendi iusto tempore optio dolores animi fuga voluptatibus quae necessitatibus consequatur dolorem assumenda quam quod?
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, obcaecati asperiores. Maxime numquam voluptatibus possimus sed, sit nesciunt id tempora dicta, assumenda adipisci, optio doloribus suscipit quod. Perferendis, laborum provident.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, temporibus nemo! Molestiae accusamus officiis consequuntur tempora modi doloremque voluptatem, accusantium incidunt quos harum minus suscipit nostrum vitae et animi laborum. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas corrupti ratione corporis laboriosam dicta error temporibus, laborum impedit nostrum alias excepturi esse sequi culpa molestias voluptatibus praesentium, voluptates aliquid sed?
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum quae, modi dolor, animi, eos iusto fuga praesentium delectus reiciendis atque sunt natus autem dolore quos tenetur vero suscipit nostrum numquam. 
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis ea odio porro! Quia, officiis velit eligendi iusto tempore optio dolores animi fuga voluptatibus quae necessitatibus consequatur dolorem assumenda quam quod?
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, obcaecati asperiores. Maxime numquam voluptatibus possimus sed, sit nesciunt id tempora dicta, assumenda adipisci, optio doloribus suscipit quod. Perferendis, laborum provident.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, temporibus nemo! Molestiae accusamus officiis consequuntur tempora modi doloremque voluptatem, accusantium incidunt quos harum minus suscipit nostrum vitae et animi laborum. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas corrupti ratione corporis laboriosam dicta error temporibus, laborum impedit nostrum alias excepturi esse sequi culpa molestias voluptatibus praesentium, voluptates aliquid sed?
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum quae, modi dolor, animi, eos iusto fuga praesentium delectus reiciendis atque sunt natus autem dolore quos tenetur vero suscipit nostrum numquam. 
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis ea odio porro! Quia, officiis velit eligendi iusto tempore optio dolores animi fuga voluptatibus quae necessitatibus consequatur dolorem assumenda quam quod?
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, obcaecati asperiores. Maxime numquam voluptatibus possimus sed, sit nesciunt id tempora dicta, assumenda adipisci, optio doloribus suscipit quod. Perferendis, laborum provident.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, temporibus nemo! Molestiae accusamus officiis consequuntur tempora modi doloremque voluptatem, accusantium incidunt quos harum minus suscipit nostrum vitae et animi laborum. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas corrupti ratione corporis laboriosam dicta error temporibus, laborum impedit nostrum alias excepturi esse sequi culpa molestias voluptatibus praesentium, voluptates aliquid sed?
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum quae, modi dolor, animi, eos iusto fuga praesentium delectus reiciendis atque sunt natus autem dolore quos tenetur vero suscipit nostrum numquam. 
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis ea odio porro! Quia, officiis velit eligendi iusto tempore optio dolores animi fuga voluptatibus quae necessitatibus consequatur dolorem assumenda quam quod?
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, obcaecati asperiores. Maxime numquam voluptatibus possimus sed, sit nesciunt id tempora dicta, assumenda adipisci, optio doloribus suscipit quod. Perferendis, laborum provident.
+          
+        </p>
       </div>
     </>
   );
