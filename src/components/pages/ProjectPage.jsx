@@ -1,7 +1,7 @@
-import React from "react";
-import "../../styling/projectpage.css";
 import { Helmet } from "react-helmet";
+import "../../styling/projectpage.css";
 
+// eslint-disable-next-line react/prop-types
 function ProjectPage({ limit }) {
   const projects = [
     {
@@ -10,14 +10,14 @@ function ProjectPage({ limit }) {
       technologies: "React, GSAP",
       date: "January 2025",
       websiteUrl: "https://perfumelle.netlify.app/",
-      githubUrl: " https://github.com/MomnaBukhari/Perfume-Shop/",
+      githubUrl: "https://github.com/MomnaBukhari/Perfume-Shop/",
     },
     {
       title: "Study Sphere - Educational System",
       image: "/images/defaultprojectimage.png",
       technologies: "Laravel, pHp",
       date: "2023 - 2024",
-      websiteUrl:"",
+      websiteUrl: "",
       githubUrl: "https://github.com/MomnaBukhari/StudySphere---All-In-One-Educational-System",
     },
     {
@@ -25,10 +25,11 @@ function ProjectPage({ limit }) {
       image: "/images/Project3.png",
       technologies: "Contributed as Backend Developer",
       date: "2023 - 2024",
-      websiteUrl:"https://muslim-matchmakers.com/",
+      websiteUrl: "https://muslim-matchmakers.com/",
       githubUrl: "",
     },
   ];
+
   const projectsToDisplay = limit ? projects.slice(0, limit) : projects;
 
   return (
@@ -40,10 +41,10 @@ function ProjectPage({ limit }) {
         <div className="project-grid">
           {projectsToDisplay.map((project, index) => (
             <div key={index} className="project-card">
-              <h3>{project.title}</h3>
               <div className="project-image">
                 <img src={project.image} alt={project.title} />
               </div>
+              <h3>{project.title}</h3>
               <div className="project-details">
                 <div className="technologies">
                   <p>

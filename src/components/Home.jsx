@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import Loader from "./blocks/Loader.jsx";
 import Projects from "./pages/ProjectPage.jsx";
@@ -8,6 +8,47 @@ import { Helmet } from "react-helmet";
 
 function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const textRef = useRef(null);
+
+  const textList = [
+    "Creative Web Developer",
+    "Agile Practitioner",
+    "Illustrator",
+    "Free time - Visionary Fashion Designer",
+  ];
+
+  useEffect(() => {
+    const typeText = async (text, element) => {
+      for (let i = 0; i <= text.length; i++) {
+        element.innerHTML = text.slice(0, i) + "<span class='cursor'>|</span>";
+        await new Promise((resolve) => setTimeout(resolve, 100));
+      }
+    };
+
+    const deleteText = async (element) => {
+      const text = element.innerText;
+      for (let i = text.length; i >= 0; i--) {
+        element.innerHTML = text.slice(0, i) + "<span class='cursor'>|</span>";
+        await new Promise((resolve) => setTimeout(resolve, 50));
+      }
+    };
+
+    const animateText = async () => {
+      const element = textRef.current;
+      if (!element) return;
+
+      for (let i = 0; ; i = (i + 1) % textList.length) {
+        await typeText(textList[i], element);
+        await new Promise((resolve) => setTimeout(resolve, 2000)); // Pause
+        await deleteText(element);
+        await new Promise((resolve) => setTimeout(resolve, 1000)); // Pause
+      }
+    };
+
+    if (isLoaded) {
+      animateText();
+    }
+  }, [isLoaded]);
 
   const handleLoaderComplete = () => {
     setIsLoaded(true);
@@ -40,9 +81,11 @@ function Home() {
         <>
           <div className="home-page">
             <div className="hero-section">
-              <h1>Momna Batool</h1>
-              <h2>Creative Full Stack Developer</h2>
-              <p>I do ART | People call it Web Development.</p>
+              <h1>Syeda Momna Batool</h1>
+              {/* Add the text-changing animation here */}
+              <div className="hero-section-3">
+                <p ref={textRef}></p>
+              </div>
             </div>
             <div className="cv-butons">
               <a

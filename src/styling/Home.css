@@ -6,13 +6,14 @@
   margin: 2% 2% 1% 3%;
 }
 .hero-section {
-  background-image: url("../../public/images/Background2.jpg");
+  /* background-image: url("../../public/images/Background2.jpg"); */
+  background: linear-gradient(#faf0f0, #fff);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   padding: 15% 10% 10% 10%;
-  color: white;
+  color: rgb(0, 0, 0);
   border-radius: 5px;
   height: 80vh;
   text-align: center;
@@ -72,4 +73,25 @@
 }
 .project-display-content{
   margin-top: 5%;
+}
+
+/* Text-Changing Animation */
+.hero-section-3 {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  color: rgb(0, 0, 0); /* Adjust color to match your design */
+  margin-top: 10px;
+}
+
+.hero-section-3 .cursor {
+  display: inline-block;
+  width: 1px;
+  background-color: white;
+  /*Adjustcursorcolor*/animation: blink 0.6s step-end infinite;
+  -webkit-animation: blink 0.6s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }

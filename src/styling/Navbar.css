@@ -17,7 +17,27 @@
 
 .navbar-right {
   display: flex;
+  align-items: center;
   gap: 20px;
+}
+
+/* Transparent Icon Buttons */
+.icon-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.icon-btn img {
+  width: 24px; /* Adjust size as needed */
+  height: 24px; /* Adjust size as needed */
+  opacity: 0.8; /* Slightly transparent */
+  transition: opacity 0.2s ease;
+}
+
+.icon-btn:hover img {
+  opacity: 1; /* Fully opaque on hover */
 }
 
 .navbar-toggle {
@@ -37,7 +57,7 @@ a {
   left: 0;
   height: 100vh;
   width: 100vw;
-  background-color: rgb(165, 165, 184);
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
