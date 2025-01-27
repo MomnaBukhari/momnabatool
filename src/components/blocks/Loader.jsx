@@ -26,7 +26,7 @@ const Loader = ({ onComplete }) => {
     const interval = setInterval(() => {
       index = (index + 1) % greetings.length;
       setCurrentGreeting(greetings[index]);
-    }, 170);
+    }, 190);
 
     const timeout = setTimeout(() => {
       setLoading(false);

@@ -4,6 +4,7 @@ import Loader from "./blocks/Loader.jsx";
 import Projects from "./pages/ProjectPage.jsx";
 import RecommendationsPage from "./Recommendation";
 import "./../styling/Home.css";
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
 function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -77,10 +78,37 @@ function Home() {
         <>
           <div className="home-page">
             <div className="hero-section">
-              <h1>Syeda Momna Batool</h1>
-              {/* Add the text-changing animation here */}
-              <div className="hero-section-3">
-                <p ref={textRef}></p>
+              <div className="hero-section-1">
+                <h1>Syeda Momna Batool</h1>
+                <div className="hero-section-3">
+                  <p ref={textRef}></p>
+                </div>
+              </div>
+              <div className="hero-section-2">
+                <a
+                  href="https://www.linkedin.com/in/momna-batool/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="icon-link"
+                >
+                  <FaLinkedin size={24} />
+                </a>
+                <a
+                  href="https://github.com/MomnaBukhari"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="icon-link"
+                >
+                  <FaGithub size={24} />
+                </a>
+                <a
+                  href="mailto:smomnabatool@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="icon-link"
+                >
+                  <FaEnvelope size={24} />
+                </a>
               </div>
             </div>
             <div className="cv-butons">
@@ -104,7 +132,6 @@ function Home() {
             </div>
             <div className="project-display-section">
               <div className="project-display-content">
-                <h2>Projects</h2>
                 <Projects limit={4} />
               </div>
             </div>
