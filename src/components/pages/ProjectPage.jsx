@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet";
 import "../../styling/projectpage.css";
 
 // eslint-disable-next-line react/prop-types
@@ -34,9 +33,6 @@ function ProjectPage({ limit }) {
 
   return (
     <>
-      <Helmet>
-        <title>Projects | Portfolio</title>
-      </Helmet>
       <div className="project-page">
         <div className="project-grid">
           {projectsToDisplay.map((project, index) => (

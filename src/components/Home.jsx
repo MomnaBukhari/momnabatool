@@ -4,7 +4,6 @@ import Loader from "./blocks/Loader.jsx";
 import Projects from "./pages/ProjectPage.jsx";
 import RecommendationsPage from "./Recommendation";
 import "./../styling/Home.css";
-import { Helmet } from "react-helmet";
 
 function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -13,8 +12,8 @@ function Home() {
   const textList = [
     "Creative Web Developer",
     "Agile Practitioner",
-    "Illustrator",
-    "Free time - Visionary Fashion Designer",
+    "Graphic Design Enthusiast",
+    "Fashion Designer by Night",
   ];
 
   useEffect(() => {
@@ -70,9 +69,6 @@ function Home() {
 
   return (
     <>
-      <Helmet>
-        <title>Momna ♡˚🦢✧</title>
-      </Helmet>
       {!isLoaded ? (
         <div className="loader">
           <Loader />

@@ -1,5 +1,5 @@
 /* Imports */
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import "../../styling/blocks/loader.css";
 
@@ -12,6 +12,7 @@ const greetings = [
 ];
 
 
+// eslint-disable-next-line react/prop-types
 const Loader = ({ onComplete }) => {
 
 
@@ -25,7 +26,7 @@ const Loader = ({ onComplete }) => {
     const interval = setInterval(() => {
       index = (index + 1) % greetings.length;
       setCurrentGreeting(greetings[index]);
-    }, 250);
+    }, 170);
 
     const timeout = setTimeout(() => {
       setLoading(false);
@@ -39,7 +40,7 @@ const Loader = ({ onComplete }) => {
   }, [onComplete]);
 
   useEffect(() => {
-    gsap.fromTo(".greeting", { opacity: 0 }, { opacity: 1, duration: 0.5 });
+    gsap.fromTo(".greeting", { opacity: 1 }, { opacity: 1, duration: 0.5 });
   }, [currentGreeting]);
 
   if (!loading) return null;
@@ -48,7 +49,7 @@ const Loader = ({ onComplete }) => {
     <div className="loader">
       <div className="text">
         <h1 className="greeting">{currentGreeting}</h1>
-        <p className="static-text">Welcome to Momna's World!</p>
+        <p className="static-text">Welcome to Momna&apos;s World!</p>
       </div>
     </div>
   );

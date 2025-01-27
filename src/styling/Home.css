@@ -7,7 +7,7 @@
 }
 .hero-section {
   /* background-image: url("../../public/images/Background2.jpg"); */
-  background: linear-gradient(#faf0f0, #fff);
+  background: linear-gradient(#fff9fb, #fff);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;

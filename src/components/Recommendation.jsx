@@ -1,9 +1,13 @@
-import React from "react";
 import "../styling/Recommendation.css";
-import { Helmet } from "react-helmet";
-
+// eslint-disable-next-line react/prop-types
 function RecommendationsPage({ limit }) {
   const recommendations = [
+    {
+      name: "Ameer Chand",
+      position: "Tutor | UOG",
+      text: "MOMNA is a highly motivated and intellectually curious individual with a strong academic foundation. I am confident that they will excel in their future endeavors and make significant contributions in their chosen field. I highly recommend MOMNA without reservation.",
+      image: "https://img.icons8.com/?size=100&id=7820&format=png&color=000000",
+    },
     {
       name: "Ibrahim Haider",
       position: "Head of Organizational Development | Rev9 Solutions",
@@ -28,11 +32,8 @@ function RecommendationsPage({ limit }) {
 
   return (
     <>
-      <Helmet>
-        <title>Recommendations | Portfolio</title>
-      </Helmet>
       <div className="recommendations-page">
-        <h1>What Momna's collegues say:</h1>
+        <h1>What Momna&apos;s collegues say:</h1>
         <div className="recommendations-grid">
           {recommendationsToDisplay.map((rec, index) => (
             <div key={index} className="recommendation-card">
@@ -41,7 +42,7 @@ function RecommendationsPage({ limit }) {
                   <img src={rec.image} alt={rec.name} />
                 </div>
                 <div className="recommendation-text">
-                  <p>"{rec.text}"</p>
+                  <p>&quot;{rec.text}&quot;</p>
                   <p className="recommendation-author">
                     - {rec.name}, <em>{rec.position}</em>
                   </p>
