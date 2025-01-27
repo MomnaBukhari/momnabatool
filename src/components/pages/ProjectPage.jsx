@@ -5,7 +5,7 @@ function ProjectPage({ limit }) {
   const projects = [
     {
       title: "Parfumèlle - Perfume Store",
-      image: "/images/defaultprojectimage.png",
+      image: "/images/Project1.png",
       technologies: "React, GSAP",
       date: "January 2025",
       websiteUrl: "https://perfumelle.netlify.app/",
@@ -13,7 +13,7 @@ function ProjectPage({ limit }) {
     },
     {
       title: "Study Sphere - Educational System",
-      image: "/images/defaultprojectimage.png",
+      image: "/images/Project2.jpg",
       technologies: "Laravel, pHp",
       date: "2023 - 2024",
       websiteUrl: "",
