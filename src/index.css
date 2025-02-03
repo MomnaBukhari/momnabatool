@@ -116,6 +116,12 @@ img, video, iframe, canvas {
   text-align: center; /* Ensure text is centered */
   line-height: 1.5; /* Improve readability */
 }
+.mobile-links{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin: 2%;
+}
 
 /* Show the message only on smaller screens */
 @media (max-width: 768px) {
