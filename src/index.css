@@ -120,7 +120,8 @@ img, video, iframe, canvas {
   display: flex;
   flex-direction: row;
   gap: 10px;
-  margin: 2%;
+  margin-bottom: 2%;
+  margin-top: 10%;
 }
 
 /* Show the message only on smaller screens */
