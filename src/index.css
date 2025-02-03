@@ -29,7 +29,7 @@ body {
 
 /* Custom styling for selected text */
 ::selection {
-  background: #ece1e2; /* Custom background color for selected text */
+  background: #f5c4d5; /* Custom background color for selected text */
   color: #000000; /* Custom text color for selected text */
 }
 
@@ -79,4 +79,47 @@ body {
 img, video, iframe, canvas {
   max-width: 100%; /* Ensure media elements scale properly */
   height: auto; /* Maintain aspect ratio */
+}
+/* Mobile Message Styling */
+.mobile-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  text-align: center;
+  z-index: 1000;
+  padding: 20px; /* Add some padding for better spacing */
+}
+
+.mobile-message img {
+  height: 300px; /* Adjust the height as needed */
+  width: auto; /* Maintain aspect ratio */
+  margin-bottom: 20px; /* Add space below the image */
+}
+
+.mobile-message h1 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: #d6336c;
+  text-align: center; /* Ensure text is centered */
+}
+
+.mobile-message p {
+  font-size: 1.2rem;
+  color: #555;
+  text-align: center; /* Ensure text is centered */
+  line-height: 1.5; /* Improve readability */
+}
+
+/* Show the message only on smaller screens */
+@media (max-width: 768px) {
+  .mobile-message {
+    display: flex; /* Keep flexbox for centering */
+  }
 }
