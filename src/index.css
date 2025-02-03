@@ -104,14 +104,14 @@ img, video, iframe, canvas {
 }
 
 .mobile-message h1 {
-  font-size: 1.75rem;
+  font-size: 1.2rem;
   margin-bottom: 1rem;
   color: #d6336c;
   text-align: center; /* Ensure text is centered */
 }
 
 .mobile-message p {
-  font-size: 1.2rem;
+  font-size: 0.7rem;
   color: #555;
   text-align: center; /* Ensure text is centered */
   line-height: 1.5; /* Improve readability */
