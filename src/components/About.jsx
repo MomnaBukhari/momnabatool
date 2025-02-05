@@ -2,11 +2,6 @@ import { Helmet } from "react-helmet";
 import {
   FaRegSquare,
   FaArrowRight,
-  FaGithub,
-  FaCode,
-  FaTools,
-  FaLaptopCode,
-  FaStickyNote,
 } from "react-icons/fa";
 import "../styling/About.css";
 

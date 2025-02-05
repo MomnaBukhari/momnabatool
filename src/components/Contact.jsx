@@ -30,10 +30,9 @@ const Contact = () => {
       <Helmet>
         <title>Contact Momna</title>
       </Helmet>
+
       <div className="contact-page">
-        {/* Contact Form Section */}
         <div className="contact-form-section">
-          <h2>Get in Touch</h2>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">Name</label>
@@ -41,7 +40,7 @@ const Contact = () => {
                 type="text"
                 id="name"
                 name="name"
-                defaultValue="Syeda Momna Batool"
+                placeholder="Syeda Momna Batool"
                 required
               />
             </div>
@@ -51,7 +50,7 @@ const Contact = () => {
                 type="email"
                 id="email"
                 name="email"
-                defaultValue="smomnabatool@gmail.com"
+                placeholder="smomnabatool@gmail.com"
                 required
               />
             </div>
@@ -61,7 +60,7 @@ const Contact = () => {
                 type="url"
                 id="linkedin"
                 name="linkedin"
-                defaultValue="https://www.linkedin.com/in/momna-batool/"
+                placeholder="https://www.linkedin.com/in/momna-batool/"
               />
             </div>
             <div className="form-group">
@@ -94,9 +93,7 @@ const Contact = () => {
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108744.2512792091!2d73.67063945!3d32.9340473!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391f8a687923cd49%3A0xf9a2a7d7f8f3b1a5!2sJhelum%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1698765432100!5m2!1sen!2s"
             width="100%"
             height="400"
-            style={{ border: 0 }}
             allowFullScreen=""
-            loading="lazy"
           ></iframe>
         </div>
 
