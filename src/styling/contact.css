@@ -131,13 +131,13 @@ button:hover {
   padding: 10px 20px;
   font-size: 1rem;
   background-color: #f5dbdb;
-  color: #fff3f3;
+  color: #000000;
   border: 1px solid black;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .dialog-box button:hover {
-  background-color: rgb(218, 188, 188);
+  background-color: rgb(255, 255, 255);
   color: #000000;
 }
