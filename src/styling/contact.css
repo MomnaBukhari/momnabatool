@@ -118,26 +118,26 @@ button:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
   text-align: center;
   max-width: 300px;
-  border: 1px solid #f5dbdb; /* Light pink border */
+  border: 1px solid #000000; /* Light pink border */
 }
 
 .dialog-box p {
   font-size: 1.2rem;
-  color: #6b4f4f; /* Muted pink for text */
+  color: #000000; /* Muted pink for text */
   margin-bottom: 20px;
 }
 
 .dialog-box button {
   padding: 10px 20px;
   font-size: 1rem;
-  background-color: #f5dbdb; /* Light pink for button */
-  color: #6b4f4f; /* Muted pink for text */
-  border: none;
+  background-color: #f5dbdb;
+  color: #fff3f3;
+  border: 1px solid black;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .dialog-box button:hover {
-  background-color: #e2cdcd; /* Slightly darker pink on hover */
-  color: #fff;
+  background-color: rgb(218, 188, 188);
+  color: #000000;
 }
