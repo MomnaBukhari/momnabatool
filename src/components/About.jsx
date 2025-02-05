@@ -1,6 +1,13 @@
-import React from "react";
 import { Helmet } from "react-helmet";
-import { FaGithub, FaCode, FaTools, FaLaptopCode, FaStickyNote } from "react-icons/fa";
+import {
+  FaRegSquare,
+  FaArrowRight,
+  FaGithub,
+  FaCode,
+  FaTools,
+  FaLaptopCode,
+  FaStickyNote,
+} from "react-icons/fa";
 import "../styling/About.css";
 
 function About() {
@@ -10,102 +17,174 @@ function About() {
         <title>About Momna</title>
       </Helmet>
       <div className="about-page">
-        {/* Your Passage */}
-        <div className="about-section">
-          <p>
-            Console.log("Hello World! With a Dream to Serve in the World of
-            Innovation as a Web Engineer");
-            <br></br>
-            <br></br> I’m a Creative Developer driven by a passion for turning
-            innovative ideas into reality. I believe in coding as an art – where
-            creativity and logic comes together to craft masterpieces that make a
-            real difference. As a lifelong learner in the field of Information
-            Technology, I find great excitement in technology and am consistently
-            amazed by its transformative impact on the world.
-            <br></br>
-            <br></br>
-            I have been into this field since 2020, and throughout my
-            academic journey, I have developed a strong foundation in various
-            concepts like Object Oriented Programming, Data Structures and
-            Algorithms (C++), Database Management (SQL), Project Management, Web
-            Technologies and more. I’ve Spent more than 262800 minutes diving into
-            the Core concepts of Software engineering from requirement analysis to
-            deploying products. My passion for being web engineer ignited during
-            last year of my bachelor’s era when I developed a comprehensive Web
-            based Education System “StudySphere”, which was developed to fill the
-            gaps in existing systems. 
-            <br></br>
-            <br></br>
-            After graduating in 2024 (with a gold
-            medal!), I’ve been deepening my expertise by working on real-world
-            projects. I’m now expanding my skill set by learning the whole MERN
-            stack to enhance my ability to build fully integrated, end-to-end web
-            applications with JavaScript across both the client and server sides.
-            Moreover, I’m a firm believer in the Agile methodology and support its
-            iterative, collaborative approach. Despite any skill gaps, my
-            determination to learn compensates for them.
-            <br></br>
-            <br></br>Beyond the world of technology, I am an avid tea buff and
-            find myself drawn to the captivating world of Graphic Arts. In my free
-            time, I like to color this world from my pallet and do web surfing,
-            collecting books and writing notes and yes! exploring ideas to
-            developer later.
-          </p>
-        </div>
-
-        {/* GitHub Contribution Chart */}
-        <div className="github-chart">
-          <h2>My GitHub Contributions</h2>
-          <img
-            src="https://ghchart.rshah.org/momnabukhari"
-            alt="Momna's GitHub Contributions"
-            className="github-chart-img"
-          />
-        </div>
-
-        {/* Experience Section */}
-        <div className="experience-section">
-          <h2>Experience</h2>
-          <div className="experience-item">
-            <h3>Internship</h3>
-            <p className="experience-duration">March 2024 - June 2024</p>
-            <p className="experience-description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
+        <div className="about-page-1">
+          <div className="about-page-1-1">
+            <img src="/images/personalityimage.png"></img>
           </div>
-          <div className="experience-item">
-            <h3>Backend Developer at Rev 9 Solutions</h3>
-            <p className="experience-duration">June 2024 - Present</p>
-            <p className="experience-description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          <div className="about-page-1-2">
+            <h2>
+              Know who <span className="about-page-1-2-span">I&apos;M</span>
+            </h2>
+            <p>
+              Hey I am Momna! :) , a creative software developer from Pakistan.
+              I graduated in 2024 earning a Degree of Bachelors in Information
+              Technology. I was awarded with a Gold Medal for standing 1st in my
+              Academic Session and a Roll of Honors for performing best.
+              <br />
+              Currently, I am working as a Backend Developer at a Software house
+              known as <span>Rev9 Solutions</span>.
+              <br />
+              Besides, I am looking forward to continuing my studies further. So
+              excited for it already!
+              <br />
+              <br />
+              Apart from coding, I do love to do other stuff like:
+              <ul style={{ listStyleType: "none", paddingLeft: "0" }}>
+                <li>
+                  <FaArrowRight style={{ marginRight: "8px" }} />I practice
+                  React to design the interfaces of systems that I build.
+                </li>
+                <li>
+                  <FaArrowRight style={{ marginRight: "8px" }} />I do web
+                  surfing and stay updated with new trends in the tech field.
+                </li>
+                <li>
+                  <FaArrowRight style={{ marginRight: "8px" }} />
+                  Oh yes, one more thing! I love to draw Fashion Illustrations.
+                  Here see my drawings
+                  <a
+                    href="https://www.google.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {" "}
+                    click here
+                  </a>
+                  .
+                </li>
+              </ul>
             </p>
           </div>
         </div>
-
-        {/* Favorite Tools Section */}
-        <div className="tools-section">
-          <h2>My Favorite Tools</h2>
-          <div className="tools-category">
-            <h3><FaCode /> Development</h3>
-            <div className="tools-list">
-              <div className="tool">
-                <FaLaptopCode />
-                <span>VS Code</span>
+        <div className="about-page-2">
+          <div className="about-page-2-1">
+            <h1>
+              Professional <span className="about-page-1-2-span">Skillset</span>
+            </h1>
+          </div>
+          <div className="about-page-2-2">
+            <div className="skill-category">
+              <h3>Programming</h3>
+              <div className="skill-grid">
+                <div className="skill-box">
+                  <FaRegSquare /> C++
+                </div>
+                <div className="skill-box">
+                  <FaRegSquare /> PHP
+                </div>
               </div>
-              <div className="tool">
-                <FaCode />
-                <span>GitHub</span>
+            </div>
+
+            <div className="skill-category">
+              <h3>Scripting</h3>
+              <div className="skill-grid">
+                <div className="skill-box">
+                  <FaRegSquare /> HTML
+                </div>
+                <div className="skill-box">
+                  <FaRegSquare /> CSS
+                </div>
+              </div>
+            </div>
+
+            <div className="skill-category">
+              <h3>Front-end Libraries</h3>
+              <div className="skill-grid">
+                <div className="skill-box">
+                  <FaRegSquare /> Bootstrap
+                </div>
+                <div className="skill-box">
+                  <FaRegSquare /> GSAP
+                </div>
+                <div className="skill-box">
+                  <FaRegSquare /> React
+                </div>
+              </div>
+            </div>
+
+            <div className="skill-category">
+              <h3>Backend Framework</h3>
+              <div className="skill-grid">
+                <div className="skill-box">
+                  <FaRegSquare /> Laravel
+                </div>
+              </div>
+            </div>
+
+            <div className="skill-category">
+              <h3>Database</h3>
+              <div className="skill-grid">
+                <div className="skill-box">
+                  <FaRegSquare /> MySQL
+                </div>
+              </div>
+            </div>
+
+            <div className="skill-category">
+              <h3>Core Concepts</h3>
+              <div className="skill-grid">
+                <div className="skill-box">
+                  <FaRegSquare /> OOP
+                </div>
+                <div className="skill-box">
+                  <FaRegSquare /> Data Structures
+                </div>
+                <div className="skill-box">
+                  <FaRegSquare /> Software Engineering
+                </div>
+                <div className="skill-box">
+                  <FaRegSquare /> AI & ML
+                </div>
+              </div>
+            </div>
+
+            <div className="skill-category learning">
+              <h3>Currently Learning</h3>
+              <div className="skill-grid">
+                <div className="skill-box">
+                  <FaRegSquare /> React
+                </div>
               </div>
             </div>
           </div>
-          <div className="tools-category">
-            <h3><FaStickyNote /> Productivity</h3>
-            <div className="tools-list">
-              <div className="tool">
-                <FaStickyNote />
-                <span>Notion</span>
-              </div>
+        </div>
+        <div className="about-page-3">
+          <div className="about-page-3-1">
+            <h1>
+              Some <span className="about-page-1-2-span">Tools</span> that I use
+            </h1>
+          </div>
+          <div className="about-page-3-2">
+            <div className="about-page-3-2-1 about-page-3-2-tool"> GitHub </div>
+            <div className="about-page-3-2-2 about-page-3-2-tool"> Slack </div>
+            <div className="about-page-3-2-3 about-page-3-2-tool">VS Code</div>
+            <div className="about-page-3-2-4 about-page-3-2-tool">
+              Php Storm
             </div>
+            <div className="about-page-3-2-5 about-page-3-2-tool">Balsamiq</div>
+            <div className="about-page-3-2-6 about-page-3-2-tool">Notion</div>
+          </div>
+        </div>
+        <div className="about-page-4">
+          <div className="github-chart">
+            <h2>
+              Days I <span className="about-page-1-2-span">Code</span>
+            </h2>
+            <img
+              src="https://ghchart.rshah.org/momnabukhari"
+              alt="Momna's GitHub Contributions"
+              className="github-chart-img"
+            />
           </div>
         </div>
       </div>

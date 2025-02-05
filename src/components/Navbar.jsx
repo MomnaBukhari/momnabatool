@@ -37,7 +37,7 @@ function Navbar() {
     <>
       <div className="navbar">
         <div className="navbar-left logo">
-          <a href="/">Code by Momna</a>
+          <a href="/">MB.</a>
         </div>
         <div className="navbar-center">
           <Link to="/about">About</Link>

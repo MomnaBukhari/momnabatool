@@ -4,7 +4,7 @@
 
 /* Universal reset for better mobile support */
 * {
-  font-family: "Times New Roman", Times, serif;
+  font-family:serif;
   box-sizing: border-box; /* Include padding and border in element's total width and height */
   margin: 0;
   padding: 0;
@@ -50,8 +50,8 @@ body {
 /* Custom cursor styling */
 #cursor {
   z-index: 1;
-  height: 50px;
-  width: 50px;
+  height: 20px;
+  width: 20px;
   background-color: #f6e6e671;
   border-radius: 50%;
   position: fixed;
@@ -63,7 +63,6 @@ body {
   text-align: center;
   align-items: center;
   justify-content: center;
-  padding: 1%;
 }
 
 /* Ensure content fits well in all screen sizes */

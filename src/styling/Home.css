@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap");
+
+
 .home-page {
-  margin: 0%;
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -27,8 +29,12 @@
   justify-content:space-between;
 }
 .hero-section-1{
-  background-color: #ffffff;
   padding: 4%;
+}
+.hero-section-1 h1{
+  font-family: "Pinyon Script", cursive;
+  text-decoration: none;
+  font-weight: 100;
 }
 .hero-section-2{
   display: flex;
@@ -46,7 +52,7 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-  background-color: #F7EEED;
+  background-color: #fff3f7;
   gap: 30px;
   padding: 5%;
   max-width: 60%;
