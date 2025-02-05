@@ -149,8 +149,8 @@
 .github-chart-img {
   width: 100%;
   max-width: 800px;
+  filter: hue-rotate(260deg) saturate(1.0) brightness(1);
 }
-
 
 
 
