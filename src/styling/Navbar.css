@@ -30,6 +30,11 @@
   font-size: 120%;
 }
 
+.logo a:hover{
+  color: rgb(122, 75, 97);
+  z-index: 1000;
+  font-family: 'Times New Roman', Times, serif;
+}
 
 
 /* Transparent Icon Buttons */
@@ -39,6 +44,7 @@
   padding: 0;
   cursor: pointer;
 }
+
 .icon-btn:hover{
   text-decoration: none;
   border: none;
@@ -60,6 +66,17 @@
 a {
   text-decoration: none;
   color: #000;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+}
+a:hover{
+  color: #8a0653;
+  background-color: #f6e6e6;
+  padding: 1%;
+  font-weight: bold;
 }
 
 /* Sidebar Styling for Smaller Screens */
