@@ -57,12 +57,16 @@ body {
   position: fixed;
   pointer-events: none;
   transform: translate(-50%, -50%);
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.2s ease-in-out;
   border: 1px solid rgb(0, 0, 0);
   text-align: center;
   align-items: center;
   justify-content: center;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -ms-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
 }
 
 /* Ensure content fits well in all screen sizes */

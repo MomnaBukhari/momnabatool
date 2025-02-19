@@ -5,6 +5,7 @@ import Projects from "./pages/ProjectPage.jsx";
 import RecommendationsPage from "./Recommendation";
 import "./../styling/Home.css";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+// import initializeCursor from "../scripting/cursor.js";
 
 function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -77,7 +78,7 @@ function Home() {
       ) : (
         <>
           <div className="home-page">
-            <div className="hero-section">
+            <div id="hero-section" className="hero-section">
               <div className="hero-section-1">
                 <h1>Syeda Momna Batool</h1>
                 <div className="hero-section-3">
