@@ -26,42 +26,42 @@ function App() {
         <div id="cursor"></div>
         {isMobile ? (
           <div className="mobile-message">
-            <img src="./images/char1.png"></img>
-            <h1>
-              Hey! Sorry, Can you please switch to a Bigger Screen or Desktop
-              View?
-            </h1>
-            <p>
-              Well, Smaller screen view development is in progress. <br></br>{" "}
-              Thank you for your patience!
-            </p>
-            <div className="mobile-links">
-              <a
-                href="https://www.linkedin.com/in/momna-batool/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="icon-link"
-              >
-                <FaLinkedin size={24} />
-              </a>
-              <a
-                href="https://github.com/MomnaBukhari"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="icon-link"
-              >
-                <FaGithub size={24} />
-              </a>
-              <a
-                href="mailto:smomnabatool@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="icon-link"
-              >
-                <FaEnvelope size={24} />
-              </a>
-            </div>
+          <img src="./images/MissRi.png"></img>
+          <h1>
+            Hello there! This screen’s a bit too small for the full experience.
+          </h1>
+          <p>
+            I&apos;m a backend developer — still polishing my frontend finesse 😅<br></br>
+            For the best view, please switch to a desktop. Thanks for your patience and support!
+          </p>
+          <div className="mobile-links">
+            <a
+              href="https://www.linkedin.com/in/momna-batool/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="icon-link"
+            >
+              <FaLinkedin size={24} />
+            </a>
+            <a
+              href="https://github.com/MomnaBukhari"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="icon-link"
+            >
+              <FaGithub size={24} />
+            </a>
+            <a
+              href="mailto:smomnabatool@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="icon-link"
+            >
+              <FaEnvelope size={24} />
+            </a>
           </div>
+        </div>
+        
         ) : (
           <>
             <Navbar />
