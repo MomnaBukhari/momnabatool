@@ -138,7 +138,7 @@ function Home() {
             </div>
             <div className="Recommendations">
               <section className="home-recommendations">
-                <RecommendationsPage limit={2} />
+                <RecommendationsPage limit={3} />
               </section>
             </div>
           </div>
