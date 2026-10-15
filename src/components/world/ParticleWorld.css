@@ -1,0 +1,76 @@
+/* The particle canvas and the soft colour clouds behind it. Both sit behind
+   all content and never catch the pointer. */
+
+.world {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.world.is-ready {
+  opacity: 1;
+}
+
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--bg);
+  transition: background-color 0.6s ease;
+}
+
+.aurora span {
+  position: absolute;
+  width: 62vmax;
+  height: 62vmax;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.75;
+  will-change: transform;
+}
+
+.aurora span:nth-child(1) {
+  top: -24vmax;
+  left: -18vmax;
+  background: var(--aurora-1);
+  animation: aurora-drift-a 26s ease-in-out infinite alternate;
+}
+
+.aurora span:nth-child(2) {
+  right: -22vmax;
+  top: 10vmax;
+  background: var(--aurora-2);
+  animation: aurora-drift-b 32s ease-in-out infinite alternate;
+}
+
+.aurora span:nth-child(3) {
+  left: 20vmax;
+  bottom: -30vmax;
+  background: var(--aurora-3);
+  animation: aurora-drift-c 38s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-drift-a {
+  to {
+    transform: translate(18vmax, 14vmax) scale(1.15);
+  }
+}
+
+@keyframes aurora-drift-b {
+  to {
+    transform: translate(-16vmax, 20vmax) scale(0.9);
+  }
+}
+
+@keyframes aurora-drift-c {
+  to {
+    transform: translate(-12vmax, -18vmax) scale(1.1);
+  }
+}

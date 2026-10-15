@@ -1,0 +1,71 @@
+/* Apple-style pill buttons. */
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 9px 20px;
+  border: 1.5px solid var(--accent-ink);
+  border-radius: 999px;
+  background: var(--accent-ink);
+  color: #fff;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1.2;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    box-shadow 0.4s var(--ease),
+    color 0.3s var(--ease),
+    transform 0.4s var(--spring);
+}
+
+/* On hover a soft band of light sweeps across. */
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(100deg, transparent 20%, rgba(255, 255, 255, 0.28) 50%, transparent 80%);
+  translate: -110% 0;
+  transition: translate 0.9s var(--ease-out);
+}
+
+.button:hover::before,
+.button:focus-visible::before {
+  translate: 110% 0;
+}
+
+.button:hover {
+  box-shadow: 0 12px 28px -14px var(--accent);
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+.button--outline {
+  background: transparent;
+  color: var(--accent-ink);
+}
+
+.button--outline:hover {
+  background: var(--accent-soft);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.button__icon {
+  display: inline-grid;
+  font-size: 1.1em;
+  transition: transform 0.4s var(--spring);
+}
+
+.button:hover .button__icon {
+  transform: translateX(3px);
+}

@@ -1,77 +1,59 @@
-import { useEffect, useState } from "react";
-import { BrowserRouter } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import RoutesComponent from "./components/Routes";
-import initializeCursor from "./scripting/cursor";
-import Footer from "./components/Footer";
-import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import { useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
+import { ScrollTrigger } from "./lib/gsap";
+import { scrollToSection } from "./lib/scroll";
+import { initInterfaceSounds } from "./lib/sound";
+import SmoothScroll from "./components/layout/SmoothScroll";
+import Nav from "./components/layout/Nav";
+import Footer from "./components/layout/Footer";
+import Cursor from "./components/cursor/Cursor";
+import Loader from "./components/loader/Loader";
+import { PageTransitionProvider } from "./components/layout/PageTransition";
 
-function App() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+/**
+ * The frame every page sits in: the hello screen, navigation, the cursor, smooth
+ * scrolling and page transitions. Pages render into <Outlet />.
+ */
+export default function App() {
+  const { pathname } = useLocation();
+
+  useEffect(() => initInterfaceSounds(), []);
 
   useEffect(() => {
-    initializeCursor();
-
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    // Fonts and images change the page height after first paint; re-measure when they land.
+    const refresh = () => ScrollTrigger.refresh();
+    document.fonts?.ready.then(refresh);
+    window.addEventListener("load", refresh);
+    return () => window.removeEventListener("load", refresh);
   }, []);
 
   return (
-    <>
-      <BrowserRouter>
-        <div id="cursor"></div>
-        {isMobile ? (
-          <div className="mobile-message">
-          <img src="./images/MissRi.png"></img>
-          <h1>
-            Hello there! This screen’s a bit too small for the full experience.
-          </h1>
-          <p>
-            I&apos;m a backend developer — still polishing my frontend finesse 😅<br></br>
-            For the best view, please switch to a desktop. Thanks for your patience and support!
-          </p>
-          <div className="mobile-links">
-            <a
-              href="https://www.linkedin.com/in/momna-batool/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="icon-link"
-            >
-              <FaLinkedin size={24} />
-            </a>
-            <a
-              href="https://github.com/MomnaBukhari"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="icon-link"
-            >
-              <FaGithub size={24} />
-            </a>
-            <a
-              href="mailto:smomnabatool@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="icon-link"
-            >
-              <FaEnvelope size={24} />
-            </a>
-          </div>
+    <PageTransitionProvider>
+      <SmoothScroll />
+
+      <a
+        className="skip-link"
+        href="#main"
+        onClick={(event) => {
+          event.preventDefault();
+          if (pathname === "/") scrollToSection("about");
+          else document.getElementById("main")?.focus();
+        }}
+      >
+        Skip to content
+      </a>
+
+      <Loader />
+      <Nav />
+      <Cursor />
+
+      {/* ScrollSmoother moves #smooth-content; anything fixed stays outside it. */}
+      <div id="smooth-wrapper">
+        <div id="smooth-content">
+          <Outlet />
+          <Footer />
         </div>
-        
-        ) : (
-          <>
-            <Navbar />
-            <RoutesComponent />
-            <Footer />
-          </>
-        )}
-      </BrowserRouter>
-    </>
+      </div>
+    </PageTransitionProvider>
   );
 }
-
-export default App;

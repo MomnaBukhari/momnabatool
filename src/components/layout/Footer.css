@@ -1,0 +1,13 @@
+.footer {
+  padding-block: clamp(40px, 5vw, 64px) 32px;
+  border-top: 1px solid var(--line);
+}
+
+.footer__name {
+  font-size: clamp(1.75rem, 1rem + 3vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  text-align: center;
+  color: var(--ink);
+}

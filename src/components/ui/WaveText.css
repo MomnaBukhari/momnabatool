@@ -1,0 +1,10 @@
+.wave__word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.wave__letter {
+  display: inline-block;
+  transform-origin: 50% 80%;
+  will-change: transform;
+}

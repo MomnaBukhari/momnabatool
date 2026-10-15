@@ -1,0 +1,132 @@
+/*
+  Six themes, each a paper and an ink, like changing notebooks and pens.
+  A theme changes the page colour, the accent ink and the sticky-note colours.
+
+  --bg / --bg-alt   the paper, and a slightly deeper paper for alternate sections
+  --surface         cards sitting on the paper
+  --accent          dots, doodles, small highlights
+  --accent-ink      the same hue, dark enough for text, links and buttons
+  --accent-soft     a pale tint for chips and soft fills
+  --note-1..4       sticky-note colours
+  --grid            faint graph-paper lines
+*/
+
+:root,
+[data-theme="rose"] {
+  --bg: #fdf8f9;
+  --bg-alt: #f8eef2;
+  --surface: #ffffff;
+  --accent: #d0477f;
+  --accent-ink: #a3245a;
+  --accent-soft: #fbe4ec;
+  --note-1: #ffd3e1;
+  --note-2: #fff1a6;
+  --note-3: #e2d8ff;
+  --note-4: #cdeedd;
+  --pastel-1: #ffd3e1;
+  --pastel-2: #e2d8ff;
+  --pastel-3: #fff1a6;
+  --gradient: linear-gradient(100deg, #a3245a, #d0477f);
+  --grid: color-mix(in srgb, #a3245a 9%, transparent);
+}
+
+[data-theme="henna"] {
+  --bg: #fbf7f2;
+  --bg-alt: #f4ebe0;
+  --surface: #ffffff;
+  --accent: #b5652f;
+  --accent-ink: #8a3f12;
+  --accent-soft: #f6e3d2;
+  --note-1: #f9d2b5;
+  --note-2: #fff0b3;
+  --note-3: #f3d6cf;
+  --note-4: #dfe8c8;
+  --pastel-1: #f9d2b5;
+  --pastel-2: #f3d6cf;
+  --pastel-3: #fff0b3;
+  --gradient: linear-gradient(100deg, #8a3f12, #b5652f);
+  --grid: color-mix(in srgb, #8a3f12 9%, transparent);
+}
+
+[data-theme="lavender"] {
+  --bg: #f9f8fe;
+  --bg-alt: #efecfb;
+  --surface: #ffffff;
+  --accent: #7a5ce0;
+  --accent-ink: #5536b8;
+  --accent-soft: #ebe5fd;
+  --note-1: #e1d6ff;
+  --note-2: #ffe1ef;
+  --note-3: #d6e6ff;
+  --note-4: #fff2b0;
+  --pastel-1: #e1d6ff;
+  --pastel-2: #d6e6ff;
+  --pastel-3: #ffe1ef;
+  --gradient: linear-gradient(100deg, #5536b8, #7a5ce0);
+  --grid: color-mix(in srgb, #5536b8 9%, transparent);
+}
+
+[data-theme="matcha"] {
+  --bg: #f7faf3;
+  --bg-alt: #ecf2e5;
+  --surface: #ffffff;
+  --accent: #5f9136;
+  --accent-ink: #3c6b1e;
+  --accent-soft: #e2efd5;
+  --note-1: #d8efc4;
+  --note-2: #fff3b0;
+  --note-3: #cfeee5;
+  --note-4: #f6dccb;
+  --pastel-1: #d8efc4;
+  --pastel-2: #cfeee5;
+  --pastel-3: #fff3b0;
+  --gradient: linear-gradient(100deg, #3c6b1e, #5f9136);
+  --grid: color-mix(in srgb, #3c6b1e 9%, transparent);
+}
+
+[data-theme="sky"] {
+  --bg: #f6f9fd;
+  --bg-alt: #e9f1fa;
+  --surface: #ffffff;
+  --accent: #2f7fd6;
+  --accent-ink: #1b5aa8;
+  --accent-soft: #dfecfb;
+  --note-1: #cfe5ff;
+  --note-2: #fff2b0;
+  --note-3: #dcd8ff;
+  --note-4: #ccefea;
+  --pastel-1: #cfe5ff;
+  --pastel-2: #dcd8ff;
+  --pastel-3: #fff2b0;
+  --gradient: linear-gradient(100deg, #1b5aa8, #2f7fd6);
+  --grid: color-mix(in srgb, #1b5aa8 9%, transparent);
+}
+
+[data-theme="lemon"] {
+  --bg: #fffcf0;
+  --bg-alt: #fbf3d6;
+  --surface: #ffffff;
+  --accent: #d49a00;
+  --accent-ink: #8a5a00;
+  --accent-soft: #fbefc0;
+  --note-1: #fff09a;
+  --note-2: #ffd8c2;
+  --note-3: #d9f0c9;
+  --note-4: #ffd6e4;
+  --pastel-1: #fff09a;
+  --pastel-2: #d9f0c9;
+  --pastel-3: #ffd8c2;
+  --gradient: linear-gradient(100deg, #8a5a00, #d49a00);
+  --grid: color-mix(in srgb, #8a5a00 9%, transparent);
+}
+
+/* The theme change is a circle that grows from the dot you clicked (see ThemeContext). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+}

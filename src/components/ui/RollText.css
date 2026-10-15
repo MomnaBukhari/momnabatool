@@ -1,0 +1,19 @@
+.roll {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  line-height: 1.25;
+  height: 1.25em;
+}
+
+.roll__inner {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.5s cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+a:hover .roll__inner,
+button:hover .roll__inner,
+a:focus-visible .roll__inner {
+  transform: translateY(-50%);
+}

@@ -3,6 +3,15 @@ import "../styling/Recommendation.css";
 function RecommendationsPage({ limit }) {
   const recommendations = [
     {
+      name: "Adeel Moarif",
+      profile: "https://www.linkedin.com/in/adeel-moarif-66a533180/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BBhmY3kwfRcCibc1fVray9w%3D%3D",
+      position: "DevSecOps Engineer | AI & Data Science | OSCP | RHCE Certified | Linux | OpenShift | AWS | Azure | GCP | Docker | Kubernetes Docker | Ansible | CI/CD | Full-Stack Developer",
+      text: "I’ve worked with Syeda Momna Batool, and she’s a dedicated and skilled backend developer. She’s strong in PHP and Laravel, builds reliable APIs, and handles backend logic with confidence. She’s also always learning and improving her skills. She’s easy to work with, focused, and takes her work seriously. I’d definitely recommend her for any backend development role.",
+      image: "https://img.icons8.com/?size=100&id=7820&format=png&color=000000",
+    },
+    
+    
+    {
       name: "Muhammad Umair",
       profile: "https://www.linkedin.com/in/muhammad-umair-a36912205",
       position: "Vice President of Product Management | Rev9 Solutions",

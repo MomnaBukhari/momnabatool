@@ -1,0 +1,64 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: grid;
+  place-items: center;
+  background-color: var(--bg);
+  will-change: transform;
+}
+
+.loader__inner {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  width: min(90vw, 520px);
+  text-align: center;
+}
+
+.loader__word {
+  min-height: 1.2em;
+  font-size: clamp(2.6rem, 1.4rem + 5vw, 4.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+
+.loader__lang {
+  min-height: 1.4em;
+  font-size: 1.25rem;
+  color: var(--accent-ink);
+  rotate: -2deg;
+}
+
+.loader__line {
+  width: min(70vw, 320px);
+  height: 18px;
+  margin-top: 10px;
+  overflow: visible;
+}
+
+.loader__line path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 3px;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.loader__welcome {
+  margin-top: 14px;
+  font-size: 1.125rem;
+  color: var(--ink);
+}
+
+.loader__skip {
+  position: absolute;
+  bottom: 28px;
+  left: 0;
+  right: 0;
+  font-size: var(--text-xs);
+  text-align: center;
+  color: var(--ink-faint);
+}

@@ -1,0 +1,47 @@
+/* Type, space, neutrals and motion. Theme colours live in src/theme/themes.css. */
+
+:root {
+  /* Neutrals: the same in every theme, like Apple's white and light grey. */
+  /* Paper colours (--bg, --bg-alt, --surface) come from the theme.
+     Text is black or near-black everywhere: depth comes from size and weight, not grey. */
+  --ink: #1d1d1f;
+  --ink-soft: #2c2c30;
+  --ink-faint: #55555b;
+  --line: rgba(29, 29, 31, 0.12);
+  --glass: rgba(255, 255, 255, 0.62);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --shadow: 0 24px 48px -28px rgba(0, 0, 0, 0.18);
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px -12px rgba(0, 0, 0, 0.1);
+  /* A sticky note on a wall: a tight contact shadow and a soft lifted one. */
+  --shadow-note: 0 1px 1px rgba(0, 0, 0, 0.06), 0 14px 22px -14px rgba(0, 0, 0, 0.28);
+
+  --font: "Inter Variable", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
+    Roboto, sans-serif;
+  /* Handwriting, for notes and doodles in the margins. */
+  --font-hand: "Kalam", "Segoe Print", "Bradley Hand", cursive;
+  --font-code: "JetBrains Mono Variable", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 0.9688rem;
+  --text-lg: 1.0625rem;
+  --text-lead: clamp(1.0625rem, 0.98rem + 0.3vw, 1.25rem);
+  --text-title: clamp(1.1875rem, 1.05rem + 0.45vw, 1.4375rem);
+  --text-headline: clamp(1.875rem, 1.3rem + 1.9vw, 3rem);
+  --text-hero: clamp(2.6rem, 1.2rem + 4.6vw, 5.25rem);
+
+  --gutter: clamp(20px, 5vw, 56px);
+  --container: 1080px;
+  --section-gap: clamp(72px, 8.5vw, 124px);
+  --nav-height: 64px;
+
+  --radius: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 26px;
+  --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --fast: 200ms;
+  --medium: 400ms;
+}

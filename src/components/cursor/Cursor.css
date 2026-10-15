@@ -1,0 +1,128 @@
+/* Hide the system cursor only when the custom one is running. */
+.has-cursor,
+.has-cursor * {
+  cursor: none !important;
+}
+
+.cursor,
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 160;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+}
+
+.cursor.is-visible,
+.cursor-dot.is-visible {
+  opacity: 1;
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 50%;
+  background: var(--ink);
+  transition:
+    opacity 0.3s var(--ease),
+    scale 0.3s var(--spring);
+}
+
+.cursor-dot:is([data-state="label"], [data-state="drag"], [data-state="text"]) {
+  scale: 0;
+}
+
+.cursor__shape {
+  --size: 34px;
+  display: grid;
+  place-items: center;
+  width: var(--size);
+  height: var(--size);
+  margin: calc(var(--size) / -2) 0 0 calc(var(--size) / -2);
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  background: transparent;
+  transition:
+    width 0.45s var(--spring),
+    height 0.45s var(--spring),
+    margin 0.45s var(--spring),
+    border-radius 0.45s var(--spring),
+    background-color 0.3s var(--ease),
+    border-color 0.3s var(--ease),
+    scale 0.25s var(--ease);
+}
+
+.cursor.is-down .cursor__shape {
+  scale: 0.82;
+}
+
+.cursor__label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  line-height: 1.15;
+  text-align: center;
+  max-width: calc(var(--size) - 20px);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.2s var(--ease);
+}
+
+/* Links and buttons: the ring swells and softly fills. */
+.cursor[data-state="link"] .cursor__shape {
+  --size: 54px;
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+/* Cards and panels: a big, soft circle. */
+.cursor[data-state="card"] .cursor__shape {
+  --size: 110px;
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  background: color-mix(in srgb, var(--accent) 9%, transparent);
+}
+
+/* Labels: a solid circle with the words inside. */
+.cursor[data-state="label"] .cursor__shape {
+  --size: 92px;
+  border-color: var(--accent-ink);
+  background: var(--accent-ink);
+}
+
+/* Sticky notes: a rounded square, like a note itself. */
+.cursor[data-state="drag"] .cursor__shape {
+  --size: 64px;
+  border-radius: 18px;
+  border-color: var(--ink);
+  background: var(--ink);
+  rotate: -8deg;
+}
+
+.cursor:is([data-state="label"], [data-state="drag"]) .cursor__label {
+  opacity: 1;
+}
+
+/* Text fields: a thin caret. */
+.cursor[data-state="text"] .cursor__shape {
+  width: 2px;
+  height: 26px;
+  margin: -13px 0 0 -1px;
+  border: 0;
+  border-radius: 2px;
+  background: var(--accent-ink);
+  animation: caret 1s steps(2) infinite;
+}
+
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor[data-state="text"] .cursor__shape {
+    animation: none;
+  }
+}

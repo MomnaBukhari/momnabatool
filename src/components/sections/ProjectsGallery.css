@@ -1,0 +1,299 @@
+.gallery {
+  position: relative;
+  background: var(--bg);
+}
+
+.gallery__pin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  min-height: 100svh;
+  padding-block: calc(var(--nav-height) + 30px) 40px;
+  overflow: hidden;
+}
+
+.gallery__track {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  width: max-content;
+  padding-inline: max(var(--gutter), calc((100vw - var(--container)) / 2));
+  will-change: transform;
+}
+
+.gallery__intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min(84vw, 440px);
+  flex: none;
+  padding-right: 20px;
+}
+
+.gallery__intro h2 {
+  font-size: var(--text-headline);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+.gallery__intro h2 span {
+  display: block;
+  margin-top: 10px;
+  font-size: clamp(1.1rem, 1rem + 0.4vw, 1.35rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--accent-ink);
+  rotate: -2deg;
+  transform-origin: left;
+}
+
+.gallery__lede {
+  margin-top: 22px;
+  font-size: var(--text-base);
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.gallery__hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 26px;
+  font-size: 1.1rem;
+  color: var(--accent-ink);
+}
+
+.gallery__hint svg {
+  animation: hint-slide 1.6s ease-in-out infinite;
+}
+
+@keyframes hint-slide {
+  50% {
+    transform: translateX(6px);
+  }
+}
+
+/* ---------- cards ---------- */
+
+.pcard {
+  flex: none;
+  width: clamp(300px, 30vw, 420px);
+  transform-style: preserve-3d;
+}
+
+.pcard__link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: min(64vh, 520px);
+  min-height: 440px;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: var(--bg-alt);
+  transition: box-shadow 0.6s var(--ease), transform 0.6s var(--ease-out);
+}
+
+.pcard__link:hover {
+  box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.35);
+}
+
+.pcard__text {
+  padding: 22px 22px 0;
+}
+
+.pcard__eyebrow {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--ink-faint);
+}
+
+.pcard__eyebrow span {
+  margin-inline: 4px;
+  opacity: 0.6;
+}
+
+.pcard h3 {
+  margin-top: 8px;
+  font-size: clamp(1.25rem, 1.05rem + 0.5vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.pcard__tagline {
+  margin-top: 8px;
+  font-size: var(--text-lg);
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--ink-soft);
+}
+
+.pcard__art {
+  position: relative;
+  flex: 1;
+  margin: 24px 18px 0;
+  overflow: hidden;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+/* A screenshot in a soft window frame, rising from the bottom. */
+.pcard__shot {
+  position: absolute;
+  left: 8%;
+  bottom: 0;
+  width: 84%;
+  height: auto;
+  border-radius: 14px 14px 0 0;
+  box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.45);
+  transform: translateY(14%);
+  transition: transform 0.9s var(--ease-out);
+}
+
+.pcard__link:hover .pcard__shot {
+  transform: translateY(4%) scale(1.03);
+}
+
+.pcard__foot {
+  position: absolute;
+  left: 30px;
+  right: 22px;
+  bottom: 22px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pcard__foot .tags li {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: transparent;
+  backdrop-filter: blur(8px);
+}
+
+/* Apple's little plus button. */
+.pcard__plus {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+  font-size: 1.15rem;
+  transition: transform 0.5s var(--spring), background-color 0.3s var(--ease);
+}
+
+.pcard__link:hover .pcard__plus {
+  transform: rotate(90deg) scale(1.1);
+  background: var(--accent-ink);
+}
+
+.pcard__shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--shine-x, 50%) var(--shine-y, 0%), rgba(255, 255, 255, 0.45), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+}
+
+.pcard__link:hover .pcard__shine {
+  opacity: 1;
+}
+
+.gallery__end {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  width: min(70vw, 260px);
+  flex: none;
+  font-size: var(--text-lg);
+  color: var(--ink-soft);
+}
+
+.gallery__end a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+/* ---------- the scroll bar ---------- */
+
+.gallery__bar {
+  position: relative;
+  height: 22px;
+  cursor: grab;
+  touch-action: none;
+}
+
+.gallery__bar::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  margin-top: -2px;
+  border-radius: 4px;
+  background: var(--bg-alt);
+}
+
+.gallery__thumb {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  margin-top: -2px;
+  border-radius: 4px;
+  background: var(--gradient);
+  transition: height 0.3s var(--spring), margin-top 0.3s var(--spring);
+}
+
+.gallery__bar:hover .gallery__thumb {
+  height: 10px;
+  margin-top: -5px;
+}
+
+.gallery__bar:active {
+  cursor: grabbing;
+}
+
+@media (max-width: 899px), (prefers-reduced-motion: reduce) {
+  .gallery__pin {
+    min-height: 0;
+    padding-block: var(--section-gap) 40px;
+  }
+
+  .gallery__track {
+    width: auto;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    padding-bottom: 30px;
+    scrollbar-width: none;
+  }
+
+  .gallery__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery__track > * {
+    scroll-snap-align: start;
+  }
+
+  .pcard {
+    width: min(84vw, 400px);
+  }
+
+  .pcard__link {
+    min-height: 420px;
+  }
+
+  .gallery__hint {
+    display: none;
+  }
+}

@@ -1,0 +1,15 @@
+.statement {
+  padding-block: clamp(80px, 11vw, 150px);
+}
+
+.statement__text {
+  max-width: 30ch;
+  font-size: clamp(1.5rem, 1.05rem + 1.6vw, 2.4rem);
+  font-weight: 650;
+  line-height: 1.22;
+  letter-spacing: -0.035em;
+}
+
+.statement__word {
+  transition: color 0.3s var(--ease);
+}

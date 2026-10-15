@@ -1,0 +1,129 @@
+.nook {
+  position: relative;
+  min-height: 100svh;
+  padding-top: calc(var(--nav-height) + 64px);
+  padding-bottom: 60px;
+}
+
+.nook__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  color: var(--accent-ink);
+  transition: gap 0.4s var(--spring);
+}
+
+.nook__back:hover {
+  gap: 14px;
+}
+
+.nook__header {
+  margin-top: 48px;
+  text-align: center;
+}
+
+.nook__title {
+  display: inline-block;
+  font-size: clamp(2.6rem, 1.2rem + 4.6vw, 5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.nook__intro {
+  margin: 24px auto 0;
+  max-width: 40ch;
+  font-size: var(--text-lead);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+.nook__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+  margin-top: 64px;
+}
+
+.nook__card {
+  border-radius: var(--radius-xl);
+  background: var(--bg-alt);
+  transform-style: preserve-3d;
+  transition: box-shadow 0.5s var(--ease);
+}
+
+.nook__card:hover {
+  box-shadow: var(--shadow);
+}
+
+.nook__card a {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  padding: 30px;
+}
+
+.nook__card h2 {
+  font-size: var(--text-title);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.nook__card p {
+  color: var(--ink-soft);
+}
+
+.nook__card-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--accent-ink);
+}
+
+.nook__empty {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  max-width: 600px;
+  margin: 64px auto 0;
+  padding: clamp(36px, 5vw, 64px);
+  border-radius: var(--radius-xl);
+  background: var(--bg-alt);
+  text-align: center;
+}
+
+.nook__empty-icon {
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--gradient);
+  font-size: 1.9rem;
+  color: #fff;
+  animation: twirl 8s linear infinite;
+}
+
+@keyframes twirl {
+  to {
+    rotate: 360deg;
+  }
+}
+
+.nook__empty h2 {
+  font-size: var(--text-title);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.nook__empty p {
+  max-width: 36ch;
+  font-size: var(--text-lg);
+  color: var(--ink-soft);
+}

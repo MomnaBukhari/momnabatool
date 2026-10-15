@@ -1,0 +1,17 @@
+.doodle {
+  display: block;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.doodle path {
+  fill: none;
+  stroke: var(--doodle-color, var(--accent));
+  stroke-width: var(--doodle-width, 2.5px);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.doodle--fill path {
+  fill: var(--doodle-fill, transparent);
+}

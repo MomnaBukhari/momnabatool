@@ -1,13 +1,79 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Momna Batool</title>
+    <title>Syeda Momna Batool | Software Engineer (PHP, Laravel)</title>
+    <meta
+      name="description"
+      content="Software engineer in Greater Manchester with almost five years of backend experience in PHP, Laravel and MySQL, and an MRes in Artificial Intelligence."
+    />
+    <meta name="author" content="Syeda Momna Batool" />
+    <meta name="theme-color" content="#fcf7f9" />
+    <link rel="canonical" href="https://syedamomnabatool.vercel.app/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Apply the saved colour theme before the page paints, so it never flashes. -->
+    <script>
+      try {
+        var saved = localStorage.getItem("momna-theme");
+        document.documentElement.dataset.theme =
+          ["rose", "henna", "lavender", "matcha", "sky", "lemon"].indexOf(saved) > -1 ? saved : "rose";
+      } catch (error) {
+        document.documentElement.dataset.theme = "rose";
+      }
+    </script>
+
+    <!-- How the link looks when shared on LinkedIn, Slack, WhatsApp and so on. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://syedamomnabatool.vercel.app/" />
+    <meta property="og:title" content="Syeda Momna Batool | Software Engineer" />
+    <meta
+      property="og:description"
+      content="Backend software engineer working in PHP, Laravel and MySQL. MRes Artificial Intelligence. Based in Greater Manchester."
+    />
+    <meta property="og:image" content="https://syedamomnabatool.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Structured data so search engines understand who the page is about. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Syeda Momna Batool",
+        "jobTitle": "Software Engineer",
+        "url": "https://syedamomnabatool.vercel.app/",
+        "email": "mailto:smomnabatool@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Greater Manchester",
+          "addressCountry": "GB"
+        },
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "University of Greater Manchester" },
+          { "@type": "CollegeOrUniversity", "name": "University of Gujrat" }
+        ],
+        "knowsAbout": ["PHP", "Laravel", "MySQL", "REST APIs", "Backend development", "React", "Python"],
+        "sameAs": [
+          "https://www.linkedin.com/in/momna-batool/",
+          "https://github.com/MomnaBukhari"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <p style="max-width: 40rem; margin: 3rem auto; padding: 0 1.25rem; font-family: sans-serif">
+        Syeda Momna Batool, Software Engineer (PHP, Laravel). This site needs JavaScript to display.
+        You can reach me at <a href="mailto:smomnabatool@gmail.com">smomnabatool@gmail.com</a> or on
+        <a href="https://www.linkedin.com/in/momna-batool/">LinkedIn</a>.
+      </p>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
