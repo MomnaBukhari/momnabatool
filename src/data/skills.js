@@ -49,7 +49,7 @@ export const skills = [
   },
   {
     title: "Frontend",
-    note: "Enough to build the interface a backend needs.",
+    note: "Interfaces built with care, and a designer’s eye.",
     items: ["JavaScript", "React", "HTML", "CSS", "Bootstrap", "GSAP"],
   },
   {

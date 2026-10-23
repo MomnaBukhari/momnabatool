@@ -1,126 +1,430 @@
 /*
-  Six themes, each a paper and an ink, like changing notebooks and pens.
-  A theme changes the page colour, the accent ink and the sticky-note colours.
+  Twelve themes. A theme is a whole mood, not just a colour: it sets the paper,
+  the ink, the sticky notes, the hero scene (HeroScene.jsx) and the little
+  things that drift across the page (src/theme/themes.js, `effect`).
 
-  --bg / --bg-alt   the paper, and a slightly deeper paper for alternate sections
-  --surface         cards sitting on the paper
-  --accent          dots, doodles, small highlights
-  --accent-ink      the same hue, dark enough for text, links and buttons
-  --accent-soft     a pale tint for chips and soft fills
-  --note-1..4       sticky-note colours
-  --grid            faint graph-paper lines
+  --bg / --bg-alt      the page, and a deeper shade for alternate sections
+  --surface            cards on the page
+  --ink / -soft / -faint   text, from strongest to quietest
+  --accent             doodles, dots, small highlights
+  --accent-ink         the same hue, strong enough for text, links and buttons
+  --on-accent          text on an --accent-ink button
+  --accent-soft        a pale tint for chips and soft fills
+  --note-1..4          sticky-note colours (notes always use dark ink)
+  --scene-1..3         colours the hero scene paints with
+  --aura               the soft glow around coloured things
 */
 
 :root,
-[data-theme="rose"] {
-  --bg: #fdf8f9;
-  --bg-alt: #f8eef2;
+[data-theme="cloud"] {
+  color-scheme: light;
+  --bg: #f6f8fb;
+  --bg-alt: #eaeff5;
   --surface: #ffffff;
-  --accent: #d0477f;
-  --accent-ink: #a3245a;
-  --accent-soft: #fbe4ec;
-  --note-1: #ffd3e1;
-  --note-2: #fff1a6;
-  --note-3: #e2d8ff;
-  --note-4: #cdeedd;
-  --pastel-1: #ffd3e1;
-  --pastel-2: #e2d8ff;
-  --pastel-3: #fff1a6;
-  --gradient: linear-gradient(100deg, #a3245a, #d0477f);
-  --grid: color-mix(in srgb, #a3245a 9%, transparent);
+  --ink: #1b2633;
+  --ink-soft: #2b3746;
+  --ink-faint: #566273;
+  --line: color-mix(in srgb, #1b2633 20%, transparent);
+  --accent: #6f8fb3;
+  --accent-ink: #3b5a80;
+  --accent-soft: #e2eaf4;
+  --on-accent: #ffffff;
+  --note-1: #e4ecf6;
+  --note-2: #fbf4e2;
+  --note-3: #e9e5f4;
+  --note-4: #e1efe9;
+  --note-ink: #1d1d1f;
+  --pastel-1: #e4ecf6;
+  --pastel-2: #e9e5f4;
+  --pastel-3: #fbf4e2;
+  --scene-1: #dbe5f1;
+  --scene-2: #eef3f9;
+  --scene-3: #c9d6e6;
+  --aura: #a9c0dc;
+  --gradient: linear-gradient(100deg, #3b5a80, #6f8fb3);
+  --grid: color-mix(in srgb, #3b5a80 8%, transparent);
+  --glass: rgba(255, 255, 255, 0.6);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --key-top: #ffffff;
+  --key-bottom: color-mix(in srgb, #eaeff5 50%, #ffffff);
 }
 
-[data-theme="henna"] {
-  --bg: #fbf7f2;
-  --bg-alt: #f4ebe0;
-  --surface: #ffffff;
-  --accent: #b5652f;
-  --accent-ink: #8a3f12;
-  --accent-soft: #f6e3d2;
-  --note-1: #f9d2b5;
-  --note-2: #fff0b3;
-  --note-3: #f3d6cf;
-  --note-4: #dfe8c8;
-  --pastel-1: #f9d2b5;
-  --pastel-2: #f3d6cf;
-  --pastel-3: #fff0b3;
-  --gradient: linear-gradient(100deg, #8a3f12, #b5652f);
-  --grid: color-mix(in srgb, #8a3f12 9%, transparent);
+[data-theme="burgundy"] {
+  color-scheme: light;
+  --bg: #fbf5f5;
+  --bg-alt: #f3e6e8;
+  --surface: #fffdfd;
+  --ink: #2a1318;
+  --ink-soft: #3a1f25;
+  --ink-faint: #6e4f56;
+  --line: color-mix(in srgb, #2a1318 20%, transparent);
+  --accent: #9c3550;
+  --accent-ink: #7b1e36;
+  --accent-soft: #f4dfe4;
+  --on-accent: #ffffff;
+  --note-1: #f3d3da;
+  --note-2: #f8e8d2;
+  --note-3: #ead6e3;
+  --note-4: #efdfd5;
+  --note-ink: #1d1d1f;
+  --pastel-1: #f3d3da;
+  --pastel-2: #ead6e3;
+  --pastel-3: #f8e8d2;
+  --scene-1: #e9c2cc;
+  --scene-2: #f6dde3;
+  --scene-3: #c97d90;
+  --aura: #d98fa3;
+  --gradient: linear-gradient(100deg, #7b1e36, #9c3550);
+  --grid: color-mix(in srgb, #7b1e36 8%, transparent);
+  --glass: rgba(255, 255, 255, 0.6);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --key-top: #ffffff;
+  --key-bottom: color-mix(in srgb, #f3e6e8 50%, #ffffff);
 }
 
-[data-theme="lavender"] {
-  --bg: #f9f8fe;
-  --bg-alt: #efecfb;
+[data-theme="autumn"] {
+  color-scheme: light;
+  --bg: #fbf3e8;
+  --bg-alt: #f3e3cd;
+  --surface: #fffaf3;
+  --ink: #2b1c10;
+  --ink-soft: #3d2a1b;
+  --ink-faint: #6f5643;
+  --line: color-mix(in srgb, #2b1c10 20%, transparent);
+  --accent: #c8641e;
+  --accent-ink: #97420f;
+  --accent-soft: #f7dfc2;
+  --on-accent: #ffffff;
+  --note-1: #f6d2a2;
+  --note-2: #f2c3a8;
+  --note-3: #efdf9f;
+  --note-4: #dde0b2;
+  --note-ink: #1d1d1f;
+  --pastel-1: #f6d2a2;
+  --pastel-2: #efdf9f;
+  --pastel-3: #f2c3a8;
+  --scene-1: #f2c58f;
+  --scene-2: #f7dcb8;
+  --scene-3: #d98a4c;
+  --aura: #efa25c;
+  --gradient: linear-gradient(100deg, #97420f, #c8641e);
+  --grid: color-mix(in srgb, #97420f 8%, transparent);
+  --glass: rgba(255, 255, 255, 0.6);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --key-top: #ffffff;
+  --key-bottom: color-mix(in srgb, #f3e3cd 50%, #ffffff);
+}
+
+[data-theme="winter"] {
+  color-scheme: light;
+  --bg: #f3f8fd;
+  --bg-alt: #e3eef8;
   --surface: #ffffff;
-  --accent: #7a5ce0;
-  --accent-ink: #5536b8;
-  --accent-soft: #ebe5fd;
-  --note-1: #e1d6ff;
-  --note-2: #ffe1ef;
+  --ink: #14233a;
+  --ink-soft: #22344d;
+  --ink-faint: #4f6178;
+  --line: color-mix(in srgb, #14233a 20%, transparent);
+  --accent: #4f8fce;
+  --accent-ink: #235690;
+  --accent-soft: #dae9f7;
+  --on-accent: #ffffff;
+  --note-1: #dbebfa;
+  --note-2: #eef4fb;
+  --note-3: #e2dff5;
+  --note-4: #d5efef;
+  --note-ink: #1d1d1f;
+  --pastel-1: #dbebfa;
+  --pastel-2: #e2dff5;
+  --pastel-3: #eef4fb;
+  --scene-1: #d3e6f6;
+  --scene-2: #f1f7fd;
+  --scene-3: #a9c8e6;
+  --aura: #9cc8f0;
+  --gradient: linear-gradient(100deg, #235690, #4f8fce);
+  --grid: color-mix(in srgb, #235690 8%, transparent);
+  --glass: rgba(255, 255, 255, 0.6);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --key-top: #ffffff;
+  --key-bottom: color-mix(in srgb, #e3eef8 50%, #ffffff);
+}
+
+[data-theme="heritage"] {
+  color-scheme: light;
+  --bg: #fbf5ec;
+  --bg-alt: #f1e2cc;
+  --surface: #fffaf2;
+  --ink: #2a1b12;
+  --ink-soft: #3b2a1e;
+  --ink-faint: #6e5848;
+  --line: color-mix(in srgb, #2a1b12 20%, transparent);
+  --accent: #b5523b;
+  --accent-ink: #8b3522;
+  --accent-soft: #f3ddcb;
+  --on-accent: #ffffff;
+  --note-1: #f2d9bb;
+  --note-2: #e3eee6;
+  --note-3: #f1cfc0;
+  --note-4: #e9dfc2;
+  --note-ink: #1d1d1f;
+  --pastel-1: #f2d9bb;
+  --pastel-2: #f1cfc0;
+  --pastel-3: #e3eee6;
+  --scene-1: #e4c39c;
+  --scene-2: #2f7c7a;
+  --scene-3: #c8735a;
+  --aura: #e0a77e;
+  --gradient: linear-gradient(100deg, #8b3522, #b5523b);
+  --grid: color-mix(in srgb, #8b3522 8%, transparent);
+  --glass: rgba(255, 255, 255, 0.6);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --key-top: #ffffff;
+  --key-bottom: color-mix(in srgb, #f1e2cc 50%, #ffffff);
+}
+
+[data-theme="fairy"] {
+  color-scheme: light;
+  --bg: #f6fbf8;
+  --bg-alt: #eeecfa;
+  --surface: #ffffff;
+  --ink: #28223f;
+  --ink-soft: #372f55;
+  --ink-faint: #625a80;
+  --line: color-mix(in srgb, #28223f 20%, transparent);
+  --accent: #9a7ed8;
+  --accent-ink: #6449b0;
+  --accent-soft: #ebe4fb;
+  --on-accent: #ffffff;
+  --note-1: #dbf4e7;
+  --note-2: #e9e0fb;
+  --note-3: #fbe1ef;
+  --note-4: #fff3d4;
+  --note-ink: #1d1d1f;
+  --pastel-1: #dbf4e7;
+  --pastel-2: #fbe1ef;
+  --pastel-3: #e9e0fb;
+  --scene-1: #c8f0dc;
+  --scene-2: #e0d4fa;
+  --scene-3: #fdf3b0;
+  --aura: #c3b0f5;
+  --gradient: linear-gradient(100deg, #6449b0, #9a7ed8);
+  --grid: color-mix(in srgb, #6449b0 8%, transparent);
+  --glass: rgba(255, 255, 255, 0.6);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --key-top: #ffffff;
+  --key-bottom: color-mix(in srgb, #eeecfa 50%, #ffffff);
+}
+
+[data-theme="vanilla"] {
+  color-scheme: light;
+  --bg: #fffaf0;
+  --bg-alt: #f7ecd7;
+  --surface: #fffdf8;
+  --ink: #2e2418;
+  --ink-soft: #3f3324;
+  --ink-faint: #6f6150;
+  --line: color-mix(in srgb, #2e2418 20%, transparent);
+  --accent: #c39a52;
+  --accent-ink: #80601f;
+  --accent-soft: #f5e8cd;
+  --on-accent: #ffffff;
+  --note-1: #fff1c9;
+  --note-2: #f8dfcd;
+  --note-3: #eee4cf;
+  --note-4: #e6eed4;
+  --note-ink: #1d1d1f;
+  --pastel-1: #fff1c9;
+  --pastel-2: #eee4cf;
+  --pastel-3: #f8dfcd;
+  --scene-1: #fbe8c0;
+  --scene-2: #fff5e0;
+  --scene-3: #e8c88c;
+  --aura: #f0d39a;
+  --gradient: linear-gradient(100deg, #80601f, #c39a52);
+  --grid: color-mix(in srgb, #80601f 8%, transparent);
+  --glass: rgba(255, 255, 255, 0.6);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --key-top: #ffffff;
+  --key-bottom: color-mix(in srgb, #f7ecd7 50%, #ffffff);
+}
+
+[data-theme="swan"] {
+  color-scheme: light;
+  --bg: #fdfcfd;
+  --bg-alt: #f3f1f6;
+  --surface: #ffffff;
+  --ink: #1f1d29;
+  --ink-soft: #2e2b3b;
+  --ink-faint: #5c586c;
+  --line: color-mix(in srgb, #1f1d29 20%, transparent);
+  --accent: #a596cc;
+  --accent-ink: #5a4e86;
+  --accent-soft: #eeebf6;
+  --on-accent: #ffffff;
+  --note-1: #ffffff;
+  --note-2: #f6edf4;
+  --note-3: #ecf1f8;
+  --note-4: #fbf4ea;
+  --note-ink: #1d1d1f;
+  --pastel-1: #ffffff;
+  --pastel-2: #ecf1f8;
+  --pastel-3: #f6edf4;
+  --scene-1: #efe9f7;
+  --scene-2: #f9f2f6;
+  --scene-3: #dfe7f4;
+  --aura: #d6cdf0;
+  --gradient: linear-gradient(100deg, #5a4e86, #a596cc);
+  --grid: color-mix(in srgb, #5a4e86 8%, transparent);
+  --glass: rgba(255, 255, 255, 0.6);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --key-top: #ffffff;
+  --key-bottom: color-mix(in srgb, #f3f1f6 50%, #ffffff);
+}
+
+[data-theme="starlight"] {
+  color-scheme: dark;
+  --bg: #0f1430;
+  --bg-alt: #151b3e;
+  --surface: #1b2249;
+  --ink: #eef0ff;
+  --ink-soft: #d6daf6;
+  --ink-faint: #a5abd8;
+  --line: rgba(255, 255, 255, 0.2);
+  --accent: #c6b6ff;
+  --accent-ink: #d9cdff;
+  --accent-soft: #2a2f60;
+  --on-accent: #141938;
+  --note-1: #e8defc;
+  --note-2: #fde8c8;
   --note-3: #d6e6ff;
-  --note-4: #fff2b0;
-  --pastel-1: #e1d6ff;
+  --note-4: #ffd9ea;
+  --note-ink: #1d1d1f;
+  --pastel-1: #e8defc;
   --pastel-2: #d6e6ff;
-  --pastel-3: #ffe1ef;
-  --gradient: linear-gradient(100deg, #5536b8, #7a5ce0);
-  --grid: color-mix(in srgb, #5536b8 9%, transparent);
+  --pastel-3: #fde8c8;
+  --scene-1: #3a2f7a;
+  --scene-2: #7b5fd6;
+  --scene-3: #e0a8ff;
+  --aura: #b9a3ff;
+  --gradient: linear-gradient(100deg, #d9cdff, #c6b6ff);
+  --grid: color-mix(in srgb, #d9cdff 14%, transparent);
+  --glass: rgba(27, 34, 73, 0.6);
+  --glass-strong: rgba(27, 34, 73, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --key-top: #262e5c;
+  --key-bottom: #1f2650;
 }
 
-[data-theme="matcha"] {
-  --bg: #f7faf3;
-  --bg-alt: #ecf2e5;
+[data-theme="ocean"] {
+  color-scheme: light;
+  --bg: #f3f9fb;
+  --bg-alt: #e1f0f4;
   --surface: #ffffff;
-  --accent: #5f9136;
-  --accent-ink: #3c6b1e;
-  --accent-soft: #e2efd5;
-  --note-1: #d8efc4;
-  --note-2: #fff3b0;
-  --note-3: #cfeee5;
-  --note-4: #f6dccb;
-  --pastel-1: #d8efc4;
-  --pastel-2: #cfeee5;
-  --pastel-3: #fff3b0;
-  --gradient: linear-gradient(100deg, #3c6b1e, #5f9136);
-  --grid: color-mix(in srgb, #3c6b1e 9%, transparent);
+  --ink: #10303a;
+  --ink-soft: #1e414c;
+  --ink-faint: #4b6a74;
+  --line: color-mix(in srgb, #10303a 20%, transparent);
+  --accent: #2f93ad;
+  --accent-ink: #156479;
+  --accent-soft: #d6edf2;
+  --on-accent: #ffffff;
+  --note-1: #d4eff2;
+  --note-2: #e6f3e4;
+  --note-3: #fcefd9;
+  --note-4: #dfe7f7;
+  --note-ink: #1d1d1f;
+  --pastel-1: #d4eff2;
+  --pastel-2: #fcefd9;
+  --pastel-3: #e6f3e4;
+  --scene-1: #9fd4e2;
+  --scene-2: #cfeaf0;
+  --scene-3: #5fb2c8;
+  --aura: #7cc6da;
+  --gradient: linear-gradient(100deg, #156479, #2f93ad);
+  --grid: color-mix(in srgb, #156479 8%, transparent);
+  --glass: rgba(255, 255, 255, 0.6);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --key-top: #ffffff;
+  --key-bottom: color-mix(in srgb, #e1f0f4 50%, #ffffff);
 }
 
-[data-theme="sky"] {
-  --bg: #f6f9fd;
-  --bg-alt: #e9f1fa;
-  --surface: #ffffff;
-  --accent: #2f7fd6;
-  --accent-ink: #1b5aa8;
-  --accent-soft: #dfecfb;
-  --note-1: #cfe5ff;
-  --note-2: #fff2b0;
-  --note-3: #dcd8ff;
-  --note-4: #ccefea;
-  --pastel-1: #cfe5ff;
-  --pastel-2: #dcd8ff;
-  --pastel-3: #fff2b0;
-  --gradient: linear-gradient(100deg, #1b5aa8, #2f7fd6);
-  --grid: color-mix(in srgb, #1b5aa8 9%, transparent);
+[data-theme="forest"] {
+  color-scheme: light;
+  --bg: #f4f8f2;
+  --bg-alt: #e3eee0;
+  --surface: #fbfdfa;
+  --ink: #15261b;
+  --ink-soft: #22372a;
+  --ink-faint: #4d6555;
+  --line: color-mix(in srgb, #15261b 20%, transparent);
+  --accent: #3f8a5f;
+  --accent-ink: #235b3b;
+  --accent-soft: #d9eadb;
+  --on-accent: #ffffff;
+  --note-1: #d9ead0;
+  --note-2: #eef1d2;
+  --note-3: #d3eae1;
+  --note-4: #f1e1cd;
+  --note-ink: #1d1d1f;
+  --pastel-1: #d9ead0;
+  --pastel-2: #d3eae1;
+  --pastel-3: #eef1d2;
+  --scene-1: #a9cdb2;
+  --scene-2: #d8e8d6;
+  --scene-3: #4f8a66;
+  --aura: #8fc7a2;
+  --gradient: linear-gradient(100deg, #235b3b, #3f8a5f);
+  --grid: color-mix(in srgb, #235b3b 8%, transparent);
+  --glass: rgba(255, 255, 255, 0.6);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --key-top: #ffffff;
+  --key-bottom: color-mix(in srgb, #e3eee0 50%, #ffffff);
 }
 
-[data-theme="lemon"] {
-  --bg: #fffcf0;
-  --bg-alt: #fbf3d6;
-  --surface: #ffffff;
-  --accent: #d49a00;
-  --accent-ink: #8a5a00;
-  --accent-soft: #fbefc0;
-  --note-1: #fff09a;
-  --note-2: #ffd8c2;
-  --note-3: #d9f0c9;
-  --note-4: #ffd6e4;
-  --pastel-1: #fff09a;
-  --pastel-2: #d9f0c9;
-  --pastel-3: #ffd8c2;
-  --gradient: linear-gradient(100deg, #8a5a00, #d49a00);
-  --grid: color-mix(in srgb, #8a5a00 9%, transparent);
+[data-theme="cocoa"] {
+  color-scheme: light;
+  --bg: #faf4ee;
+  --bg-alt: #eedfd2;
+  --surface: #fffaf6;
+  --ink: #2a1910;
+  --ink-soft: #3b271b;
+  --ink-faint: #6c5546;
+  --line: color-mix(in srgb, #2a1910 20%, transparent);
+  --accent: #8b5a3c;
+  --accent-ink: #683d22;
+  --accent-soft: #efdccb;
+  --on-accent: #ffffff;
+  --note-1: #efd9c4;
+  --note-2: #f7e8d3;
+  --note-3: #e7d3c8;
+  --note-4: #eee0bd;
+  --note-ink: #1d1d1f;
+  --pastel-1: #efd9c4;
+  --pastel-2: #e7d3c8;
+  --pastel-3: #f7e8d3;
+  --scene-1: #d9b79c;
+  --scene-2: #f1e2d4;
+  --scene-3: #a9785a;
+  --aura: #d4a47e;
+  --gradient: linear-gradient(100deg, #683d22, #8b5a3c);
+  --grid: color-mix(in srgb, #683d22 8%, transparent);
+  --glass: rgba(255, 255, 255, 0.6);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --key-top: #ffffff;
+  --key-bottom: color-mix(in srgb, #eedfd2 50%, #ffffff);
 }
 
-/* The theme change is a circle that grows from the dot you clicked (see ThemeContext). */
+/* The theme change is a circle that grows from where you clicked (see ThemeContext). */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;

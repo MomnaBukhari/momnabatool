@@ -1,5 +1,5 @@
 import { useId, useLayoutEffect, useRef, useState } from "react";
-import { PiCaretDown, PiCloud, PiCode, PiDeviceMobile, PiPlugs, PiShieldCheck, PiUser } from "react-icons/pi";
+import { PiCaretDown, PiChalkboardTeacher, PiCloud, PiCode, PiDeviceMobile, PiMicrophoneStage, PiPlugs, PiShieldCheck, PiSparkle, PiUser } from "react-icons/pi";
 import { SiWordpress } from "react-icons/si";
 import Section from "../layout/Section";
 import Doodle from "../doodles/Doodle";
@@ -16,6 +16,9 @@ const ICONS = {
   code: PiCode,
   plug: PiPlugs,
   wordpress: SiWordpress,
+  spark: PiSparkle,
+  talk: PiMicrophoneStage,
+  school: PiChalkboardTeacher,
 };
 
 export default function Experience() {
@@ -40,7 +43,7 @@ export default function Experience() {
   }, []);
 
   return (
-    <Section id="experience" title="Experience" kicker="almost five years in production" tone="grey">
+    <Section id="experience" title="Experience" kicker="almost five years in production, and giving back" tone="grey">
       <ol ref={listRef} className="timeline">
         <li className="timeline__rail" aria-hidden="true">
           <span ref={fillRef} className="timeline__fill" />

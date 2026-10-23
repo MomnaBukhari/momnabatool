@@ -3,6 +3,7 @@ import { gsap, prefersReducedMotion } from "../../lib/gsap";
 import "./Cursor.css";
 
 // What the cursor turns into, checked in this order:
+// something magic ([data-cursor-magic])  → a glowing star of light that sheds sparkles
 // a label ([data-cursor="View project"]) → a filled circle with the words in it
 // a sticky note ([data-cursor-drag])       → a soft rounded square saying "Drag"
 // a text field                             → a blinking text caret
@@ -42,6 +43,7 @@ export default function Cursor() {
     let state = "";
     let last = { x: 0, y: 0 };
     let visible = false;
+    let lastSparkle = 0;
 
     const setState = (next, text = "") => {
       if (next === state && label.textContent === text) return;
@@ -80,6 +82,18 @@ export default function Cursor() {
 
       const target = event.target instanceof Element ? event.target : null;
       if (!target) return;
+      // Something magical (the closed storybook): a glowing wand-light that sheds sparkles.
+      const magic = target.closest("[data-cursor-magic]");
+      if (magic) {
+        const now = performance.now();
+        if (now - lastSparkle > 70) {
+          lastSparkle = now;
+          window.dispatchEvent(
+            new CustomEvent("ambience:burst", { detail: { x: event.clientX, y: event.clientY, kind: "sparkle", count: 2 } })
+          );
+        }
+        return setState("magic", magic.dataset.cursorMagic);
+      }
       const labelled = target.closest("[data-cursor]");
       if (labelled) return setState("label", labelled.dataset.cursor);
       if (target.closest(".is-draggable [data-cursor-drag]")) return setState("drag", "Drag");

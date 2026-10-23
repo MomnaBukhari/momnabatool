@@ -1,0 +1,169 @@
+.cvs {
+  min-height: 100svh;
+  padding-top: calc(var(--nav-height) + 56px);
+  padding-bottom: var(--section-gap);
+}
+
+.cvs__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--accent-ink);
+  transition: gap 0.4s var(--spring);
+}
+
+.cvs__back:hover {
+  gap: 14px;
+}
+
+.cvs__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px 24px;
+  margin-top: 32px;
+}
+
+.cvs__header h1 {
+  font-size: var(--text-headline);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.cvs__kicker {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 6px;
+  padding-bottom: 0.15em;
+  font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.3rem);
+  color: var(--accent-ink);
+  rotate: -2deg;
+}
+
+.cvs__arrow {
+  width: 34px;
+  height: 22px;
+  margin-bottom: 0.35em;
+  scale: -1 1;
+  --doodle-color: var(--accent-ink);
+  --doodle-width: 1.8px;
+}
+
+.cvs__all {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  padding: 9px 16px;
+  border: 1px dashed color-mix(in srgb, var(--ink) 35%, transparent);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  transition: background-color var(--fast) var(--ease);
+}
+
+.cvs__all:hover {
+  background: var(--accent-soft);
+}
+
+.cvs__grid {
+  display: grid;
+  gap: 48px 32px;
+  margin-top: 44px;
+}
+
+.cvs__item {
+  display: grid;
+  align-content: start;
+  gap: 22px;
+}
+
+/* Each CV is a sheet of paper taped to the desk. */
+.cvs__sheet {
+  position: relative;
+  display: block;
+  padding: 6px;
+  background: #fff;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.08),
+    0 24px 40px -24px rgba(0, 0, 0, 0.35);
+  transform: rotate(var(--tilt, 0deg));
+  transition:
+    transform 0.6s var(--spring),
+    box-shadow 0.4s var(--ease);
+}
+
+.cvs__sheet:hover,
+.cvs__sheet:focus-visible {
+  transform: rotate(0deg) translateY(-8px) scale(1.02);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.08),
+    0 40px 60px -28px rgba(0, 0, 0, 0.4);
+}
+
+.cvs__sheet img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+}
+
+.cvs__note {
+  font-size: 1.05rem;
+  color: var(--accent-ink);
+}
+
+.cvs__info h2 {
+  font-size: var(--text-title);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.cvs__summary {
+  margin-top: 6px;
+  max-width: 40ch;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+.cvs__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 20px;
+  margin-top: 16px;
+}
+
+.cvs__open {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--accent-ink);
+}
+
+.cvs__open:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+@media (min-width: 700px) {
+  .cvs__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1000px) {
+  .cvs__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 599px) {
+  .cvs__all {
+    margin-left: 0;
+  }
+}

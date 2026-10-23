@@ -20,6 +20,7 @@
   line-height: 1;
   letter-spacing: -0.04em;
   color: var(--ink);
+  text-shadow: 0 0 40px color-mix(in srgb, var(--aura) 45%, transparent);
 }
 
 /* The handwritten note beside the title. */

@@ -8,7 +8,7 @@ const ICONS = { briefcase: PiBriefcase, code: PiCode, flask: PiFlask };
 
 export default function About() {
   return (
-    <Section id="about" title="About" kicker="backend first, with research in AI">
+    <Section id="about" title="About" kicker="backend at heart, creative by nature">
       <div className="about">
         <div className="about__main">
           <p className="about__lead" data-reveal>

@@ -10,7 +10,7 @@ import "./Button.css";
 export default function Button({ href, variant = "solid", className = "", icon, children, ...rest }) {
   const ref = useRef(null);
   useMagnetic(ref, 0.25);
-  const classes = `button button--${variant} ${className}`.trim();
+  const classes = `button button--${variant}${variant === "solid" ? " glitter" : ""} ${className}`.trim();
   const content = (
     <>
       <RollText>{children}</RollText>

@@ -37,6 +37,7 @@
 
 .cursor__shape {
   --size: 34px;
+  position: relative;
   display: grid;
   place-items: center;
   width: var(--size);
@@ -65,7 +66,7 @@
   line-height: 1.15;
   text-align: center;
   max-width: calc(var(--size) - 20px);
-  color: #fff;
+  color: var(--on-accent);
   opacity: 0;
   transition: opacity 0.2s var(--ease);
 }
@@ -98,6 +99,44 @@
   border-color: var(--ink);
   background: var(--ink);
   rotate: -8deg;
+}
+
+/* Magic: a glowing orb of light with a four-point star turning inside it. */
+.cursor[data-state="magic"] .cursor__shape {
+  --size: 86px;
+  border-color: transparent;
+  background: radial-gradient(circle, color-mix(in srgb, var(--aura) 75%, #fff) 0%, color-mix(in srgb, var(--aura) 35%, transparent) 45%, transparent 70%);
+  box-shadow: 0 0 40px 6px color-mix(in srgb, var(--aura) 45%, transparent);
+}
+
+.cursor[data-state="magic"] .cursor__shape::before {
+  content: "";
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  background: var(--accent-ink);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 0C21 13 27 19 40 20C27 21 21 27 20 40C19 27 13 21 0 20C13 19 19 13 20 0Z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 0C21 13 27 19 40 20C27 21 21 27 20 40C19 27 13 21 0 20C13 19 19 13 20 0Z'/%3E%3C/svg%3E") center / contain no-repeat;
+  animation: wand 3s linear infinite;
+}
+
+.cursor[data-state="magic"] .cursor__label {
+  position: absolute;
+  top: calc(100% + 2px);
+  font-family: var(--font-hand);
+  font-size: 0.95rem;
+  color: var(--accent-ink);
+  opacity: 1;
+}
+
+@keyframes wand {
+  to {
+    rotate: 360deg;
+  }
+}
+
+.cursor-dot[data-state="magic"] {
+  scale: 0;
 }
 
 .cursor:is([data-state="label"], [data-state="drag"]) .cursor__label {

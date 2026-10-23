@@ -1,16 +1,7 @@
 /* Type, space, neutrals and motion. Theme colours live in src/theme/themes.css. */
 
 :root {
-  /* Neutrals: the same in every theme, like Apple's white and light grey. */
-  /* Paper colours (--bg, --bg-alt, --surface) come from the theme.
-     Text is black or near-black everywhere: depth comes from size and weight, not grey. */
-  --ink: #1d1d1f;
-  --ink-soft: #2c2c30;
-  --ink-faint: #55555b;
-  --line: rgba(29, 29, 31, 0.12);
-  --glass: rgba(255, 255, 255, 0.62);
-  --glass-strong: rgba(255, 255, 255, 0.82);
-  --glass-border: rgba(255, 255, 255, 0.75);
+  /* All colours, text included, come from the theme (src/theme/themes.css). */
   --shadow: 0 24px 48px -28px rgba(0, 0, 0, 0.18);
   --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px -12px rgba(0, 0, 0, 0.1);
   /* A sticky note on a wall: a tight contact shadow and a soft lifted one. */

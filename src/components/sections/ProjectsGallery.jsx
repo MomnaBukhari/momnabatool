@@ -1,13 +1,12 @@
 import { useLayoutEffect, useRef } from "react";
-import { PiArrowRight, PiGithubLogo, PiPlus } from "react-icons/pi";
+import { PiArrowRight, PiGithubLogo } from "react-icons/pi";
 import { gsap, MOTION_OK } from "../../lib/gsap";
 import { scrollToY } from "../../lib/scroll";
 import { projects } from "../../projects";
 import { profile } from "../../data/profile";
-import useTilt from "../../hooks/useTilt";
+import { TechIcon } from "../../lib/techIcons";
 import { TransitionLink } from "../layout/PageTransition";
 import ProjectArt from "../projects/ProjectArt";
-import TagList from "../ui/TagList";
 import "./ProjectsGallery.css";
 
 /**
@@ -113,14 +112,14 @@ export default function ProjectsGallery() {
       className="gallery"
       aria-labelledby="projects-heading"
     >
-      <div ref={pinRef} className="gallery__pin">
+      <div ref={pinRef} className="gallery__pin graph-paper">
         <div ref={trackRef} className="gallery__track" data-cursor-zone="drag">
           <div className="gallery__intro">
             <h2 id="projects-heading" tabIndex={-1}>
               Projects <span className="hand">built for real people</span>
             </h2>
             <p className="gallery__lede">
-              Professional work first, then academic and personal builds. Each one has its own page.
+              Pinned up in order: professional work first, then academic and personal builds. Open any note for the full story.
             </p>
             <p className="gallery__hint">
               <span className="hand">keep scrolling, they slide sideways</span> <PiArrowRight aria-hidden="true" />
@@ -161,50 +160,77 @@ export default function ProjectsGallery() {
   );
 }
 
+// The pinboard: each project is a note with a photo clipped to it, tilted a little.
+const TILTS = [-2, 1.5, -1, 2, -1.5, 1, -2.5];
+
 function ProjectCard({ project, index, total, onFocus }) {
-  const cardRef = useRef(null);
-  useTilt(cardRef, { max: 7 });
   const number = (n) => String(n).padStart(2, "0");
+  const tilt = TILTS[index % TILTS.length];
 
   return (
-    <article ref={cardRef} className="pcard" onFocus={onFocus}>
+    <article
+      className="pcard"
+      onFocus={onFocus}
+      style={{ "--note-color": `var(--note-${(index % 4) + 1})`, "--tilt": `${tilt}deg` }}
+    >
       <TransitionLink
         to={`/projects/${project.slug}`}
         label={project.title}
-        className="pcard__link"
-        data-cursor="View project"
+        className="pcard__link sticky-note"
+        data-cursor="Read the full story"
       >
-        <div className="pcard__text">
-          <p className="pcard__eyebrow">
-            {project.type} <span aria-hidden="true">/</span> {project.period}
-          </p>
-          <h3>{project.title}</h3>
-          <p className="pcard__tagline">{project.tagline}</p>
-        </div>
-        <div className="pcard__art">
-          <ProjectArt seed={project.slug} monogram={project.cover ? null : project.title[0]} />
-          {project.cover && (
-            <img
-              className="pcard__shot"
-              src={project.cover.src}
-              alt=""
-              width={project.cover.width}
-              height={project.cover.height}
-              loading="lazy"
-              decoding="async"
-            />
-          )}
-        </div>
-        <div className="pcard__foot">
-          <TagList items={project.stack.slice(0, 3)} label={`Technologies used in ${project.title}`} />
-          <span className="pcard__plus" aria-hidden="true">
-            <PiPlus />
+        {index % 2 === 0 ? <span className="tape" aria-hidden="true" /> : <span className="pin" aria-hidden="true" />}
+        <span className="pcard__stamp" aria-hidden="true">
+          {project.type}
+        </span>
+
+        <figure className="pcard__photo">
+          <span className="pcard__frame">
+            <ProjectArt seed={project.slug} monogram={project.cover ? null : project.title[0]} />
+            {project.cover && (
+              <img
+                className="pcard__shot"
+                src={project.cover.src}
+                alt=""
+                width={project.cover.width}
+                height={project.cover.height}
+                loading="lazy"
+                decoding="async"
+              />
+            )}
           </span>
-          <span className="visually-hidden">
-            Project {number(index + 1)} of {number(total)}
-          </span>
-        </div>
-        <span className="pcard__shine" aria-hidden="true" />
+          <figcaption className="hand">
+            {project.context}, {project.period}
+          </figcaption>
+        </figure>
+
+        <h3>{project.title}</h3>
+        <p className="pcard__tagline">{project.tagline}</p>
+        <p className="pcard__role">
+          <span className="hand">my part:</span> {project.role}
+        </p>
+
+        <ul className="pcard__points">
+          {project.highlights.slice(0, 3).map((point) => (
+            <li key={point}>{point}</li>
+          ))}
+        </ul>
+
+        <ul className="pcard__stack" aria-label={`Technologies used in ${project.title}`}>
+          {project.stack.map((item) => (
+            <li key={item}>
+              <TechIcon name={item} />
+              {item}
+            </li>
+          ))}
+        </ul>
+
+        <span className="pcard__more hand" aria-hidden="true">
+          the full story <PiArrowRight />
+        </span>
+        <span className="visually-hidden">
+          Project {number(index + 1)} of {number(total)}
+        </span>
       </TransitionLink>
     </article>
   );

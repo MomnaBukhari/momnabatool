@@ -17,6 +17,7 @@ import App from "./App.jsx";
 import Home from "./pages/Home.jsx";
 import ProjectPage from "./pages/ProjectPage.jsx";
 import Nook from "./pages/Nook.jsx";
+import CvPage from "./pages/CvPage.jsx";
 import { nook } from "./data/profile";
 
 createRoot(document.getElementById("root")).render(
@@ -28,6 +29,7 @@ createRoot(document.getElementById("root")).render(
             <Route index element={<Home />} />
             <Route path="projects/:slug" element={<ProjectPage />} />
             <Route path={nook.path.slice(1)} element={<Nook />} />
+            <Route path="cv" element={<CvPage />} />
             {/* Old links like /about or /projects land on the right part of the home page. */}
             <Route path="*" element={<Home />} />
           </Route>

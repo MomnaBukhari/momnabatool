@@ -1,13 +1,13 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { PiDownloadSimple, PiSparkle } from "react-icons/pi";
+import { PiFileText, PiSparkle } from "react-icons/pi";
 import { gsap, prefersReducedMotion } from "../../lib/gsap";
 import { lockScroll, scrollToSection } from "../../lib/scroll";
 import useActiveSection from "../../hooks/useActiveSection";
 import { nook, profile, sections } from "../../data/profile";
 import RollText from "../ui/RollText";
-import { MediaButtons, ThemeDots } from "./Controls";
-import { usePageTransition } from "./PageTransition";
+import { MediaButtons, ThemeGrid } from "./Controls";
+import { TransitionLink, usePageTransition } from "./PageTransition";
 import "./Nav.css";
 
 export default function Nav() {
@@ -136,7 +136,6 @@ export default function Nav() {
     <div className={`nav${scrolled ? " is-scrolled" : ""}${open ? " is-open" : ""}`}>
       <nav className="nav__bar" aria-label="Main">
         <div className="nav__start">
-          <ThemeDots />
           <a className="nav__brand" href="/" onClick={goHome}>
             <span className="nav__brand-full">{profile.name}</span>
             <span className="nav__brand-short">{profile.firstName}</span>
@@ -149,10 +148,9 @@ export default function Nav() {
         </ul>
 
         <div className="nav__end">
-          <MediaButtons />
-          <a className="nav__cv" href={profile.cv} download data-cursor="Download my CV">
-            <PiDownloadSimple aria-hidden="true" /> CV
-          </a>
+          <TransitionLink to={profile.cv} label="My CVs" className="nav__cv" data-cursor="See my CVs">
+            <PiFileText aria-hidden="true" /> CV
+          </TransitionLink>
           <button
             ref={toggleRef}
             type="button"
@@ -170,14 +168,14 @@ export default function Nav() {
       <div id="mobile-menu" ref={menuRef} className="nav__menu" hidden={!open}>
         <ul>{renderLinks("nav__menu-item")}</ul>
         <div className="nav__menu-item nav__menu-themes">
-          <p>Pick a colour</p>
-          <ThemeDots size="large" />
+          <p>Pick a mood</p>
+          <ThemeGrid compact onPick={() => setOpen(false)} />
         </div>
         <div className="nav__menu-item nav__menu-media">
           <MediaButtons />
-          <a className="nav__cv" href={profile.cv} download>
-            <PiDownloadSimple aria-hidden="true" /> Download CV
-          </a>
+          <TransitionLink to={profile.cv} label="My CVs" className="nav__cv" onClick={() => setOpen(false)}>
+            <PiFileText aria-hidden="true" /> My CVs
+          </TransitionLink>
         </div>
       </div>
     </div>

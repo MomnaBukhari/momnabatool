@@ -56,6 +56,7 @@
   line-height: 1;
   letter-spacing: -0.05em;
   color: var(--ink);
+  text-shadow: 0 0 60px color-mix(in srgb, var(--aura) 55%, transparent);
 }
 
 .hero__line {
@@ -82,12 +83,40 @@
   font-weight: 650;
 }
 
+/* The short version: a few pinched lines, like labels stuck under a frame. */
+.hero__pinch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin-top: 18px;
+}
+
+.hero__pinch li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px 5px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  font-family: var(--font-hand);
+  font-size: 0.98rem;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.hero__pinch svg {
+  color: var(--accent-ink);
+}
+
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 12px 24px;
-  margin-top: 28px;
+  margin-top: 26px;
 }
 
 .hero__cv {
@@ -109,7 +138,7 @@
 }
 
 .hero__cv:hover svg {
-  transform: translateY(3px);
+  transform: translateX(3px) rotate(-6deg);
 }
 
 /* The desk: an editor window, a sticky note on it and a scribbled aside. */
@@ -369,3 +398,13 @@
     animation: none;
   }
 }
+
+/* Some themes paint their own background instead of graph paper. */
+:is([data-theme="starlight"], [data-theme="heritage"], [data-theme="swan"], [data-theme="ocean"]) .hero.graph-paper {
+  background-image: none;
+}
+
+/* Code colours that read on a dark sky. */
+[data-theme="starlight"] .tok-f { color: #9cc4ff; }
+[data-theme="starlight"] .tok-s { color: #9de3b8; }
+[data-theme="starlight"] .tok-t { color: #dcb4ff; }

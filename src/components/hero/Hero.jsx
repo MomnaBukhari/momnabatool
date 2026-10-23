@@ -1,23 +1,51 @@
 import { useLayoutEffect, useRef } from "react";
-import { PiArrowRight, PiDownloadSimple } from "react-icons/pi";
+import { PiArrowRight, PiFileText, PiGraduationCap, PiMedal, PiTimer, PiUserFocus } from "react-icons/pi";
+import { TransitionLink } from "../layout/PageTransition";
 import { gsap, MOTION_OK } from "../../lib/gsap";
 import { scrollToSection } from "../../lib/scroll";
 import { TechIcon } from "../../lib/techIcons";
 import { profile } from "../../data/profile";
-import { skills } from "../../data/skills";
 import Button from "../ui/Button";
 import WaveText from "../ui/WaveText";
 import Doodle from "../doodles/Doodle";
 import CodeWindow from "./CodeWindow";
+import HeroScene from "./HeroScene";
 import "./Hero.css";
 
-// The strip under the hero: the everyday stack, straight from the skills data.
+// The strip under the hero: the tools I reach for, backend first, then the rest.
+// Every name here gets its logo from src/lib/techIcons.jsx.
 const STACK = [
-  ...skills[0].items,
-  ...skills[2].items.slice(0, 1),
-  ...skills[3].items.slice(3),
+  "PHP",
+  "Laravel",
+  "MySQL",
+  "REST API design",
+  "Laravel Blade",
+  "WordPress",
+  "AWS Lambda integration",
+  "Amazon S3",
+  "JavaScript",
+  "React",
+  "HTML",
+  "CSS",
+  "GSAP",
+  "Python",
   "Git",
+  "GitHub",
+  "GitLab",
   "Postman",
+  "PhpStorm",
+  "VS Code",
+  "Figma",
+  "Canva",
+  "ibisPaint X",
+];
+
+// The short version, in a few pinched lines. Each one is true and checkable.
+const PINCH = [
+  { icon: PiTimer, text: "almost 5 years in production" },
+  { icon: PiUserFocus, text: "sole engineer on ScanPass" },
+  { icon: PiMedal, text: "gold medallist, BS IT" },
+  { icon: PiGraduationCap, text: "MRes in AI, Distinction" },
 ];
 
 export default function Hero() {
@@ -67,9 +95,10 @@ export default function Hero() {
 
   return (
     <header ref={rootRef} className="hero graph-paper" id="top">
+      <HeroScene />
       <div className="container hero__grid">
         <div ref={copyRef} className="hero__copy">
-          <p className="hero__hello hand" data-hero-follow>
+          <p className="hero__hello hand glitter" data-hero-follow>
             Hello, I&apos;m
             <Doodle shape="sparkle" className="hero__sparkle" onLoad delay={1.1} />
           </p>
@@ -81,9 +110,19 @@ export default function Hero() {
           <Doodle shape="underline" className="hero__underline" onLoad delay={0.7} />
 
           <p className="hero__sub" data-hero-follow>
-            A software engineer who builds the backend. <strong>PHP, Laravel and MySQL</strong>, in
-            production for almost five years.
+            A creative software engineer. Mostly backend, with <strong>PHP, Laravel and MySQL</strong>{" "}
+            behind real products. Just as happy on the frontend with React, or sketching an idea in
+            Figma first.
           </p>
+
+          <ul className="hero__pinch" data-hero-follow aria-label="In short">
+            {PINCH.map(({ icon: Icon, text }) => (
+              <li key={text}>
+                <Icon aria-hidden="true" />
+                {text}
+              </li>
+            ))}
+          </ul>
 
           <div className="hero__actions" data-hero-follow>
             <Button
@@ -96,9 +135,9 @@ export default function Hero() {
             >
               See my work
             </Button>
-            <a className="hero__cv" href={profile.cv} download data-cursor="Download my CV">
-              Download CV <PiDownloadSimple aria-hidden="true" />
-            </a>
+            <TransitionLink to={profile.cv} label="My CVs" className="hero__cv" data-cursor="See my CVs">
+              My CVs <PiFileText aria-hidden="true" />
+            </TransitionLink>
           </div>
         </div>
 
@@ -109,9 +148,9 @@ export default function Hero() {
             <span className="tape" aria-hidden="true" />
             <p className="hand">
               <span className="hero__pulse" aria-hidden="true" />
-              Open to software engineering roles
+              Open to new opportunities
             </p>
-            <p className="hand hero__note-small">UK and remote</p>
+            <p className="hand hero__note-small">say hello any time</p>
           </div>
 
           <p className="hero__aside hand" aria-hidden="true">

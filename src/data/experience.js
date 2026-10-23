@@ -5,6 +5,38 @@
 
 export const experience = [
   {
+    company: "InnovateHer",
+    role: "AI Ambassador",
+    period: "2026 – present",
+    location: "Greater Manchester, UK · Volunteer, in person",
+    note: "Volunteer role alongside my work and studies",
+    summary:
+      "InnovateHer is working towards a world with no gender gap, starting with the tech industry. Its ambassadors are STEM professionals who go into schools to show teenagers, girls especially, what they can achieve in tech.",
+    margin: "volunteer",
+    mains: [
+      { icon: "spark", text: "AI Assembly at North Chadderton School" },
+      { icon: "talk", text: "AI Role Model Talk for students" },
+      { icon: "school", text: "InnovateHer ambassador induction" },
+    ],
+    groups: [
+      {
+        title: "What I do",
+        points: [
+          "Deliver an AI Assembly and an AI Role Model Talk at North Chadderton School, in person, in November 2026.",
+          "Share what working in software and studying AI is really like, so students can picture themselves there.",
+        ],
+      },
+      {
+        title: "How it works",
+        points: [
+          "Ambassadors take part in assemblies, role model talks, careers fairs and mock interviews, in person and online.",
+          "Joined InnovateHer's ambassador induction course in October 2026.",
+        ],
+      },
+    ],
+    stack: ["AI literacy", "Public speaking", "STEM outreach"],
+  },
+  {
     company: "Rev9 Solutions",
     role: "Backend Developer",
     period: "Jun 2024 – Aug 2025",

@@ -8,7 +8,7 @@ Live site: https://syedamomnabatool.vercel.app
 
 - React 18, React Router and Vite
 - GSAP (ScrollTrigger, ScrollSmoother, DrawSVG, Draggable) for motion, smooth scrolling, the sideways project gallery, hand-drawn doodles and the draggable sticky notes
-- Plain CSS with design tokens and six paper-and-ink themes
+- Plain CSS with design tokens and twelve full-mood themes, each with its own hero scene and drifting particles
 - Inter, Kalam (handwriting) and JetBrains Mono (the code window), self-hosted via Fontsource
 - Tech logos from Simple Icons (via react-icons)
 
@@ -40,14 +40,23 @@ npm run lint
 | The custom cursor and its shapes | `src/components/cursor/Cursor.jsx` and `Cursor.css` |
 | Hand-drawn doodles (underline, arrow, flower…) | `src/components/doodles/Doodle.jsx` |
 | Logos and icons next to each skill | `src/lib/techIcons.jsx` |
-| At-a-glance sticky notes | `src/data/highlights.js` |
+| Themes: names, moods and particle effects | `src/theme/themes.js` (colours in `themes.css`) |
+| Each theme's hero scene | `src/components/hero/HeroScene.jsx` and `HeroScene.css` |
+| The drifting particles (leaves, snow, petals…) | `src/components/ambience/` |
+| The side rail (themes, effects, full screen, music, sound) | `src/components/layout/SideRail.jsx` |
+| The storybook of recommendations | `src/components/sections/Recommendations.jsx` (text in `src/data/recommendations.js`) |
 | Theme sound | `public/audio/ui/theme.mp3` (path in `src/lib/sound.js`) |
 | Background music | `public/audio/background.mp3` |
-| CV | `public/documents/syedamomnabatool.pdf` |
+| The three CVs (PDFs, previews and a zip of all three) | `public/documents/cv/`, listed in `src/data/cvs.js`, shown at `/cv` |
+| CV text, to edit and rebuild | `cv-source/build_cvs.py` |
 
 ### Add a project
 
 Copy any folder in `src/projects`, rename it, edit its `index.js` and set `order`. Drop a `cover.webp` (about 1280px wide) in the folder and import it like the others. It appears in the gallery and gets its own page at `/projects/<slug>`.
+
+### Update a CV
+
+Edit the text in `cv-source/build_cvs.py` and run `python cv-source/build_cvs.py`. It writes an HTML version of each CV into `cv-source/` and, if Playwright for Python is installed, the PDFs and preview images into `public/documents/cv/`. Without Playwright, open the HTML file in Chrome and use Print, then Save as PDF. Rebuild the zip of all three afterwards.
 
 ### Add something to The Nook
 
@@ -59,12 +68,12 @@ Replace `public/audio/ui/theme.mp3` with your own, keeping the same name (or cha
 
 ### Add a theme
 
-Add an entry to `src/theme/themes.js` and a matching `[data-theme="..."]` block in `src/theme/themes.css`. Each theme is a paper colour, an ink colour and four sticky-note colours.
+Add an entry to `src/theme/themes.js` (name, mood, preview colours and its particle `effect`), a matching `[data-theme="..."]` block in `src/theme/themes.css`, and optionally a scene for it in `HeroScene.jsx`. Also add its id to the list in `index.html`, which sets the theme before the page paints.
 
 ## Accessibility and performance
 
 - Every animation, the doodles, the hello screen's word cycling and smooth scrolling switch off when the visitor's system asks for reduced motion.
-- The doodles, the custom cursor and the theme sound are decorative. The cursor only appears with a mouse or trackpad, and everything works without sound and from the keyboard.
+- The doodles, particles, custom cursor and theme sound are decorative; particles can be switched off from the side rail. The cursor only appears with a mouse or trackpad, and everything works without sound and from the keyboard.
 
 ## Contact
 

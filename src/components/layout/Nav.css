@@ -13,14 +13,14 @@
   gap: 18px;
   height: 52px;
   padding: 0 10px 0 20px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--glass-border);
   border-radius: 999px;
   /* Liquid glass: heavy blur, extra saturation, a bright inner edge. */
-  background: rgba(255, 255, 255, 0.55);
+  background: var(--glass);
   -webkit-backdrop-filter: blur(24px) saturate(1.8);
   backdrop-filter: blur(24px) saturate(1.8);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 1px 0 var(--glass-border),
     0 0 0 0.5px rgba(0, 0, 0, 0.06),
     0 12px 40px -16px rgba(0, 0, 0, 0.18);
   transition: background-color var(--medium) var(--ease);
@@ -28,7 +28,7 @@
 
 .nav.is-scrolled .nav__bar,
 .nav.is-open .nav__bar {
-  background: rgba(255, 255, 255, 0.72);
+  background: var(--glass-strong);
 }
 
 .nav__start {
@@ -110,10 +110,6 @@
   gap: 8px;
 }
 
-.nav__end > .media-buttons {
-  display: none;
-}
-
 .nav__cv {
   display: none;
   align-items: center;
@@ -182,19 +178,14 @@
   transform: translateY(-4.25px) rotate(-45deg);
 }
 
-/* Small screens: the theme dots move into the menu. */
-.nav__start > .theme-dots {
-  display: none;
-}
-
 .nav__menu {
   margin-top: 10px;
   max-height: calc(100dvh - 100px);
   padding: 18px 22px 26px;
   overflow-y: auto;
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.82);
+  background: var(--glass-strong);
   -webkit-backdrop-filter: blur(28px) saturate(1.8);
   backdrop-filter: blur(28px) saturate(1.8);
   box-shadow: var(--shadow);
@@ -236,15 +227,8 @@
   display: inline-flex;
 }
 
-@media (min-width: 560px) {
-  .nav__start > .theme-dots {
-    display: flex;
-  }
-}
-
 @media (min-width: 1100px) {
-  .nav__links,
-  .nav__end > .media-buttons {
+  .nav__links {
     display: flex;
   }
 

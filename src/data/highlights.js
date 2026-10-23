@@ -32,6 +32,6 @@ export const highlights = [
   },
   {
     big: "Greater Manchester",
-    small: "Open to roles across the UK and remote.",
+    small: "Home base. Happy to work on site, hybrid or remote.",
   },
 ];

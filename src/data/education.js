@@ -4,7 +4,7 @@ export const education = [
     institution: "University of Greater Manchester, Bolton, UK",
     period: "2025 – 2026",
     detail:
-      "Result released; degree awaiting formal conferral. Dissertation on multilingual sentiment analysis for fashion-trend prediction.",
+      "Completed with Distinction. Dissertation on multilingual sentiment analysis for fashion-trend prediction.",
   },
   {
     qualification: "BS Information Technology",

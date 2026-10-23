@@ -7,22 +7,22 @@ export const profile = {
   headline:
     "I build the backend of web and mobile products in PHP and Laravel: APIs, data models, and the logic that keeps them honest.",
   summary:
-    "Almost five years in production teams, an MRes in Artificial Intelligence, and a soft spot for things that feel lovely to use. Based in Greater Manchester, open to roles across the UK or remote.",
+    "Almost five years in production teams, an MRes in Artificial Intelligence, and a soft spot for things that feel lovely to use. Based in Greater Manchester, UK.",
   location: "Greater Manchester, UK",
   email: "smomnabatool@gmail.com",
   links: {
     github: "https://github.com/MomnaBukhari",
     linkedin: "https://www.linkedin.com/in/momna-batool/",
   },
-  // Replace the PDF at this path with your current CV. The filename can stay the same.
-  cv: "/documents/syedamomnabatool.pdf",
+  // The page that shows all three CVs. The CVs themselves are listed in src/data/cvs.js.
+  cv: "/cv",
   // Formspree endpoint used by the contact form.
   formEndpoint: "https://formspree.io/f/mzzdzovg",
 };
 
 export const about = {
   // The one line people should remember.
-  lead: "I'm a software engineer who works mainly on the backend, across the whole lifecycle: requirements, data models, APIs, releases and fixing things in production.",
+  lead: "I'm a creative software engineer, mostly on the backend, and I've worked across the whole lifecycle: requirements, data models, APIs, interfaces, releases and fixing things in production.",
   // Three short chapters instead of long paragraphs. icon: a name from the ICONS list in About.jsx.
   chapters: [
     {
@@ -44,17 +44,21 @@ export const about = {
       text: "Added Python and applied NLP. I'm a backend engineer first; the research taught me to build the pipeline around a model with the same care.",
     },
   ],
+  // The index card beside About. Everything from the old "At a glance" wall lives here now.
   facts: [
-    { term: "Focus", detail: "Backend engineering: PHP, Laravel, MySQL, REST APIs" },
-    { term: "Experience", detail: "Almost 5 years, professionally" },
-    { term: "Also work in", detail: "React, JavaScript and Python" },
-    { term: "Based in", detail: "Greater Manchester, UK" },
-    { term: "Looking for", detail: "Software or backend engineering roles, UK or remote" },
+    { term: "Focus", detail: "Backend engineering: PHP, Laravel, MySQL and REST APIs" },
+    { term: "Also", detail: "React, JavaScript, Python, and Figma for sketching ideas" },
+    { term: "Experience", detail: "Almost 5 years, building, releasing and supporting production systems" },
+    { term: "Proudest", detail: "Sole engineer on ScanPass; the Laravel APIs behind Muslim Match Makers" },
+    { term: "Education", detail: "MRes AI with Distinction, University of Greater Manchester. BS IT, Gold Medal, GPA 3.79" },
+    { term: "Certified", detail: "AWS Academy: Cloud Foundations, and Machine Learning for NLP" },
+    { term: "Based in", detail: "Greater Manchester, UK. Happy on site, hybrid or remote" },
   ],
   // A few true things about life outside the day job.
   beyond: [
     "Gold medallist, 1st in my BS Information Technology year.",
     "Tutored programming, databases, OOP and project management one to one during my degree.",
+    "AI Ambassador with InnovateHer, bringing AI into school assemblies and role model talks.",
     "Supporting the University of Greater Manchester organising team on the “November to Remember” series with IEEE.",
     "Off the clock: fashion illustration and mehndi.",
   ],

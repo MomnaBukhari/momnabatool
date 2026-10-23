@@ -1,108 +1,448 @@
-.quotes {
+.kind {
   display: grid;
-  gap: 18px;
+  justify-items: center;
+  gap: 22px;
 }
 
-/* Each recommendation is an index card, very slightly askew. */
-.quote {
+/* ---------- The book ---------- */
+.book {
+  --pw: clamp(290px, 34vw, 390px);
+  --ph: calc(var(--pw) * 1.36);
+  --paper: #fffaf1;
+  --paper-ink: #2a2420;
+  --foil: color-mix(in srgb, var(--aura) 45%, #f2d488);
+  perspective: 2200px;
+  outline-offset: 10px;
+  border-radius: 12px;
+}
+
+.book.is-single {
+  --pw: min(86vw, 360px);
+  --ph: calc(var(--pw) * 1.38);
+}
+
+.book__inner {
   position: relative;
-  padding: 22px 24px 20px;
-  border: 1px solid var(--line);
-  border-top: 4px solid var(--accent);
-  border-radius: 6px;
-  background: var(--surface);
-  box-shadow: var(--shadow-soft);
-  transform: rotate(var(--tilt, 0deg));
+  width: calc(var(--pw) * 2);
+  height: var(--ph);
+  transform-style: preserve-3d;
+  transition: transform 1.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.book.is-single .book__inner {
+  width: var(--pw);
+}
+
+/* Closed: the cover sits in the middle. Open: the spread does. */
+.book.is-spread:not(.is-open) .book__inner {
+  transform: translateX(-25%) rotateX(8deg);
+}
+
+/* The inside back cover, under every sheet on the right. */
+.book__base {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  border-radius: 2px 10px 10px 2px;
+  background: var(--paper);
+  box-shadow: 0 30px 50px -30px rgba(0, 0, 0, 0.45);
+}
+
+.book.is-single .book__base {
+  left: 0;
+  width: 100%;
+}
+
+/* A sheet: turns over on the spine. */
+.leaf {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  transform-origin: left center;
+  transform-style: preserve-3d;
   transition:
-    transform 0.6s var(--ease-out),
-    box-shadow 0.5s var(--ease);
+    transform 1.1s cubic-bezier(0.645, 0.045, 0.355, 1),
+    opacity 0.3s ease;
+  cursor: pointer;
 }
 
-.quote:hover {
-  transform: rotate(0deg) translateY(-4px);
-  box-shadow: var(--shadow);
+.book.is-single .leaf {
+  left: 0;
+  width: 100%;
 }
 
-.quote figure {
+.leaf.is-turned {
+  transform: rotateY(-180deg);
+}
+
+/* A slight lift while a page is mid-turn reads as paper, not cardboard. */
+.leaf:not(.is-turned):hover {
+  transform: rotateY(-4deg);
+}
+
+.leaf.is-turned:hover {
+  transform: rotateY(-176deg);
+}
+
+/* Phones: one page at a time; a turned page slips away. */
+.book.is-single .leaf.is-turned {
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1),
+    opacity 0.3s ease 0.55s;
+}
+
+.leaf__face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 2px 10px 10px 2px;
+  background: var(--paper);
+}
+
+.leaf__back {
+  transform: rotateY(180deg);
+  border-radius: 10px 2px 2px 10px;
+}
+
+/* Shading towards the spine, so the pages curve into the binding. */
+.leaf__front::after,
+.leaf__back::after,
+.book__base::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(60, 40, 20, 0.16), transparent 9%, transparent 94%, rgba(60, 40, 20, 0.05));
+}
+
+.leaf__back::after {
+  background: linear-gradient(270deg, rgba(60, 40, 20, 0.16), transparent 9%, transparent 94%, rgba(60, 40, 20, 0.05));
+}
+
+.leaf--cover .leaf__front::after {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.35), transparent 6%);
+}
+
+/* ---------- Pages ---------- */
+.book__page {
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  height: 100%;
+  margin: 0;
+  padding: 36px 30px 44px;
+  color: var(--paper-ink);
+  /* Ruled lines that sit just under each line of writing (28px apart, like the text). */
+  background:
+    repeating-linear-gradient(180deg, transparent 0 27px, rgba(120, 140, 200, 0.16) 27px 28px) 0 78px / 100% calc(100% - 120px) no-repeat,
+    var(--paper);
 }
 
-.quote blockquote {
+.book__quote blockquote {
   flex: 1;
+  margin: 0;
 }
 
-.quote blockquote::before {
+.book__quote blockquote::before {
   content: "\201C";
   display: block;
-  height: 0.42em;
-  margin-bottom: 10px;
+  height: 34px;
+  margin-bottom: 8px;
   font-family: Georgia, serif;
-  font-size: 3rem;
+  font-size: 3.4rem;
   line-height: 1;
   color: var(--accent);
+  text-shadow: 0 0 20px color-mix(in srgb, var(--aura) 60%, transparent);
 }
 
-.quote blockquote p {
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
-  font-size: var(--text-sm);
-  font-weight: 500;
-  line-height: 1.6;
-  color: var(--ink);
+.book__quote blockquote p {
+  font-size: clamp(0.84rem, 0.78rem + 0.22vw, 0.95rem);
+  line-height: 28px;
+  font-weight: 450;
 }
 
-.quote blockquote p.is-open {
-  display: block;
-}
-
-.quote__more {
-  align-self: flex-start;
-  padding: 0;
-  border: 0;
-  background: none;
-  font-size: 1rem;
-  color: var(--accent-ink);
-}
-
-.quote__more:hover {
-  text-decoration: underline wavy;
-  text-underline-offset: 4px;
-}
-
-.quote figcaption {
+.book__quote figcaption {
   display: grid;
-  gap: 0;
-  padding-top: 12px;
-  border-top: 1px dashed var(--line);
+  margin-top: 12px;
 }
 
-.quote__name {
+.book__name {
   justify-self: start;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--accent-ink);
 }
 
-a.quote__name:hover {
-  text-decoration: underline;
+[data-theme="starlight"] .book__name {
+  color: #5536b8;
 }
 
-.quote__title {
+a.book__name:hover {
+  text-decoration: underline wavy;
+  text-underline-offset: 4px;
+}
+
+.book__title {
+  font-size: 0.72rem;
+  line-height: 1.35;
+  color: #5d554d;
+}
+
+.book__page-sticker {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 26px;
+  height: 26px;
+  --doodle-color: var(--accent);
+  --doodle-width: 1.8px;
+  rotate: 12deg;
+}
+
+.book__folio {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  font-family: var(--font-hand);
+  font-size: 0.85rem;
+  text-align: center;
+  color: #8a8078;
+}
+
+.book__page--dedication,
+.book__page--end {
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  background: var(--paper);
+}
+
+.book__dedication {
+  max-width: 18ch;
+  font-size: 1.35rem;
+  line-height: 1.35;
+}
+
+.book__squiggle {
+  width: 70px;
+  height: 12px;
+  --doodle-color: var(--accent);
+}
+
+.book__signed {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent-ink);
+  rotate: -4deg;
+}
+
+.book__add,
+.book__close {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1px dashed rgba(42, 36, 32, 0.4);
+  border-radius: 999px;
+  background: transparent;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--paper-ink);
+}
+
+.book__add:hover,
+.book__close:hover {
+  background: color-mix(in srgb, var(--accent) 15%, transparent);
+}
+
+.book__page--end .hand {
+  font-size: 1.3rem;
+}
+
+.book__end-heart {
+  width: 40px;
+  height: 40px;
+  --doodle-color: var(--accent);
+}
+
+/* ---------- The cover ---------- */
+.book__cover {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 40px 34px;
+  text-align: center;
+  color: var(--foil);
+  background:
+    radial-gradient(ellipse 80% 60% at 30% 20%, rgba(255, 255, 255, 0.16), transparent 60%),
+    repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.025) 0 2px, transparent 2px 5px),
+    linear-gradient(160deg, var(--accent), var(--accent-ink) 70%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="starlight"] .book__cover {
+  background:
+    radial-gradient(ellipse 80% 60% at 30% 20%, rgba(255, 255, 255, 0.16), transparent 60%),
+    repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.025) 0 2px, transparent 2px 5px),
+    linear-gradient(160deg, #3a2f7a, #1b1f4a 70%);
+}
+
+/* A gold-foil frame pressed into the cover. */
+.book__foil {
+  position: absolute;
+  inset: 18px;
+  border: 1.5px solid var(--foil);
+  border-radius: 6px;
+  box-shadow:
+    inset 0 0 0 4px transparent,
+    inset 0 0 0 5.5px color-mix(in srgb, var(--foil) 60%, transparent);
+  opacity: 0.85;
+}
+
+.book__cover-flower {
+  width: 46px;
+  height: 46px;
+  --doodle-color: var(--foil);
+  --doodle-width: 1.6px;
+}
+
+.book__cover-small {
+  font-size: 1.05rem;
+  opacity: 0.9;
+}
+
+.book__cover-title {
+  font-family: var(--font-hand);
+  font-size: clamp(2.3rem, 1.6rem + 2vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--foil);
+}
+
+.book__cover-sub {
+  max-width: 22ch;
   font-size: var(--text-xs);
-  color: var(--ink-faint);
+  letter-spacing: 0.02em;
+  opacity: 0.85;
 }
 
-.quotes__more {
-  margin-top: 28px;
+.book__sticker {
+  position: absolute;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-family: var(--font-hand);
+  font-size: 0.85rem;
+  color: var(--note-ink);
+  background: var(--note-2);
+  box-shadow: var(--shadow-note);
 }
 
-@media (min-width: 760px) {
-  .quotes {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+.book__sticker--1 {
+  right: 26px;
+  bottom: 40px;
+  rotate: -8deg;
+}
+
+/* A ribbon bookmark hanging out of the bottom. */
+.book__ribbon {
+  position: absolute;
+  bottom: -18px;
+  left: 54px;
+  width: 14px;
+  height: 64px;
+  background: linear-gradient(90deg, var(--foil), color-mix(in srgb, var(--foil) 70%, #000));
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
+}
+
+.leaf--cover .leaf__front {
+  overflow: visible;
+  box-shadow:
+    3px 3px 0 #f2e9d8,
+    6px 6px 0 #e6dcc8,
+    9px 9px 0 #f2e9d8,
+    0 40px 60px -30px rgba(0, 0, 0, 0.5);
+}
+
+.book.is-open .leaf--cover .leaf__front {
+  box-shadow: none;
+}
+
+/* ---------- Controls ---------- */
+.book__controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 48px;
+}
+
+.book__open {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent-ink);
+  color: var(--on-accent);
+  font-weight: 650;
+  box-shadow: 0 0 30px -6px color-mix(in srgb, var(--aura) 80%, transparent);
+  transition: transform 0.4s var(--spring);
+}
+
+.book__open:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.book__nav {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 1.1rem;
+  transition:
+    background-color 0.25s var(--ease),
+    transform 0.4s var(--spring);
+}
+
+.book__nav:hover:not(:disabled) {
+  background: var(--accent-soft);
+  transform: scale(1.08);
+}
+
+.book__nav:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.book__count {
+  min-width: 8em;
+  font-size: 1.05rem;
+  text-align: center;
+  color: var(--accent-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book__inner,
+  .leaf {
+    transition-duration: 0.01ms;
   }
 }
