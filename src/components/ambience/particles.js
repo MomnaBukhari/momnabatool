@@ -16,6 +16,8 @@ export const KINDS = {
   bubble: { motion: "rise", size: [3, 9], speed: [24, 50], life: [8, 14], spin: 0, sway: 16 },
   firefly: { motion: "rise", size: [2, 4], speed: [8, 22], life: [6, 11], spin: 0, sway: 30, glow: true },
   steam: { motion: "rise", size: [12, 22], speed: [16, 30], life: [6, 10], spin: 0, sway: 12 },
+  bud: { motion: "fall", size: [3, 5], speed: [18, 38], life: [10, 16], spin: 1, sway: 24 },
+  lantern: { motion: "rise", size: [6, 10], speed: [12, 24], life: [14, 22], spin: 0.15, sway: 14 },
   heart: { motion: "rise", size: [4, 8], speed: [20, 40], life: [4, 7], spin: 0.4, sway: 14 },
   puff: { motion: "float", size: [10, 26], speed: [6, 16], life: [5, 9], spin: 0, sway: 10 },
   sparkle: { motion: "float", size: [3, 7], speed: [10, 40], life: [0.9, 1.8], spin: 2, sway: 0 },
@@ -246,6 +248,45 @@ export function draw(ctx, p) {
       ctx.bezierCurveTo(-s * 1.4, 0, -s * 0.6, -s * 1.1, 0, -s * 0.35);
       ctx.bezierCurveTo(s * 0.6, -s * 1.1, s * 1.4, 0, 0, s * 0.9);
       ctx.fill();
+      break;
+    }
+    case "bud": {
+      // A little sprig of lavender: buds stacked up a stem.
+      ctx.lineWidth = 0.9;
+      ctx.strokeStyle = "rgba(90, 120, 80, 0.6)";
+      ctx.beginPath();
+      ctx.moveTo(0, s * 1.8);
+      ctx.lineTo(0, -s * 1.6);
+      ctx.stroke();
+      for (let i = 0; i < 4; i += 1) {
+        ctx.beginPath();
+        ctx.ellipse(i % 2 ? s * 0.35 : -s * 0.35, -s * 1.3 + i * s * 0.7, s * 0.38, s * 0.55, 0, 0, TAU);
+        ctx.fill();
+      }
+      break;
+    }
+    case "lantern": {
+      // A paper sky lantern, glowing warm from inside.
+      const glow = ctx.createRadialGradient(0, 0, 0, 0, 0, s * 3.2);
+      glow.addColorStop(0, "rgba(255, 210, 120, 0.55)");
+      glow.addColorStop(1, "rgba(255, 210, 120, 0)");
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(0, 0, s * 3.2, 0, TAU);
+      ctx.fill();
+      const body = ctx.createLinearGradient(0, -s, 0, s);
+      body.addColorStop(0, p.color);
+      body.addColorStop(1, "#fff1c4");
+      ctx.fillStyle = body;
+      ctx.beginPath();
+      ctx.moveTo(-s * 0.7, -s);
+      ctx.lineTo(s * 0.7, -s);
+      ctx.lineTo(s * 0.55, s);
+      ctx.lineTo(-s * 0.55, s);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = "rgba(160, 90, 20, 0.5)";
+      ctx.fillRect(-s * 0.55, s * 0.85, s * 1.1, s * 0.2);
       break;
     }
     case "puff": {

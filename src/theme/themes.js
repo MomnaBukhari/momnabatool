@@ -8,7 +8,8 @@
 // effect.colors    the colours they're drawn in
 //
 // Particle kinds: puff, petal, leaf, snow, marigold, mughalStar, firefly,
-// sparkle, blossom, feather, pearl, star, bubble, steam, heart.
+// sparkle, blossom, feather, pearl, star, bubble, steam, heart, lantern.
+
 //
 // To add a theme: add an entry here and a matching [data-theme="id"] block in themes.css.
 
@@ -23,18 +24,6 @@ export const themes = [
       touch: { kind: "puff", rate: 10 },
       burst: { kind: "sparkle", count: 10 },
       colors: ["#b9cbe2", "#a9c0dc", "#c9d6e6", "#94b0d4"],
-    },
-  },
-  {
-    id: "burgundy",
-    name: "Burgundy",
-    mood: "velvet and roses",
-    swatch: ["#fbf5f5", "#7b1e36", "#e9c2cc"],
-    effect: {
-      ambient: { kind: "petal", rate: 0.7 },
-      touch: { kind: "petal", rate: 8 },
-      burst: { kind: "petal", count: 14 },
-      colors: ["#9c3550", "#c25a74", "#e9a2b3", "#7b1e36"],
     },
   },
   {
@@ -83,18 +72,6 @@ export const themes = [
       touch: { kind: "sparkle", rate: 18 },
       burst: { kind: "sparkle", count: 22 },
       colors: ["#c3b0f5", "#9ee6c2", "#fdf3b0", "#f6c8e6"],
-    },
-  },
-  {
-    id: "vanilla",
-    name: "Vanilla",
-    mood: "warm cream and blossoms",
-    swatch: ["#fffaf0", "#c39a52", "#f8dfcd"],
-    effect: {
-      ambient: { kind: "blossom", rate: 0.6 },
-      touch: { kind: "blossom", rate: 7 },
-      burst: { kind: "blossom", count: 12 },
-      colors: ["#f6d2bd", "#f0d39a", "#f3c3b0", "#e8b98f"],
     },
   },
   {
@@ -147,6 +124,30 @@ export const themes = [
     },
   },
   {
+    id: "plum",
+    name: "Plum",
+    mood: "ripe plums and blossom",
+    swatch: ["#fbf6f9", "#8e3b6e", "#d9a9c3"],
+    effect: {
+      ambient: { kind: "petal", rate: 0.6 },
+      touch: { kind: "blossom", rate: 6 },
+      burst: { kind: "petal", count: 14 },
+      colors: ["#c9789f", "#e3a9c4", "#8e3b6e", "#f2c9da"],
+    },
+  },
+  {
+    id: "rapunzel",
+    name: "Rapunzel",
+    mood: "lanterns, a tower and golden hair",
+    swatch: ["#fcf8f6", "#6a3f9a", "#f6c75a"],
+    effect: {
+      ambient: { kind: "lantern", rate: 0.5 },
+      touch: { kind: "sparkle", rate: 14 },
+      burst: { kind: "blossom", count: 12 },
+      colors: ["#f6c75a", "#f2a93b", "#ffd98a", "#e9b949"],
+    },
+  },
+  {
     id: "cocoa",
     name: "Cocoa",
     mood: "hot chocolate and steam",
@@ -160,6 +161,6 @@ export const themes = [
   },
 ];
 
-export const DEFAULT_THEME = "cloud";
+export const DEFAULT_THEME = "swan";
 export const THEME_STORAGE_KEY = "momna-theme";
 export const getTheme = (id) => themes.find((theme) => theme.id === id) ?? themes[0];

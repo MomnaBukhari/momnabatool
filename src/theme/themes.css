@@ -1,5 +1,7 @@
 /*
-  Twelve themes. A theme is a whole mood, not just a colour: it sets the paper,
+  The themes. (The default one uses :where(:root) so it never outranks the
+  others: equal-weight selectors later in the file would win otherwise.)
+  A theme is a whole mood, not just a colour: it sets the paper,
   the ink, the sticky notes, the hero scene (HeroScene.jsx) and the little
   things that drift across the page (src/theme/themes.js, `effect`).
 
@@ -15,11 +17,10 @@
   --aura               the soft glow around coloured things
 */
 
-:root,
 [data-theme="cloud"] {
   color-scheme: light;
-  --bg: #f6f8fb;
-  --bg-alt: #eaeff5;
+  --bg: #fbfcfd;
+  --bg-alt: #f3f6fa;
   --surface: #ffffff;
   --ink: #1b2633;
   --ink-soft: #2b3746;
@@ -47,47 +48,13 @@
   --glass-strong: rgba(255, 255, 255, 0.82);
   --glass-border: rgba(255, 255, 255, 0.75);
   --key-top: #ffffff;
-  --key-bottom: color-mix(in srgb, #eaeff5 50%, #ffffff);
-}
-
-[data-theme="burgundy"] {
-  color-scheme: light;
-  --bg: #fbf5f5;
-  --bg-alt: #f3e6e8;
-  --surface: #fffdfd;
-  --ink: #2a1318;
-  --ink-soft: #3a1f25;
-  --ink-faint: #6e4f56;
-  --line: color-mix(in srgb, #2a1318 20%, transparent);
-  --accent: #9c3550;
-  --accent-ink: #7b1e36;
-  --accent-soft: #f4dfe4;
-  --on-accent: #ffffff;
-  --note-1: #f3d3da;
-  --note-2: #f8e8d2;
-  --note-3: #ead6e3;
-  --note-4: #efdfd5;
-  --note-ink: #1d1d1f;
-  --pastel-1: #f3d3da;
-  --pastel-2: #ead6e3;
-  --pastel-3: #f8e8d2;
-  --scene-1: #e9c2cc;
-  --scene-2: #f6dde3;
-  --scene-3: #c97d90;
-  --aura: #d98fa3;
-  --gradient: linear-gradient(100deg, #7b1e36, #9c3550);
-  --grid: color-mix(in srgb, #7b1e36 8%, transparent);
-  --glass: rgba(255, 255, 255, 0.6);
-  --glass-strong: rgba(255, 255, 255, 0.82);
-  --glass-border: rgba(255, 255, 255, 0.75);
-  --key-top: #ffffff;
-  --key-bottom: color-mix(in srgb, #f3e6e8 50%, #ffffff);
+  --key-bottom: color-mix(in srgb, #f3f6fa 50%, #ffffff);
 }
 
 [data-theme="autumn"] {
   color-scheme: light;
-  --bg: #fbf3e8;
-  --bg-alt: #f3e3cd;
+  --bg: #fdfaf6;
+  --bg-alt: #f8f0e4;
   --surface: #fffaf3;
   --ink: #2b1c10;
   --ink-soft: #3d2a1b;
@@ -115,13 +82,13 @@
   --glass-strong: rgba(255, 255, 255, 0.82);
   --glass-border: rgba(255, 255, 255, 0.75);
   --key-top: #ffffff;
-  --key-bottom: color-mix(in srgb, #f3e3cd 50%, #ffffff);
+  --key-bottom: color-mix(in srgb, #f8f0e4 50%, #ffffff);
 }
 
 [data-theme="winter"] {
   color-scheme: light;
-  --bg: #f3f8fd;
-  --bg-alt: #e3eef8;
+  --bg: #fafcfe;
+  --bg-alt: #f0f6fb;
   --surface: #ffffff;
   --ink: #14233a;
   --ink-soft: #22344d;
@@ -149,13 +116,13 @@
   --glass-strong: rgba(255, 255, 255, 0.82);
   --glass-border: rgba(255, 255, 255, 0.75);
   --key-top: #ffffff;
-  --key-bottom: color-mix(in srgb, #e3eef8 50%, #ffffff);
+  --key-bottom: color-mix(in srgb, #f0f6fb 50%, #ffffff);
 }
 
 [data-theme="heritage"] {
   color-scheme: light;
-  --bg: #fbf5ec;
-  --bg-alt: #f1e2cc;
+  --bg: #fdfbf7;
+  --bg-alt: #f7efe3;
   --surface: #fffaf2;
   --ink: #2a1b12;
   --ink-soft: #3b2a1e;
@@ -183,13 +150,13 @@
   --glass-strong: rgba(255, 255, 255, 0.82);
   --glass-border: rgba(255, 255, 255, 0.75);
   --key-top: #ffffff;
-  --key-bottom: color-mix(in srgb, #f1e2cc 50%, #ffffff);
+  --key-bottom: color-mix(in srgb, #f7efe3 50%, #ffffff);
 }
 
 [data-theme="fairy"] {
   color-scheme: light;
-  --bg: #f6fbf8;
-  --bg-alt: #eeecfa;
+  --bg: #fbfdfc;
+  --bg-alt: #f6f5fc;
   --surface: #ffffff;
   --ink: #28223f;
   --ink-soft: #372f55;
@@ -217,47 +184,14 @@
   --glass-strong: rgba(255, 255, 255, 0.82);
   --glass-border: rgba(255, 255, 255, 0.75);
   --key-top: #ffffff;
-  --key-bottom: color-mix(in srgb, #eeecfa 50%, #ffffff);
+  --key-bottom: color-mix(in srgb, #f6f5fc 50%, #ffffff);
 }
 
-[data-theme="vanilla"] {
-  color-scheme: light;
-  --bg: #fffaf0;
-  --bg-alt: #f7ecd7;
-  --surface: #fffdf8;
-  --ink: #2e2418;
-  --ink-soft: #3f3324;
-  --ink-faint: #6f6150;
-  --line: color-mix(in srgb, #2e2418 20%, transparent);
-  --accent: #c39a52;
-  --accent-ink: #80601f;
-  --accent-soft: #f5e8cd;
-  --on-accent: #ffffff;
-  --note-1: #fff1c9;
-  --note-2: #f8dfcd;
-  --note-3: #eee4cf;
-  --note-4: #e6eed4;
-  --note-ink: #1d1d1f;
-  --pastel-1: #fff1c9;
-  --pastel-2: #eee4cf;
-  --pastel-3: #f8dfcd;
-  --scene-1: #fbe8c0;
-  --scene-2: #fff5e0;
-  --scene-3: #e8c88c;
-  --aura: #f0d39a;
-  --gradient: linear-gradient(100deg, #80601f, #c39a52);
-  --grid: color-mix(in srgb, #80601f 8%, transparent);
-  --glass: rgba(255, 255, 255, 0.6);
-  --glass-strong: rgba(255, 255, 255, 0.82);
-  --glass-border: rgba(255, 255, 255, 0.75);
-  --key-top: #ffffff;
-  --key-bottom: color-mix(in srgb, #f7ecd7 50%, #ffffff);
-}
-
+:where(:root),
 [data-theme="swan"] {
   color-scheme: light;
-  --bg: #fdfcfd;
-  --bg-alt: #f3f1f6;
+  --bg: #fefefe;
+  --bg-alt: #f8f7fa;
   --surface: #ffffff;
   --ink: #1f1d29;
   --ink-soft: #2e2b3b;
@@ -285,7 +219,7 @@
   --glass-strong: rgba(255, 255, 255, 0.82);
   --glass-border: rgba(255, 255, 255, 0.75);
   --key-top: #ffffff;
-  --key-bottom: color-mix(in srgb, #f3f1f6 50%, #ffffff);
+  --key-bottom: color-mix(in srgb, #f8f7fa 50%, #ffffff);
 }
 
 [data-theme="starlight"] {
@@ -324,8 +258,8 @@
 
 [data-theme="ocean"] {
   color-scheme: light;
-  --bg: #f3f9fb;
-  --bg-alt: #e1f0f4;
+  --bg: #fafdfd;
+  --bg-alt: #eef7f9;
   --surface: #ffffff;
   --ink: #10303a;
   --ink-soft: #1e414c;
@@ -353,13 +287,13 @@
   --glass-strong: rgba(255, 255, 255, 0.82);
   --glass-border: rgba(255, 255, 255, 0.75);
   --key-top: #ffffff;
-  --key-bottom: color-mix(in srgb, #e1f0f4 50%, #ffffff);
+  --key-bottom: color-mix(in srgb, #eef7f9 50%, #ffffff);
 }
 
 [data-theme="forest"] {
   color-scheme: light;
-  --bg: #f4f8f2;
-  --bg-alt: #e3eee0;
+  --bg: #fbfcfa;
+  --bg-alt: #f0f6ee;
   --surface: #fbfdfa;
   --ink: #15261b;
   --ink-soft: #22372a;
@@ -387,13 +321,81 @@
   --glass-strong: rgba(255, 255, 255, 0.82);
   --glass-border: rgba(255, 255, 255, 0.75);
   --key-top: #ffffff;
-  --key-bottom: color-mix(in srgb, #e3eee0 50%, #ffffff);
+  --key-bottom: color-mix(in srgb, #f0f6ee 50%, #ffffff);
+}
+
+[data-theme="plum"] {
+  color-scheme: light;
+  --bg: #fdfbfd;
+  --bg-alt: #f8f0f5;
+  --surface: #fffcfd;
+  --ink: #2a1424;
+  --ink-soft: #3b2033;
+  --ink-faint: #6c4e62;
+  --line: color-mix(in srgb, #2a1424 20%, transparent);
+  --accent: #a24c80;
+  --accent-ink: #7a2a5c;
+  --accent-soft: #f3e0ea;
+  --on-accent: #ffffff;
+  --note-1: #f1d6e4;
+  --note-2: #f7e9d6;
+  --note-3: #e6d9ef;
+  --note-4: #e2ecdf;
+  --note-ink: #1d1d1f;
+  --pastel-1: #f1d6e4;
+  --pastel-2: #e6d9ef;
+  --pastel-3: #f7e9d6;
+  --scene-1: #d9a9c3;
+  --scene-2: #f3e3ec;
+  --scene-3: #7d2d5f;
+  --aura: #d79ab9;
+  --gradient: linear-gradient(100deg, #7a2a5c, #a24c80);
+  --grid: color-mix(in srgb, #7a2a5c 8%, transparent);
+  --glass: rgba(255, 255, 255, 0.6);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --key-top: #ffffff;
+  --key-bottom: color-mix(in srgb, #f8f0f5 50%, #ffffff);
+}
+
+[data-theme="rapunzel"] {
+  color-scheme: light;
+  --bg: #fefcfb;
+  --bg-alt: #f8f2f8;
+  --surface: #fffdfb;
+  --ink: #2b1d33;
+  --ink-soft: #3c2c46;
+  --ink-faint: #6a5875;
+  --line: color-mix(in srgb, #2b1d33 20%, transparent);
+  --accent: #c9952c;
+  --accent-ink: #6a3f9a;
+  --accent-soft: #f1e6f6;
+  --on-accent: #ffffff;
+  --note-1: #f8e7b8;
+  --note-2: #eadcf5;
+  --note-3: #fbe0e6;
+  --note-4: #e5efd9;
+  --note-ink: #1d1d1f;
+  --pastel-1: #f8e7b8;
+  --pastel-2: #fbe0e6;
+  --pastel-3: #eadcf5;
+  --scene-1: #f6c75a;
+  --scene-2: #efe0f7;
+  --scene-3: #7a52a8;
+  --aura: #f2c86a;
+  --gradient: linear-gradient(100deg, #6a3f9a, #c9952c);
+  --grid: color-mix(in srgb, #6a3f9a 8%, transparent);
+  --glass: rgba(255, 255, 255, 0.6);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --key-top: #ffffff;
+  --key-bottom: color-mix(in srgb, #f8f2f8 50%, #ffffff);
 }
 
 [data-theme="cocoa"] {
   color-scheme: light;
-  --bg: #faf4ee;
-  --bg-alt: #eedfd2;
+  --bg: #fdfbf8;
+  --bg-alt: #f6ede6;
   --surface: #fffaf6;
   --ink: #2a1910;
   --ink-soft: #3b271b;
@@ -421,7 +423,7 @@
   --glass-strong: rgba(255, 255, 255, 0.82);
   --glass-border: rgba(255, 255, 255, 0.75);
   --key-top: #ffffff;
-  --key-bottom: color-mix(in srgb, #eedfd2 50%, #ffffff);
+  --key-bottom: color-mix(in srgb, #f6ede6 50%, #ffffff);
 }
 
 /* The theme change is a circle that grows from where you clicked (see ThemeContext). */

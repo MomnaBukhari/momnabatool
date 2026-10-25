@@ -37,7 +37,7 @@ const SHAPES = {
     viewBox: "0 0 120 20",
     paths: ["M3 12 C 11 2, 19 2, 23 10 S 35 18, 43 10 S 55 2, 63 10 S 75 18, 83 10 S 95 2, 103 10 S 113 16, 117 10"],
   },
-  // A little mehndi-style flower: five petals around a dot.
+  // A little flower: five petals around a dot.
   flower: {
     viewBox: "0 0 60 60",
     paths: [

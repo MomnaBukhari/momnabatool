@@ -1,8 +1,8 @@
 /* Theme cards: a tiny painted preview, the name, and the mood. */
 .theme-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
 }
 
 .theme-card {

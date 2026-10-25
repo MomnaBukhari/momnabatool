@@ -1,111 +1,96 @@
 import { useState } from "react";
-import { PiEnvelopeSimple, PiGithubLogo, PiLinkedinLogo, PiMapPin, PiPaperPlaneTilt } from "react-icons/pi";
+import { PiCheck, PiCopy, PiEnvelopeSimple, PiGithubLogo, PiLinkedinLogo, PiMapPin, PiPaperPlaneTilt } from "react-icons/pi";
 import Section from "../layout/Section";
-import Button from "../ui/Button";
+import Doodle from "../doodles/Doodle";
 import { profile } from "../../data/profile";
 import "./Contact.css";
 
+// Opens the visitor's own email app with a friendly subject already filled in.
+const MAILTO = `mailto:${profile.email}?subject=${encodeURIComponent("Hello from your portfolio")}`;
+
+/**
+ * Contact: no form to fail. An envelope that opens your email app, the
+ * address to copy, and the places to find me.
+ */
 export default function Contact() {
-  // "idle" | "sending" | "sent" | "error"
-  const [status, setStatus] = useState("idle");
+  const [copied, setCopied] = useState(false);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const form = event.currentTarget;
-    setStatus("sending");
-
+  const copy = async () => {
     try {
-      const response = await fetch(profile.formEndpoint, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" },
-      });
-      if (!response.ok) throw new Error(`Request failed: ${response.status}`);
-      form.reset();
-      setStatus("sent");
+      await navigator.clipboard.writeText(profile.email);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2200);
     } catch {
-      setStatus("error");
+      window.location.href = MAILTO;
     }
   };
 
   return (
-    <Section
-      id="contact"
-      title="Let's talk"
-      kicker="I'd love to hear about your team"
-      tone="grey"
-    >
+    <Section id="contact" title="Let's talk" kicker="a letter is only a click away" tone="grey">
       <div className="contact">
-        <ul className="contact__direct" data-reveal>
-          <li>
-            <PiEnvelopeSimple aria-hidden="true" />
-            <a className="link" href={`mailto:${profile.email}`}>
-              {profile.email}
+        <a className="envelope" href={MAILTO} data-reveal data-cursor="Write to me">
+          <span className="envelope__letter" aria-hidden="true">
+            <span className="hand">Dear Momna,</span>
+            <span className="envelope__lines" />
+          </span>
+          <span className="envelope__body" aria-hidden="true">
+            <span className="envelope__stamp">
+              <Doodle shape="flower" className="envelope__flower" />
+            </span>
+            <span className="envelope__to hand">
+              {profile.name}
+              <br />
+              {profile.location}
+            </span>
+          </span>
+          <span className="envelope__flap" aria-hidden="true" />
+          <span className="envelope__seal" aria-hidden="true">
+            {profile.firstName[0]}
+          </span>
+          <span className="visually-hidden">Write me an email</span>
+        </a>
+
+        <div className="contact__side" data-reveal>
+          <p className="contact__lead">
+            The quickest way to reach me is email. Click the envelope, or the button below, and your
+            email app opens with my address ready.
+          </p>
+
+          <div className="contact__actions">
+            <a className="button glitter" href={MAILTO}>
+              <PiPaperPlaneTilt aria-hidden="true" /> Write me an email
             </a>
-          </li>
-          <li>
-            <PiLinkedinLogo aria-hidden="true" />
-            <a className="link" href={profile.links.linkedin} target="_blank" rel="noopener noreferrer">
-              LinkedIn
-            </a>
-          </li>
-          <li>
-            <PiGithubLogo aria-hidden="true" />
-            <a className="link" href={profile.links.github} target="_blank" rel="noopener noreferrer">
-              GitHub
-            </a>
-          </li>
-          <li>
-            <PiMapPin aria-hidden="true" />
-            <span>{profile.location}</span>
-          </li>
-        </ul>
-
-        <form className="contact__form" onSubmit={handleSubmit} data-reveal>
-          <div className="field">
-            <label htmlFor="contact-name">Your name</label>
-            <input id="contact-name" name="name" type="text" autoComplete="name" required />
+            <button type="button" className="contact__copy" onClick={copy} aria-live="polite">
+              {copied ? <PiCheck aria-hidden="true" /> : <PiCopy aria-hidden="true" />}
+              {copied ? "Copied" : "Copy my address"}
+            </button>
           </div>
 
-          <div className="field">
-            <label htmlFor="contact-email">Email address</label>
-            <input id="contact-email" name="email" type="email" autoComplete="email" required />
-          </div>
-
-          <div className="field field--full">
-            <label htmlFor="contact-subject">
-              Subject <span className="field__optional">(optional)</span>
-            </label>
-            <input id="contact-subject" name="subject" type="text" />
-          </div>
-
-          <div className="field field--full">
-            <label htmlFor="contact-message">Message</label>
-            <textarea id="contact-message" name="message" rows="6" required />
-          </div>
-
-          {/* Hidden from people; bots that fill it in are discarded by Formspree. */}
-          <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" hidden />
-
-          <div className="contact__submit field--full">
-            <Button type="submit" disabled={status === "sending"} icon={<PiPaperPlaneTilt />}>
-              {status === "sending" ? "Sending…" : "Send message"}
-            </Button>
-
-            <p className={`contact__status is-${status}`} role="status">
-              {status === "sent" && "Message sent. I'll reply by email."}
-              {status === "error" && (
-                <>
-                  The message didn&apos;t send. Try again, or email me at{" "}
-                  <a className="link" href={`mailto:${profile.email}`}>
-                    {profile.email}
-                  </a>
-                  .
-                </>
-              )}
-            </p>
-          </div>
-        </form>
+          <ul className="contact__direct">
+            <li>
+              <PiEnvelopeSimple aria-hidden="true" />
+              <a className="link" href={MAILTO}>
+                {profile.email}
+              </a>
+            </li>
+            <li>
+              <PiLinkedinLogo aria-hidden="true" />
+              <a className="link" href={profile.links.linkedin} target="_blank" rel="noopener noreferrer">
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <PiGithubLogo aria-hidden="true" />
+              <a className="link" href={profile.links.github} target="_blank" rel="noopener noreferrer">
+                GitHub
+              </a>
+            </li>
+            <li>
+              <PiMapPin aria-hidden="true" />
+              <span>{profile.location}</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </Section>
   );

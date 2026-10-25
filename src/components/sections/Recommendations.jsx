@@ -231,8 +231,10 @@ function Page({ page, sticker, pageNumber }) {
   if (page.type === "blank") return <div className="book__page" />;
 
   const { item } = page;
+  const length = item.text.length;
+  const size = length > 900 ? " is-longer" : length > 480 ? " is-long" : "";
   return (
-    <figure className="book__page book__quote">
+    <figure className={`book__page book__quote${size}`}>
       <Doodle shape={STICKERS[sticker % STICKERS.length]} className="book__page-sticker" />
       <blockquote>
         <p>{item.text}</p>

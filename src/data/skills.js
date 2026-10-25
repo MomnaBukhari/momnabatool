@@ -89,7 +89,7 @@ export const skills = [
   },
   {
     title: "Creative tools",
-    note: "For wireframes, visuals and my own artwork.",
+    note: "For wireframes, mockups and visuals.",
     items: ["Figma", "Canva", "ibisPaint X", "Balsamiq"],
   },
 ];

@@ -19,6 +19,13 @@ const STARS = Array.from({ length: 90 }, () => ({
   delay: random() * 5,
   duration: 2.5 + random() * 4,
 }));
+const LANTERNS = Array.from({ length: 14 }, () => ({
+  x: 30 + random() * 68,
+  y: 20 + random() * 70,
+  size: 10 + random() * 10,
+  delay: random() * 20,
+  duration: 18 + random() * 14,
+}));
 const FIREFLIES = Array.from({ length: 16 }, () => ({
   x: 5 + random() * 90,
   y: 10 + random() * 75,
@@ -66,26 +73,6 @@ export default function HeroScene() {
               <path d="M30 80 C8 80 4 56 24 50 C22 30 48 22 60 36 C66 14 104 8 114 34 C130 22 160 30 156 52 C180 52 188 80 164 80 Z" />
             </svg>
           ))}
-        </>
-      )}
-
-      {theme === "burgundy" && (
-        <>
-          <svg className="scene__drape scene__drape--left" viewBox="0 0 300 600" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="velvet" x1="0" x2="1">
-                <stop offset="0" stopColor="var(--accent-ink)" />
-                <stop offset="0.45" stopColor="var(--scene-3)" />
-                <stop offset="0.7" stopColor="var(--accent)" />
-                <stop offset="1" stopColor="var(--accent-ink)" />
-              </linearGradient>
-            </defs>
-            <path d="M0 0 H300 C220 120 180 260 200 600 H0 Z" fill="url(#velvet)" />
-          </svg>
-          <svg className="scene__drape scene__drape--right" viewBox="0 0 300 600" preserveAspectRatio="none">
-            <path d="M0 0 H300 C220 120 180 260 200 600 H0 Z" fill="url(#velvet)" />
-          </svg>
-          <div className="scene__vignette" />
         </>
       )}
 
@@ -151,26 +138,6 @@ export default function HeroScene() {
         </>
       )}
 
-      {theme === "vanilla" && (
-        <>
-          <div className="scene__rays" />
-          <svg className="scene__branch" viewBox="0 0 400 220">
-            <path d="M400 10 C 320 30 260 60 200 70 C 150 78 110 100 70 140" fill="none" stroke="#a9805a" strokeWidth="3" strokeLinecap="round" />
-            <path d="M260 52 C 250 80 240 100 222 120 M150 82 C 140 60 128 48 110 40" fill="none" stroke="#a9805a" strokeWidth="2" strokeLinecap="round" />
-            {[
-              [330, 26], [290, 44], [240, 60], [222, 118], [180, 74], [120, 108], [110, 40], [82, 130], [356, 18],
-            ].map(([x, y], i) => (
-              <g key={i} transform={`translate(${x} ${y}) rotate(${i * 40})`}>
-                {[0, 72, 144, 216, 288].map((a) => (
-                  <ellipse key={a} cx="0" cy="-6" rx="4.5" ry="6.5" transform={`rotate(${a})`} fill={i % 2 ? "#f8dfcd" : "#fff3e2"} stroke="#e8c1a3" strokeWidth="0.6" />
-                ))}
-                <circle r="2.4" fill="#e3a73f" />
-              </g>
-            ))}
-          </svg>
-        </>
-      )}
-
       {theme === "swan" && (
         <>
           <div className="scene__pearl" />
@@ -232,6 +199,62 @@ export default function HeroScene() {
           <svg className="scene__ground" viewBox="0 0 1200 300" preserveAspectRatio="none">
             <path d={TREES_BACK} fill="var(--scene-1)" opacity="0.45" />
             <path d={TREES_FRONT} fill="var(--scene-3)" opacity="0.3" />
+          </svg>
+        </>
+      )}
+
+      {theme === "plum" && (
+        <>
+          <div className="scene__vignette scene__vignette--plum" />
+          <svg className="scene__branch scene__branch--plum" viewBox="0 0 420 260">
+            <path d="M420 14 C 340 30 270 64 210 76 C 160 86 110 110 66 150" fill="none" stroke="#5a3a3a" strokeWidth="4" strokeLinecap="round" />
+            <path d="M282 52 C 276 84 270 104 256 126 M168 84 C 156 62 144 50 126 42" fill="none" stroke="#5a3a3a" strokeWidth="2.5" strokeLinecap="round" />
+            {[
+              [256, 150, 17], [212, 104, 14], [300, 92, 15], [96, 176, 13],
+            ].map(([x, y, r], i) => (
+              <g key={i}>
+                <path d={`M${x} ${y - r - 14} L${x} ${y - r}`} stroke="#5a3a3a" strokeWidth="1.5" />
+                <circle cx={x} cy={y} r={r} fill="var(--scene-3)" opacity="0.85" />
+                <ellipse cx={x - r * 0.35} cy={y - r * 0.4} rx={r * 0.28} ry={r * 0.18} fill="#ffffff" opacity="0.45" />
+              </g>
+            ))}
+            {[[340, 30], [236, 70], [126, 42], [150, 98], [380, 20]].map(([x, y], i) => (
+              <g key={i} transform={`translate(${x} ${y}) rotate(${i * 50})`}>
+                {[0, 72, 144, 216, 288].map((a) => (
+                  <ellipse key={a} cx="0" cy="-5.5" rx="4" ry="6" transform={`rotate(${a})`} fill={i % 2 ? "#f3c9da" : "#fbe4ee"} stroke="#d99ab8" strokeWidth="0.6" />
+                ))}
+                <circle r="2.2" fill="#c9789f" />
+              </g>
+            ))}
+          </svg>
+        </>
+      )}
+
+      {theme === "rapunzel" && (
+        <>
+          <div className="scene__dusk scene__dusk--gold" />
+          {LANTERNS.map((l, i) => (
+            <span
+              key={i}
+              className="scene__lantern"
+              style={{
+                left: `${l.x}%`,
+                top: `${l.y}%`,
+                width: `${l.size}px`,
+                height: `${l.size * 1.3}px`,
+                animationDelay: `${-l.delay}s`,
+                animationDuration: `${l.duration}s`,
+              }}
+            />
+          ))}
+          <svg className="scene__tower" viewBox="0 0 160 420">
+            <path d="M80 0 L130 120 H30 Z" fill="var(--scene-3)" opacity="0.75" />
+            <rect x="40" y="118" width="80" height="302" rx="4" fill="var(--scene-3)" opacity="0.55" />
+            <rect x="34" y="112" width="92" height="12" rx="3" fill="var(--scene-3)" opacity="0.7" />
+            <path d="M66 160 a14 14 0 0 1 28 0 V198 H66 Z" fill="#ffd98a" className="scene__window" />
+            {[[30, 410], [52, 404], [112, 406], [132, 412], [44, 396]].map(([x, y], i) => (
+              <circle key={i} cx={x} cy={y} r="7" fill={i % 2 ? "#f3b6c9" : "#f6c75a"} />
+            ))}
           </svg>
         </>
       )}

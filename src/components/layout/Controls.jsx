@@ -2,15 +2,15 @@ import { useEffect, useState } from "react";
 import {
   PiCloud,
   PiCoffee,
+  PiCrown,
   PiCornersIn,
   PiCornersOut,
   PiFeather,
-  PiFlower,
-  PiFlowerTulip,
   PiLeaf,
   PiMoonStars,
   PiMosque,
   PiMusicNotes,
+  PiCherries,
   PiSnowflake,
   PiSparkle,
   PiSpeakerHigh,
@@ -28,16 +28,16 @@ import "./Controls.css";
 // The little picture on each theme card.
 const THEME_ICONS = {
   cloud: PiCloud,
-  burgundy: PiFlower,
   autumn: PiLeaf,
   winter: PiSnowflake,
   heritage: PiMosque,
   fairy: PiSparkle,
-  vanilla: PiFlowerTulip,
   swan: PiFeather,
   starlight: PiMoonStars,
   ocean: PiWaves,
   forest: PiTreeEvergreen,
+  plum: PiCherries,
+  rapunzel: PiCrown,
   cocoa: PiCoffee,
 };
 

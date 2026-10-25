@@ -8,7 +8,7 @@ Live site: https://syedamomnabatool.vercel.app
 
 - React 18, React Router and Vite
 - GSAP (ScrollTrigger, ScrollSmoother, DrawSVG, Draggable) for motion, smooth scrolling, the sideways project gallery, hand-drawn doodles and the draggable sticky notes
-- Plain CSS with design tokens and twelve full-mood themes, each with its own hero scene and drifting particles
+- Plain CSS with design tokens and fourteen full-mood themes, each with its own hero scene and drifting particles
 - Inter, Kalam (handwriting) and JetBrains Mono (the code window), self-hosted via Fontsource
 - Tech logos from Simple Icons (via react-icons)
 

@@ -9,7 +9,7 @@ import Footer from "./components/layout/Footer";
 import Cursor from "./components/cursor/Cursor";
 import Loader from "./components/loader/Loader";
 import Ambience from "./components/ambience/Ambience";
-import SideRail from "./components/layout/SideRail";
+import Dock from "./components/layout/Dock";
 import { PageTransitionProvider } from "./components/layout/PageTransition";
 
 /**
@@ -47,7 +47,7 @@ export default function App() {
 
       <Loader />
       <Nav />
-      <SideRail />
+      <Dock />
       <Ambience />
       <Cursor />
 

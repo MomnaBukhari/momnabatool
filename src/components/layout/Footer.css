@@ -1,13 +1,107 @@
 .footer {
-  padding-block: clamp(40px, 5vw, 64px) 32px;
-  border-top: 1px solid var(--line);
+  position: relative;
+  padding-block: 22px 26px;
+  background: var(--bg);
 }
 
-.footer__name {
-  font-size: clamp(1.75rem, 1rem + 3vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.05em;
-  text-align: center;
+/* A hand-drawn wavy line instead of a plain border. */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: radial-gradient(circle at 10px -4px, transparent 9px, var(--line) 9.5px, transparent 10.5px) 0 0 / 20px 8px repeat-x;
+}
+
+.footer__row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer__made {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.05rem;
   color: var(--ink);
+}
+
+.footer__heart {
+  color: var(--accent);
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--aura) 70%, transparent));
+  animation: heartbeat 1.8s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 60%, 100% { scale: 1; }
+  15% { scale: 1.25; }
+  30% { scale: 0.95; }
+  45% { scale: 1.15; }
+}
+
+/* Back to the top, in the middle. */
+.footer__top {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  transition: transform 0.4s var(--spring), background-color var(--fast) var(--ease);
+}
+
+.footer__top:hover {
+  background: var(--accent-soft);
+  transform: translateY(-3px);
+}
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px 18px;
+}
+
+.footer__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-xs);
+  font-weight: 550;
+  color: var(--ink);
+  transition: color var(--fast) var(--ease);
+}
+
+.footer__links a:hover {
+  color: var(--accent-ink);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.footer__links svg {
+  font-size: 1.05em;
+  color: var(--accent-ink);
+}
+
+@media (max-width: 699px) {
+  .footer__row {
+    grid-template-columns: 1fr auto;
+  }
+
+  .footer__top {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .footer__links {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
 }

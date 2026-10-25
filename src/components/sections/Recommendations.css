@@ -140,15 +140,35 @@
   margin: 0;
   padding: 36px 30px 44px;
   color: var(--paper-ink);
-  /* Ruled lines that sit just under each line of writing (28px apart, like the text). */
-  background:
-    repeating-linear-gradient(180deg, transparent 0 27px, rgba(120, 140, 200, 0.16) 27px 28px) 0 78px / 100% calc(100% - 120px) no-repeat,
-    var(--paper);
+  background: var(--paper);
 }
 
+.book__quote {
+  --rule: 28px;
+}
+
+/* Long recommendations get slightly smaller writing, on closer lines. */
+.book__quote.is-long {
+  --rule: 24px;
+}
+
+.book__quote.is-longer {
+  --rule: 21px;
+}
+
+/* The writing sits on ruled lines that scroll with it if a page runs long. */
 .book__quote blockquote {
   flex: 1;
-  margin: 0;
+  min-height: 0;
+  margin: 0 -8px;
+  padding: 0 8px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  background:
+    repeating-linear-gradient(180deg, transparent 0 calc(var(--rule) - 1px), rgba(120, 140, 200, 0.18) calc(var(--rule) - 1px) var(--rule)) 0 42px / 100% var(--rule) repeat-y local;
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 18px), transparent);
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 18px), transparent);
 }
 
 .book__quote blockquote::before {
@@ -164,9 +184,18 @@
 }
 
 .book__quote blockquote p {
-  font-size: clamp(0.84rem, 0.78rem + 0.22vw, 0.95rem);
-  line-height: 28px;
+  padding-bottom: 14px;
+  font-size: clamp(0.8rem, 0.75rem + 0.2vw, 0.9rem);
+  line-height: var(--rule);
   font-weight: 450;
+}
+
+.book__quote.is-long blockquote p {
+  font-size: clamp(0.76rem, 0.72rem + 0.15vw, 0.82rem);
+}
+
+.book__quote.is-longer blockquote p {
+  font-size: clamp(0.7rem, 0.67rem + 0.12vw, 0.76rem);
 }
 
 .book__quote figcaption {

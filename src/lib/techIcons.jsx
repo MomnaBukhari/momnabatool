@@ -179,6 +179,7 @@ export function TechIcon({ name, className = "" }) {
     <Icon
       className={`tech-icon${color ? " is-brand" : ""} ${className}`.trim()}
       style={color ? { color } : undefined}
+      data-dark-logo={color === "#000000" || color === "#181717" ? "" : undefined}
       aria-hidden="true"
       focusable="false"
     />

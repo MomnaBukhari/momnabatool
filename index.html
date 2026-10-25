@@ -19,9 +19,12 @@
       try {
         var saved = localStorage.getItem("momna-theme");
         document.documentElement.dataset.theme =
-          ["cloud", "burgundy", "autumn", "winter", "heritage", "fairy", "vanilla", "swan", "starlight", "ocean", "forest", "cocoa"].indexOf(saved) > -1 ? saved : "cloud";
+          ["cloud", "autumn", "winter", "heritage", "fairy", "swan", "starlight", "ocean", "forest", "plum", "rapunzel", "cocoa"].indexOf(saved) > -1 ? saved : "swan";
+        // Tidy up after an old experiment that stored custom colours.
+        localStorage.removeItem("momna-custom-vars");
+        localStorage.removeItem("momna-custom-colors");
       } catch (error) {
-        document.documentElement.dataset.theme = "cloud";
+        document.documentElement.dataset.theme = "swan";
       }
     </script>
 

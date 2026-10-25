@@ -16,8 +16,6 @@ export const profile = {
   },
   // The page that shows all three CVs. The CVs themselves are listed in src/data/cvs.js.
   cv: "/cv",
-  // Formspree endpoint used by the contact form.
-  formEndpoint: "https://formspree.io/f/mzzdzovg",
 };
 
 export const about = {
@@ -60,7 +58,6 @@ export const about = {
     "Tutored programming, databases, OOP and project management one to one during my degree.",
     "AI Ambassador with InnovateHer, bringing AI into school assemblies and role model talks.",
     "Supporting the University of Greater Manchester organising team on the “November to Remember” series with IEEE.",
-    "Off the clock: fashion illustration and mehndi.",
   ],
 };
 
