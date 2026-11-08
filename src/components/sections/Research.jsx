@@ -1,4 +1,4 @@
-import { PiCompass, PiCrop } from "react-icons/pi";
+import { PiArrowUpRight, PiBookOpenText, PiCompass, PiCrop, PiLockSimple } from "react-icons/pi";
 import Section from "../layout/Section";
 import Doodle from "../doodles/Doodle";
 import { TechIcon } from "../../lib/techIcons";
@@ -15,6 +15,31 @@ export default function Research() {
               {research.degree}, {research.institution}
             </p>
             <h3 className="research__title">{research.title}</h3>
+            {research.subtitle && <p className="research__subtitle">{research.subtitle}</p>}
+
+            {research.publication && (
+              <a
+                className="research__record"
+                href={research.publication.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cursor="Open on Zenodo"
+              >
+                <span className="research__record-icon" aria-hidden="true">
+                  <PiBookOpenText />
+                </span>
+                <span className="research__record-text">
+                  <span className="research__record-head">
+                    Published on {research.publication.host} <PiArrowUpRight aria-hidden="true" />
+                  </span>
+                  <span className="research__record-meta">
+                    {research.publication.type} · {research.publication.published} ·{" "}
+                    <PiLockSimple aria-hidden="true" /> {research.publication.access}
+                  </span>
+                  <span className="research__record-note">{research.publication.note}</span>
+                </span>
+              </a>
+            )}
           </div>
 
           <div className="research__notes">

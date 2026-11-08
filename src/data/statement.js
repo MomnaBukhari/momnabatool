@@ -15,7 +15,8 @@ export const statement = {
     },
     {
       title: "What research taught me",
-      text: "In 2025 I began an MRes in Artificial Intelligence at the University of Greater Manchester, and completed it with Distinction. My dissertation compared multilingual and English-only sentiment analysis of Instagram fashion content. I planned the whole pipeline before writing any code, then built it as separate modules. It taught me to give the systems around a model the same care as the model itself.",
+      link: { label: "The dissertation on Zenodo", url: "https://zenodo.org/records/24054489" },
+      text: "In 2025 I began an MRes in Artificial Intelligence at the University of Greater Manchester, and completed it with Distinction. My dissertation, “Multilingual Sentiment Analysis for Fashion Trend Prediction”, compared multilingual and English-only sentiment analysis of Instagram fashion content, and its record is now on Zenodo. I planned the whole pipeline before writing any code, then built it as separate modules. It taught me to give the systems around a model the same care as the model itself.",
     },
     {
       title: "Beyond the code",

@@ -54,6 +54,11 @@ export default function StatementPage() {
                   <div>
                     <h2>{chapter.title}</h2>
                     <p>{chapter.text}</p>
+                    {chapter.link && (
+                      <a className="statement__link statement__chapter-link" href={chapter.link.url} target="_blank" rel="noopener noreferrer">
+                        {chapter.link.label} <PiArrowUpRight aria-hidden="true" />
+                      </a>
+                    )}
                   </div>
                 </li>
               ))}

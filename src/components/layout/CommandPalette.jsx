@@ -150,6 +150,13 @@ export default function CommandPalette() {
           window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent("Hello from your portfolio")}`;
         },
       },
+      {
+        group: "Actions",
+        label: "Read my dissertation",
+        hint: "Zenodo",
+        icon: PiArrowRight,
+        run: () => window.open("https://zenodo.org/records/24054489", "_blank", "noopener"),
+      },
       { group: "Actions", label: "Open LinkedIn", hint: "new tab", icon: PiLinkedinLogo, run: () => window.open(profile.links.linkedin, "_blank", "noopener") },
       { group: "Actions", label: "Open GitHub", hint: "new tab", icon: PiGithubLogo, run: () => window.open(profile.links.github, "_blank", "noopener") },
       { group: "Actions", label: "Play or pause music", hint: "background music", icon: PiMusicNotes, run: toggleMusic },

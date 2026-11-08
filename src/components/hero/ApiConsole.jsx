@@ -64,7 +64,12 @@ const ENDPOINTS = [
     status: "200 OK",
     body: {
       data: [
-        { degree: "MRes Artificial Intelligence", result: "Distinction", where: "University of Greater Manchester" },
+        {
+          degree: "MRes Artificial Intelligence",
+          result: "Distinction",
+          where: "University of Greater Manchester",
+          dissertation: "zenodo.org/records/24054489",
+        },
         { degree: "BS Information Technology", result: "Gold Medal, 1st", gpa: 3.79, where: "University of Gujrat" },
       ],
     },

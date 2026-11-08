@@ -4,8 +4,17 @@
 export const research = {
   degree: "MRes Artificial Intelligence",
   institution: "University of Greater Manchester",
-  title:
-    "Predicting Fashion Trends using Multilingual Sentiment Analysis of Instagram Data",
+  title: "Multilingual Sentiment Analysis for Fashion Trend Prediction",
+  subtitle: "A comparative study of multilingual and monolingual data from social media",
+  // The dissertation's public record. Access to the full text is restricted on Zenodo.
+  publication: {
+    url: "https://zenodo.org/records/24054489",
+    host: "Zenodo",
+    type: "MRes dissertation",
+    published: "8 November 2026",
+    access: "Restricted access",
+    note: "Assessed by an academic panel. Not a peer-reviewed journal or conference paper.",
+  },
   question:
     "Does analysing Instagram fashion content in many languages give broader, richer trend insight than analysing English alone?",
   scope:
