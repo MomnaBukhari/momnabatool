@@ -371,3 +371,36 @@
   --nav-border: #d9b04a;
 }
 
+
+/* The command menu button: a little key you can press, or ⌘K / Ctrl K. */
+.nav__palette {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 6px 0 9px;
+  border: 1px solid var(--nav-border, var(--line));
+  border-radius: 9px;
+  color: var(--nav-ink-soft, var(--ink-soft));
+  font-size: 0.85rem;
+  transition: color 0.2s, border-color 0.2s, transform 0.3s var(--spring);
+}
+
+.nav__palette:hover {
+  color: var(--nav-ink, var(--ink));
+  transform: translateY(-1px);
+}
+
+.nav__palette kbd {
+  padding: 1px 5px;
+  border-radius: 5px;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  font-family: var(--font-code);
+  font-size: 0.6rem;
+}
+
+@media (max-width: 599px) {
+  .nav__palette kbd {
+    display: none;
+  }
+}

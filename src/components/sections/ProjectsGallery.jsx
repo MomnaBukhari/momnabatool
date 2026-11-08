@@ -116,7 +116,7 @@ export default function ProjectsGallery() {
         <div ref={trackRef} className="gallery__track" data-cursor-zone="drag">
           <div className="gallery__intro">
             <h2 id="projects-heading" tabIndex={-1}>
-              Projects <span className="hand">built for real people</span>
+              Selected work <span className="hand">built for real people</span>
             </h2>
             <p className="gallery__lede">
               Pinned up in order: professional work first, then academic and personal builds. Open any note for the full story.

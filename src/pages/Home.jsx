@@ -11,6 +11,8 @@ import Research from "../components/sections/Research";
 import Education from "../components/sections/Education";
 import Recommendations from "../components/sections/Recommendations";
 import Contact from "../components/sections/Contact";
+import Manifesto from "../components/sections/Manifesto";
+import Architecture from "../components/sections/Architecture";
 
 export default function Home() {
   const rootRef = useRef(null);
@@ -25,9 +27,11 @@ export default function Home() {
   return (
     <main id="main" ref={rootRef} tabIndex={-1}>
       <Hero />
-      <About />
-      <Experience />
+      <Manifesto />
       <ProjectsGallery />
+      <Architecture />
+      <Experience />
+      <About />
       <Skills />
       <Research />
       <Education />

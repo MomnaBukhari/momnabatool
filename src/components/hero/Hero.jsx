@@ -7,7 +7,9 @@ import { profile } from "../../data/profile";
 import Button from "../ui/Button";
 import WaveText from "../ui/WaveText";
 import Doodle from "../doodles/Doodle";
-import Badge from "./Badge";
+import ApiConsole from "./ApiConsole";
+import WordRotator from "./WordRotator";
+import "./ApiConsole.css";
 import HeroScene from "./HeroScene";
 import SkillTicker from "./SkillTicker";
 import "./Hero.css";
@@ -99,7 +101,9 @@ export default function Hero() {
           <Doodle shape="underline" className="hero__underline" onLoad delay={0.7} />
 
           <p className="hero__role" data-hero-follow>
-            Software Engineer
+            Software Engineer <span className="hero__role-sep" aria-hidden="true">/</span>{" "}
+            <span className="hero__role-soft">I build</span>{" "}
+            <WordRotator words={["REST APIs", "data models", "secure auth flows", "background jobs", "products people use"]} />
           </p>
           <p className="hero__sub" data-hero-follow>
             I design and build the backend of web and mobile products with <strong>PHP, Laravel and MySQL</strong>,
@@ -117,13 +121,16 @@ export default function Hero() {
             >
               See my work
             </Button>
-            <TransitionLink to={profile.cv} label="My CVs" className="hero__cv" data-cursor="See my CVs">
-              My CVs <PiFileText aria-hidden="true" />
+            <TransitionLink to={profile.cv} label="Statement & CV" className="hero__cv" data-cursor="My story and CV">
+              Read my statement &amp; CV <PiFileText aria-hidden="true" />
             </TransitionLink>
           </div>
         </div>
 
-        <Badge />
+        <div className="hero__console" data-hero-follow>
+          <ApiConsole />
+          <p className="hero__console-hint hand">psst, click an endpoint ↑</p>
+        </div>
       </div>
 
       <SkillTicker items={STACK} />

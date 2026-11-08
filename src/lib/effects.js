@@ -5,9 +5,10 @@ const listeners = new Set();
 
 let enabled = (() => {
   try {
-    return localStorage.getItem(STORAGE_KEY) !== "off";
+    // Off unless the visitor turns them on.
+    return localStorage.getItem(STORAGE_KEY) === "on";
   } catch {
-    return true;
+    return false;
   }
 })();
 

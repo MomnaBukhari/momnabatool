@@ -26,7 +26,8 @@ import { getEffectsEnabled, onEffectsChange, setEffectsEnabled } from "../../lib
 import "./Controls.css";
 
 // The little picture on each theme card.
-const THEME_ICONS = {
+// eslint-disable-next-line react-refresh/only-export-components
+export const THEME_ICONS = {
   cloud: PiCloud,
   autumn: PiLeaf,
   winter: PiSnowflake,

@@ -19,7 +19,7 @@
       try {
         var saved = localStorage.getItem("momna-theme");
         document.documentElement.dataset.theme =
-          ["cloud", "autumn", "winter", "heritage", "fairy", "swan", "starlight", "ocean", "forest", "plum", "rapunzel", "cocoa"].indexOf(saved) > -1 ? saved : "swan";
+          ["swan", "cloud", "ocean", "forest", "heritage", "starlight"].indexOf(saved) > -1 ? saved : "swan";
         // Tidy up after an old experiment that stored custom colours.
         localStorage.removeItem("momna-custom-vars");
         localStorage.removeItem("momna-custom-colors");

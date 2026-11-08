@@ -1,10 +1,11 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { PiFileText, PiSparkle } from "react-icons/pi";
+import { PiCommand, PiFileText } from "react-icons/pi";
+import { PALETTE_SHORTCUT } from "./CommandPalette";
 import { gsap, prefersReducedMotion } from "../../lib/gsap";
 import { lockScroll, scrollToSection } from "../../lib/scroll";
 import useActiveSection from "../../hooks/useActiveSection";
-import { nook, profile, sections } from "../../data/profile";
+import { profile, sections } from "../../data/profile";
 import RollText from "../ui/RollText";
 import { MediaButtons, ThemeGrid } from "./Controls";
 import { TransitionLink, usePageTransition } from "./PageTransition";
@@ -34,7 +35,7 @@ export default function Nav() {
   // A soft pill slides behind the link for the section you're reading.
   useLayoutEffect(() => {
     const marker = markerRef.current;
-    const current = pathname === nook.path ? "nook" : onHome ? active : null;
+    const current = onHome ? active : null;
     const link = linksRef.current?.querySelector(`[data-section="${current}"]`);
     if (!marker) return;
     if (!link) {
@@ -91,12 +92,6 @@ export default function Nav() {
     else go(`/#${id}`, label);
   };
 
-  const goToNook = (event) => {
-    event.preventDefault();
-    setOpen(false);
-    if (pathname !== nook.path) go(nook.path, nook.label);
-  };
-
   const goHome = (event) => {
     event.preventDefault();
     if (onHome) scrollToSection("top");
@@ -117,18 +112,6 @@ export default function Nav() {
           </a>
         </li>
       ))}
-      <li className={className}>
-        <a
-          href={nook.path}
-          data-section="nook"
-          className="nav__nook"
-          aria-current={pathname === nook.path ? "page" : undefined}
-          onClick={goToNook}
-        >
-          <PiSparkle aria-hidden="true" />
-          <RollText>{nook.label}</RollText>
-        </a>
-      </li>
     </>
   );
 
@@ -148,8 +131,18 @@ export default function Nav() {
         </ul>
 
         <div className="nav__end">
-          <TransitionLink to={profile.cv} label="My CVs" className="nav__cv" data-cursor="See my CVs">
-            <PiFileText aria-hidden="true" /> CV
+          <button
+            type="button"
+            className="nav__palette"
+            onClick={() => window.dispatchEvent(new Event("palette:open"))}
+            aria-label={`Open the command menu (${PALETTE_SHORTCUT})`}
+            data-cursor="Command menu"
+          >
+            <PiCommand aria-hidden="true" />
+            <kbd>{PALETTE_SHORTCUT}</kbd>
+          </button>
+          <TransitionLink to={profile.cv} label="Statement & CV" className="nav__cv" data-cursor="My story and CV">
+            <PiFileText aria-hidden="true" /> Statement &amp; CV
           </TransitionLink>
           <button
             ref={toggleRef}
@@ -173,8 +166,8 @@ export default function Nav() {
         </div>
         <div className="nav__menu-item nav__menu-media">
           <MediaButtons />
-          <TransitionLink to={profile.cv} label="My CVs" className="nav__cv" onClick={() => setOpen(false)}>
-            <PiFileText aria-hidden="true" /> My CVs
+          <TransitionLink to={profile.cv} label="Statement & CV" className="nav__cv" onClick={() => setOpen(false)}>
+            <PiFileText aria-hidden="true" /> Statement &amp; CV
           </TransitionLink>
         </div>
       </div>

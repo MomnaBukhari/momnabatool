@@ -130,3 +130,45 @@
     padding-bottom: 90px;
   }
 }
+
+/* "Software Engineer / I build ___" with the last words rolling over. */
+.hero__role-sep {
+  margin-inline: 4px;
+  color: var(--ink-faint);
+  font-weight: 400;
+}
+
+.hero__role-soft {
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.rotator {
+  display: inline-block;
+  perspective: 600px;
+}
+
+.rotator__word {
+  display: inline-flex;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  vertical-align: bottom;
+}
+
+.rotator__char {
+  display: inline-block;
+  color: var(--accent-ink);
+  transform-origin: 50% 100%;
+}
+
+.hero__console {
+  position: relative;
+}
+
+.hero__console-hint {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--accent-ink);
+  rotate: -2deg;
+}

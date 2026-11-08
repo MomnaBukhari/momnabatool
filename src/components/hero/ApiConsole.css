@@ -1,0 +1,326 @@
+/* The API client in the hero: a small dark editor window on the white page,
+   tinted by the theme's ink so it belongs to every mood. */
+.api {
+  --api-bg: color-mix(in srgb, var(--ink) 92%, #000);
+  --api-fg: color-mix(in srgb, #fff 88%, var(--accent));
+  --api-dim: color-mix(in srgb, #fff 50%, var(--api-bg));
+  --api-line: color-mix(in srgb, #fff 10%, transparent);
+  --api-key: color-mix(in srgb, var(--accent) 55%, #fff);
+  --api-str: #b9e7a6;
+  --api-num: #ffc98b;
+  --api-bool: #f7a8c4;
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin-inline: auto;
+  border-radius: 18px;
+  background:
+    radial-gradient(120% 70% at 100% 0%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 60%),
+    var(--api-bg);
+  color: var(--api-fg);
+  font-family: var(--font-code);
+  font-size: 0.74rem;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, #fff 6%, transparent) inset,
+    0 40px 80px -40px color-mix(in srgb, var(--ink) 60%, transparent),
+    0 0 90px -30px var(--aura);
+  overflow: hidden;
+  transform: perspective(1400px) rotateY(-6deg) rotateX(3deg);
+  transition: transform 0.9s var(--ease-out);
+}
+
+.api:hover {
+  transform: perspective(1400px) rotateY(0deg) rotateX(0deg);
+}
+
+[data-theme="starlight"] .api {
+  --api-bg: #0c1124;
+}
+
+.api__chrome {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--api-line);
+}
+
+.api__dots {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.api__dots i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: color-mix(in srgb, #fff 18%, transparent);
+}
+
+.api__dots i:first-child {
+  background: #ff6b6b;
+}
+.api__dots i:nth-child(2) {
+  background: #ffc35b;
+}
+.api__dots i:nth-child(3) {
+  background: #4fd18b;
+}
+
+.api__title {
+  flex: 1;
+  color: var(--api-dim);
+  font-size: 0.7rem;
+}
+
+.api__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #7ee2a8;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.api__pulse {
+  position: relative;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4fd18b;
+}
+
+.api__pulse::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  animation: pulse 1.8s ease-out infinite;
+}
+
+.api__endpoints {
+  display: flex;
+  gap: 6px;
+  padding: 10px 12px 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.api__endpoints::-webkit-scrollbar {
+  display: none;
+}
+
+.api__endpoint {
+  background: transparent;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  border: 1px solid var(--api-line);
+  border-radius: 8px;
+  color: var(--api-dim);
+  font: inherit;
+  font-size: 0.68rem;
+  transition: color 0.25s, background 0.25s, border-color 0.25s;
+}
+
+.api__endpoint:hover {
+  color: var(--api-fg);
+}
+
+.api__endpoint[aria-selected="true"] {
+  color: #fff;
+  background: color-mix(in srgb, #fff 9%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+}
+
+.api__verb {
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #7ee2a8;
+}
+
+.api__endpoint--post .api__verb {
+  color: #ffc35b;
+}
+
+.api__request {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 12px 0;
+  padding: 7px 7px 7px 10px;
+  border-radius: 10px;
+  background: color-mix(in srgb, #000 28%, transparent);
+  border: 1px solid var(--api-line);
+}
+
+.api__method {
+  font-weight: 700;
+  font-size: 0.66rem;
+  color: #4fd18b;
+}
+
+.api__method--post {
+  color: #ffc35b;
+}
+
+.api__url {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--api-fg);
+}
+
+.api__send {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.9rem;
+  transition: transform 0.35s var(--spring), filter 0.25s;
+}
+
+.api__send:hover {
+  transform: translateX(2px) rotate(-12deg);
+  filter: brightness(1.1);
+}
+
+.api__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 34px;
+  padding: 10px 14px 0;
+  color: var(--api-dim);
+  font-size: 0.66rem;
+}
+
+.api__status {
+  padding: 2px 7px;
+  border-radius: 999px;
+  color: #0f2b1c;
+  background: #7ee2a8;
+  font-weight: 700;
+}
+
+.api__copy {
+  background: transparent;
+  border: 0;
+  margin-left: auto;
+  color: var(--api-dim);
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.api__copy:hover {
+  color: #fff;
+}
+
+.api__waiting {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.api__spinner {
+  width: 11px;
+  height: 11px;
+  border: 1.5px solid color-mix(in srgb, #fff 25%, transparent);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: api-spin 0.7s linear infinite;
+}
+
+@keyframes api-spin {
+  to {
+    rotate: 360deg;
+  }
+}
+
+.api__body {
+  height: 268px;
+  margin: 8px 0 0;
+  padding: 4px 16px 18px;
+  overflow: auto;
+  line-height: 1.6;
+  white-space: pre;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, #fff 18%, transparent) transparent;
+  outline: none;
+}
+
+.j-key {
+  color: var(--api-key);
+}
+.j-str {
+  color: var(--api-str);
+}
+.j-num {
+  color: var(--api-num);
+}
+.j-bool {
+  color: var(--api-bool);
+}
+.j-punc {
+  color: var(--api-dim);
+}
+
+.api__caret {
+  display: inline-block;
+  width: 7px;
+  height: 1.05em;
+  margin-left: 1px;
+  vertical-align: -0.18em;
+  background: var(--api-fg);
+  animation: api-blink 0.9s steps(1) infinite;
+}
+
+@keyframes api-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.api__mail {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #fff;
+  color: #111;
+  font-family: var(--font);
+  font-size: 0.74rem;
+  font-weight: 650;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  animation: api-pop 0.5s var(--spring);
+}
+
+@keyframes api-pop {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.9);
+  }
+}
+
+@media (max-width: 959px) {
+  .api {
+    transform: none;
+  }
+  .api__body {
+    height: 230px;
+  }
+}

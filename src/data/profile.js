@@ -14,8 +14,8 @@ export const profile = {
     github: "https://github.com/MomnaBukhari",
     linkedin: "https://www.linkedin.com/in/momna-batool/",
   },
-  // The page that shows all three CVs. The CVs themselves are listed in src/data/cvs.js.
-  cv: "/cv",
+  // The personal statement page, with the CV beside it (src/data/statement.js).
+  cv: "/statement",
 };
 
 export const about = {
@@ -65,9 +65,10 @@ export const about = {
 // the ones without `inNav: false` and uses the full list to know where you are.
 // (The order they render in is set in src/pages/Home.jsx.)
 export const sections = [
-  { id: "about", label: "About" },
+  { id: "projects", label: "Work" },
+  { id: "under-the-hood", label: "Under the hood", inNav: false },
   { id: "experience", label: "Experience" },
-  { id: "projects", label: "Projects" },
+  { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
   { id: "research", label: "Research" },
   { id: "education", label: "Education", inNav: false },

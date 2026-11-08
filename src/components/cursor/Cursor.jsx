@@ -12,7 +12,7 @@ import "./Cursor.css";
 const LINK = "a, button, [role='button'], [role='radio'], label, summary, select";
 const TEXT = "input:not([type='checkbox']):not([type='radio']), textarea, [contenteditable='true']";
 const CARD =
-  "[data-cursor-grow], .role, .sticky, .pcard, .keys__group, .quote, .credentials__block, .pipeline__step, .about__card, .code-window, .contact__form";
+  "[data-cursor-grow], .role, .sticky, .pcard, .keys__group, .quote, .credentials__block, .pipeline__step, .about__card, .code-window, .contact__form, .bento__tile, .arch__detail";
 
 /**
  * A custom cursor: a small ink dot, and a ring that trails it and changes

@@ -10,6 +10,8 @@ import Cursor from "./components/cursor/Cursor";
 import Loader from "./components/loader/Loader";
 import Ambience from "./components/ambience/Ambience";
 import Dock from "./components/layout/Dock";
+import CommandPalette from "./components/layout/CommandPalette";
+import ScrollProgress from "./components/layout/ScrollProgress";
 import { PageTransitionProvider } from "./components/layout/PageTransition";
 
 /**
@@ -50,6 +52,8 @@ export default function App() {
       <Dock />
       <Ambience />
       <Cursor />
+      <CommandPalette />
+      <ScrollProgress />
 
       {/* ScrollSmoother moves #smooth-content; anything fixed stays outside it. */}
       <div id="smooth-wrapper">

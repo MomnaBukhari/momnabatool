@@ -1,4 +1,4 @@
-// The twelve themes. Colours live in themes.css; the hero scene for each is in
+// The six themes. Colours live in themes.css; the hero scene for each is in
 // src/components/hero/HeroScene.jsx; the things that drift across the page are
 // described by `effect` and drawn by src/components/ambience/Ambience.jsx.
 //
@@ -15,66 +15,6 @@
 
 export const themes = [
   {
-    id: "cloud",
-    name: "Cloud",
-    mood: "calm, blue-grey and quiet",
-    swatch: ["#f6f8fb", "#6f8fb3", "#c9d6e6"],
-    effect: {
-      ambient: { kind: "puff", rate: 0.6 },
-      touch: { kind: "puff", rate: 10 },
-      burst: { kind: "sparkle", count: 10 },
-      colors: ["#b9cbe2", "#a9c0dc", "#c9d6e6", "#94b0d4"],
-    },
-  },
-  {
-    id: "autumn",
-    name: "Autumn",
-    mood: "falling leaves",
-    swatch: ["#fbf3e8", "#c8641e", "#efdf9f"],
-    effect: {
-      ambient: { kind: "leaf", rate: 1.1 },
-      touch: { kind: "leaf", rate: 6 },
-      burst: { kind: "leaf", count: 16 },
-      colors: ["#c8641e", "#e08a2e", "#b43c1c", "#d9a62b", "#8a4b1c"],
-    },
-  },
-  {
-    id: "winter",
-    name: "Winter",
-    mood: "snow and frost",
-    swatch: ["#f3f8fd", "#4f8fce", "#d3e6f6"],
-    effect: {
-      ambient: { kind: "snow", rate: 3 },
-      touch: { kind: "snow", rate: 14 },
-      burst: { kind: "snow", count: 18 },
-      colors: ["#9cc3e8", "#7fb0e0", "#b9d6f1", "#6a9fd6"],
-    },
-  },
-  {
-    id: "heritage",
-    name: "Heritage",
-    mood: "old Lahore: sandstone, marble and tiles",
-    swatch: ["#fbf5ec", "#b5523b", "#2f7c7a"],
-    effect: {
-      ambient: { kind: "marigold", rate: 0.6 },
-      touch: { kind: "marigold", rate: 7 },
-      burst: { kind: "mughalStar", count: 12 },
-      colors: ["#e8a33a", "#f2b84b", "#d9822b", "#2f7c7a", "#b5523b"],
-    },
-  },
-  {
-    id: "fairy",
-    name: "Fairy",
-    mood: "mint, lavender and fireflies",
-    swatch: ["#f6fbf8", "#9a7ed8", "#c8f0dc"],
-    effect: {
-      ambient: { kind: "firefly", rate: 1.2 },
-      touch: { kind: "sparkle", rate: 18 },
-      burst: { kind: "sparkle", count: 22 },
-      colors: ["#c3b0f5", "#9ee6c2", "#fdf3b0", "#f6c8e6"],
-    },
-  },
-  {
     id: "swan",
     name: "Swan",
     mood: "white feathers and pearl",
@@ -87,16 +27,15 @@ export const themes = [
     },
   },
   {
-    id: "starlight",
-    name: "Starlight",
-    mood: "a starry sky in silk",
-    dark: true,
-    swatch: ["#0f1430", "#c6b6ff", "#7b5fd6"],
+    id: "cloud",
+    name: "Cloud",
+    mood: "calm, blue-grey and quiet",
+    swatch: ["#f6f8fb", "#6f8fb3", "#c9d6e6"],
     effect: {
-      ambient: { kind: "star", rate: 2 },
-      touch: { kind: "sparkle", rate: 16 },
-      burst: { kind: "star", count: 20 },
-      colors: ["#ffffff", "#e0d4ff", "#c6b6ff", "#ffe8b0"],
+      ambient: { kind: "puff", rate: 0.6 },
+      touch: { kind: "puff", rate: 10 },
+      burst: { kind: "sparkle", count: 10 },
+      colors: ["#b9cbe2", "#a9c0dc", "#c9d6e6", "#94b0d4"],
     },
   },
   {
@@ -124,39 +63,28 @@ export const themes = [
     },
   },
   {
-    id: "plum",
-    name: "Plum",
-    mood: "ripe plums and blossom",
-    swatch: ["#fbf6f9", "#8e3b6e", "#d9a9c3"],
+    id: "heritage",
+    name: "Heritage",
+    mood: "old Lahore: sandstone, marble and tiles",
+    swatch: ["#fbf5ec", "#b5523b", "#2f7c7a"],
     effect: {
-      ambient: { kind: "petal", rate: 0.6 },
-      touch: { kind: "blossom", rate: 6 },
-      burst: { kind: "petal", count: 14 },
-      colors: ["#c9789f", "#e3a9c4", "#8e3b6e", "#f2c9da"],
+      ambient: { kind: "marigold", rate: 0.6 },
+      touch: { kind: "marigold", rate: 7 },
+      burst: { kind: "mughalStar", count: 12 },
+      colors: ["#e8a33a", "#f2b84b", "#d9822b", "#2f7c7a", "#b5523b"],
     },
   },
   {
-    id: "rapunzel",
-    name: "Rapunzel",
-    mood: "lanterns, a tower and golden hair",
-    swatch: ["#fcf8f6", "#6a3f9a", "#f6c75a"],
+    id: "starlight",
+    name: "Starlight",
+    mood: "a starry sky in silk",
+    dark: true,
+    swatch: ["#0f1430", "#c6b6ff", "#7b5fd6"],
     effect: {
-      ambient: { kind: "lantern", rate: 0.5 },
-      touch: { kind: "sparkle", rate: 14 },
-      burst: { kind: "blossom", count: 12 },
-      colors: ["#f6c75a", "#f2a93b", "#ffd98a", "#e9b949"],
-    },
-  },
-  {
-    id: "cocoa",
-    name: "Cocoa",
-    mood: "hot chocolate and steam",
-    swatch: ["#faf4ee", "#8b5a3c", "#d9b79c"],
-    effect: {
-      ambient: { kind: "steam", rate: 0.8 },
-      touch: { kind: "heart", rate: 6 },
-      burst: { kind: "heart", count: 12 },
-      colors: ["#8b5a3c", "#c48a64", "#e7c3a5", "#a9785a"],
+      ambient: { kind: "star", rate: 2 },
+      touch: { kind: "sparkle", rate: 16 },
+      burst: { kind: "star", count: 20 },
+      colors: ["#ffffff", "#e0d4ff", "#c6b6ff", "#ffe8b0"],
     },
   },
 ];
